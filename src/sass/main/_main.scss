@@ -1,0 +1,17 @@
+.main-container {
+    background-color: rgb(31, 31, 31);
+    color: white;
+    display: flex;
+    height: 100vh;
+
+    /* scroll as position fixed */
+    ::-webkit-scrollbar {
+        width: 0;
+        height: 4px;
+    }
+
+    .platform {
+        padding: 50px 0;
+        overflow: auto;
+    }
+}

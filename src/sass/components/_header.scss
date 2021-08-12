@@ -1,0 +1,53 @@
+.header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: calc(100% - 240px);
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.315);
+    padding: 10px 20px;
+
+    .prev-next, .account {
+        display: flex;
+        align-items: center;
+
+        a {
+            overflow: hidden;
+            width: 26px;
+            height: 26px;
+            transition: all .3s;
+            border-radius: 50%;
+            background: black;
+            margin: 0 5px;
+
+            img {
+                width: 100%;
+                padding: 5px;
+            }
+            &:hover {
+                background: rgb(36, 36, 36);
+            }
+        }
+    }
+
+    .account {
+        margin-right: 20px;
+        padding: 5px 10px;
+        border-radius: 20px;
+        background-color: black;
+        transition: all .3s;
+        cursor: pointer;
+
+        img {
+            width: 20px;
+        }
+        span {
+            margin-left: 5px;
+            font-size: 14px;
+        }
+
+        &:hover {
+            background-color: rgb(36, 36, 36);
+        }
+    }
+}
