@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import Layout from "../layout";
 
 const Settings = () => {
@@ -7,11 +6,8 @@ const Settings = () => {
             title="Настройка | mediahosting"
             content="Настроичная страница mediahosting"
         >
-            <div className="main-container">
-                <Navbar />
-                <div className="platform">
-                    <h1>Settings page</h1>
-                </div>
+            <div className="main-container-block">
+                <h1>Настройка</h1>
             </div>
         </Layout>
     )
