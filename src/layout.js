@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
+import FootBar from './components/FootBar';
 
 
 const Layout = (props) => {
@@ -24,6 +25,7 @@ const Layout = (props) => {
                     {props.children}
                 </div>
             </div>
+            <FootBar />
             <nav className="i18next">
                 {router.locales.map(locale => (
                     <Link href={router.asPath} locale={locale} key={locale}><a>

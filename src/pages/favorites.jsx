@@ -1,11 +1,11 @@
 import MyVideoHosting from "../components/MyVideoHosting";
 import Layout from "../layout";
 
-const MyHosting = ({last_products}) => {
+const Settings = ({last_products}) => {
     return (
         <Layout
-            title="Мой хостинг | mediahosting"
-            content="Поисковая страница mediahosting"
+            title="Настройка | mediahosting"
+            content="Настроичная страница mediahosting"
         >
             <div className="main-container-block">
                 <MyVideoHosting products={last_products} />
@@ -27,4 +27,4 @@ export async function getStaticProps() {
     }
 }
 
-export default MyHosting;
+export default Settings;

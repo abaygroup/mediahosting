@@ -3,30 +3,32 @@ import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link';
 
 
-const Future = ({products}) => {
+const MyVideoHosting = ({products}) => {
     const { t } = useTranslation();
 
     return (
-        <div className="future">
-            <h1>{t("common:main.h1")}</h1>
+        <div className="products">
+            <h1>{t("common:main.h2")}</h1>
             <div className="block">
             {products.map((product, i) => (
                 <Link href={"/"} key={i}>
                     <a className="product-box">
-                        <img src={product.picture} alt="" />
+                        <div className="picture" >
+                            <img src={product.picture} alt="" />
+                        </div>
                         <div className="title">
                             <h4>{product.title}</h4>
+                            <small>{product.body}</small>
                         </div>
                         <div className="goto">
                             <img src="https://img.icons8.com/color/96/000000/circled-play--v1.png"/>
                         </div>
                     </a>
                 </Link>
-                
             ))}
             </div>
         </div>
     )
 }
 
-export default Future;
+export default MyVideoHosting;
