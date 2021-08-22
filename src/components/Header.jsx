@@ -27,7 +27,9 @@ const Header = () => {
                 <div className="account">
                     {!isAuthenticated ? 
                         <React.Fragment>
-                            <a href="https://dashboard.abaystreet.com/accounts/register" target="_blank" className="register">Регистрация</a>
+                            <Link href="https://dashboard.abaystreet.com/accounts/register">
+                                <a target="_blank" className="register">Регистрация</a>
+                            </Link>
                             <Link href="/accounts/login">
                                 <a className="login">Вход</a>
                             </Link>
