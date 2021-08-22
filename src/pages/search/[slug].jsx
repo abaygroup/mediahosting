@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router'
 import Layout from '../../hocs/layout';
 import Link from 'next/link';
+import Image from 'next/image';
 import { BACKEND_URL } from '../../actions/types';
 
 const CategoryDetail = ({subcategory, products}) => {
@@ -22,7 +23,7 @@ const CategoryDetail = ({subcategory, products}) => {
 
                     <div className="block">
                     {products.map((product, i) => (
-                        <Link href={"/"} key={i}>
+                        <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
                             <a className="product-box">
                                 <div className="picture" >
                                     <img src={product.picture} alt="" />
@@ -32,7 +33,7 @@ const CategoryDetail = ({subcategory, products}) => {
                                     <small>{product.body}</small>
                                 </div>
                                 <div className="goto">
-                                    <img src="https://img.icons8.com/color/96/000000/circled-play--v1.png"/>
+                                    <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png"/>
                                 </div>
                             </a>
                         </Link>
