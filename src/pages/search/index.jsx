@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image';
 import { BACKEND_URL } from "../../actions/types";
 import SearchForm from "../../components/Search";
 import Layout from "../../hocs/layout";
@@ -23,7 +24,9 @@ const Search = ({sup_categories, sub_categories}) => {
                                                 <a className="category-box">
                                                     <div className="title">
                                                         <h3>{sub.name}</h3>
-                                                        <img src={sub.image} alt="" />
+                                                        <div className="image">
+                                                            <Image src={sub.image} width={800} height={800} alt={sub.name} />
+                                                        </div>
                                                     </div>
                                                 </a>
                                             </Link>

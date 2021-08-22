@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useForm } from "react-hook-form";
@@ -38,8 +39,8 @@ const Login = () => {
             </Head>
             <div className="accounts-container">
                 <div className="head">
-                    <Link href="/"><a className="back"><img src="https://img.icons8.com/ios/100/000000/back--v1.png"/></a></Link>
-                    <img src="../icons/mediahosting-black.png" alt="" />
+                    <Link href="/"><a className="back"><Image width={100} height={100} src="https://img.icons8.com/ios/100/000000/back--v1.png"/></a></Link>
+                    <Image width={1354} height={206} src="/icons/mediahosting-black.png" />
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h4>Чтобы продолжить, войдите в mediahosting.</h4>
@@ -52,13 +53,17 @@ const Login = () => {
                         <input type="password" {...register("password")} placeholder="Введите пароль" minLength="8" required/>
                     </div>
                     <div className="submit">
-                        <a href="https://dashboard.abaystreet.com/accounts/password/reset">Забыли пароль</a>
+                        <Link href="https://dashboard.abaystreet.com/accounts/password/reset">
+                            <a target="_blank">Забыли пароль</a>
+                        </Link>
                         {loading ? <Loader />: <input type="submit" value="Войти" />}
                     </div>
                 </form>
                 <div className="register-block">
                     <h4>Нет аккаунта?</h4>
-                    <a target="_blank" href="https://dashboard.abaystreet.com/accounts/register">Регистрация</a>
+                    <Link href="https://dashboard.abaystreet.com/accounts/register">
+                        <a target="_blank">Регистрация</a>
+                    </Link>
                 </div>
             </div>
         </React.Fragment>

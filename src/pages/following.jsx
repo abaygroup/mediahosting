@@ -1,5 +1,6 @@
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
+import Image from 'next/image';
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { BACKEND_URL } from "../actions/types";
@@ -23,17 +24,17 @@ const Following = ({last_products}) => {
                     <h1>{t('common:following.h1')}</h1>
                     <div className="block">
                     {last_products.map((product, i) => (
-                        <Link href={"/"} key={i}>
+                        <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
                             <a className="product-box">
                                 <div className="picture" >
-                                    <img src={product.picture} alt="" />
+                                    <Image width={1920} height={1080} src={product.picture} alt={product.title} />
                                 </div>
                                 <div className="title">
                                     <h4>{product.title}</h4>
                                     <small>{product.body}</small>
                                 </div>
                                 <div className="goto">
-                                    <img src="https://img.icons8.com/color/96/000000/circled-play--v1.png"/>
+                                    <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png" alt={product.title} />
                                 </div>
                             </a>
                         </Link>
