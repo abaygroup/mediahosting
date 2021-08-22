@@ -1,10 +1,18 @@
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
-import Layout from "../layout";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { BACKEND_URL } from "../actions/types";
+import Layout from "../hocs/layout";
 
 const Following = ({last_products}) => {
+    const router = useRouter();
     const { t } = useTranslation();
+    const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
+    if(typeof window !== "undefined" && !isAuthenticated)
+        router.push("/accounts/login")
+    
     return (
         <Layout
             title="Подписка | mediahosting"
@@ -39,7 +47,7 @@ const Following = ({last_products}) => {
 }
 
 export async function getStaticProps() {
-    const res = await fetch('http://127.0.0.1:8000/api/')
+    const res = await fetch(`${BACKEND_URL}/api/`)
     const data = await res.json()
     const last_products = data.last_products;
 

@@ -5,9 +5,8 @@
 
     
     /* scroll as position fixed */
-    ::-webkit-scrollbar {
+    &::-webkit-scrollbar {
         width: 0;
-        height: 4px;
     }
 
     .logo {

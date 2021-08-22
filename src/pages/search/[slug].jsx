@@ -1,7 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router'
-import Layout from '../../layout';
+import Layout from '../../hocs/layout';
 import Link from 'next/link';
+import { BACKEND_URL } from '../../actions/types';
 
 const CategoryDetail = ({subcategory, products}) => {
     const router = useRouter()
@@ -45,7 +46,7 @@ const CategoryDetail = ({subcategory, products}) => {
 
 
 export async function getStaticPaths() {
-    const res = await fetch('http://127.0.0.1:8000/api/categories/')
+    const res = await fetch(`${BACKEND_URL}/api/categories/`)
     const data = await res.json()
     const subcategories = data.sub_categories
   
@@ -57,7 +58,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-    const response = await fetch(`http://127.0.0.1:8000/api/category/${context.params.slug}/`);
+    const response = await fetch(`${BACKEND_URL}/api/category/${context.params.slug}/`);
     const data = await response.json()
     const subcategory = data.sub_category;
     const products = data.products

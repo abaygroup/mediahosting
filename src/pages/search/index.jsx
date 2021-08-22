@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { BACKEND_URL } from "../../actions/types";
 import SearchForm from "../../components/Search";
-import Layout from "../../layout";
+import Layout from "../../hocs/layout";
 
 const Search = ({sup_categories, sub_categories}) => {
     return (
@@ -39,7 +40,7 @@ const Search = ({sup_categories, sub_categories}) => {
 }
 
 export async function getStaticProps() {
-    const res = await fetch('http://127.0.0.1:8000/api/categories/')
+    const res = await fetch(`${BACKEND_URL}/api/categories/`)
     const data = await res.json()
     const sup_categories = data.sup_categories;
     const sub_categories = data.sub_categories;
