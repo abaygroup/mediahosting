@@ -15,7 +15,7 @@ const MyVideoHosting = ({products}) => {
                 <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
                     <a className="product-box">
                         <div className="picture" >
-                            <Image width={1920} height={1080} src={product.picture} alt={product.title} />
+                            <Image width={640} height={360} src={product.picture} alt={product.title} />
                         </div>
                         <div className="title">
                             <h4>{product.title}</h4>

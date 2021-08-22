@@ -4,6 +4,6 @@ module.exports = {
   reactStrictMode: true,
   ...nextTranslate(),
   images: {
-    domains: ['img.icons8.com', '127.0.0.1:8000', 'api.abaystreet.com'],
+    domains: ['img.icons8.com', '127.0.0.1', 'api.abaystreet.com'],
   },
 }

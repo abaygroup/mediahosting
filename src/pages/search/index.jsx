@@ -3,8 +3,11 @@ import Image from 'next/image';
 import { BACKEND_URL } from "../../actions/types";
 import SearchForm from "../../components/Search";
 import Layout from "../../hocs/layout";
+import { useRouter } from "next/router";
 
 const Search = ({sup_categories, sub_categories}) => {
+    const router = useRouter();
+    
     return (
         <Layout
             title="Поиск | mediahosting"
@@ -20,7 +23,7 @@ const Search = ({sup_categories, sub_categories}) => {
                                 {sub_categories.map((sub, i) => {
                                     if (sub.super_category === category.id) {
                                         return (
-                                            <Link href={`/search/${encodeURIComponent(sub.slug)}`} key={i}>
+                                            <Link href={`/search/${encodeURIComponent(sub.slug)}`} locale={router.locale} key={i}>
                                                 <a className="category-box">
                                                     <div className="title">
                                                         <h3>{sub.name}</h3>

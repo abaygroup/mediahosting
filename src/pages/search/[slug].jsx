@@ -7,7 +7,6 @@ import { BACKEND_URL } from '../../actions/types';
 
 const CategoryDetail = ({subcategory, products}) => {
     const router = useRouter()
-
     return (
         <Layout
             title={`${router.query.slug} | mediahosting`}
