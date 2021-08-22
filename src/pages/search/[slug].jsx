@@ -26,7 +26,7 @@ const CategoryDetail = ({subcategory, products}) => {
                         <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
                             <a className="product-box">
                                 <div className="picture" >
-                                    <img src={product.picture} alt="" />
+                                    <Image width={1920} height={1080} src={product.picture} alt="" />
                                 </div>
                                 <div className="title">
                                     <h4>{product.title}</h4>
