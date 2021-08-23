@@ -24,14 +24,14 @@ export default async (req, res) => {
                         secure: DEVELOPMENT !== 'DEVELOPMENT',
                         maxAge: 604800,
                         sameSite: 'strict',
-                        path: '/api/'
+                        path: '/'
                     }),
                     cookie.serialize('refresh', data.refresh, {
                         httpOnly: true,
                         secure: DEVELOPMENT !== 'DEVELOPMENT',
                         maxAge: 86400,
                         sameSite: 'strict',
-                        path: '/api/'
+                        path: '/'
                     })
                 ])
                 

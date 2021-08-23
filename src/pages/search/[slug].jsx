@@ -15,14 +15,12 @@ const CategoryDetail = ({subcategory, products}) => {
         >
             <div className="category-detail">
                 <div className="category-content">
-                    
                     <div className="head" style={{ backgroundImage: `url(${subcategory.image})`}}>
                         <div className="backdrop">
                             <h1>{subcategory.name}</h1>
                         </div>
                     </div>
                     
-
                     <div className="block">
                     {products.map((product, i) => (
                         <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>

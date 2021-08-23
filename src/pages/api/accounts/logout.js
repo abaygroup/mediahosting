@@ -9,14 +9,14 @@ export default async (req, res) => {
                 secure: DEVELOPMENT !== 'DEVELOPMENT',
                 expires: new Date(0),
                 sameSite: 'strict',
-                path: '/api/'
+                path: '/'
             }),
             cookie.serialize('refresh', '', {
                 httpOnly: true,
                 secure: DEVELOPMENT !== 'DEVELOPMENT',
                 expires: new Date(0),
                 sameSite: 'strict',
-                path: '/api/'
+                path: '/'
             })
         ])
 

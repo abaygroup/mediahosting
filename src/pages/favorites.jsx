@@ -17,7 +17,7 @@ const Favorites = ({last_products}) => {
             content="Настроичная страница mediahosting"
         >
             <div className="main-container-block">
-                <MyVideoHosting products={last_products} />
+                {isAuthenticated && < MyVideoHosting products={last_products} />}
             </div>
         </Layout>
     )
