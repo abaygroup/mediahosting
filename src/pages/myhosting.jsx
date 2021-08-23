@@ -23,16 +23,14 @@ const MyHosting = ({last_products}) => {
     )
 }
 
-export async function getStaticProps() {
+MyHosting.getInitialProps = async () => {
     const res = await fetch(`${BACKEND_URL}/api/`)
     const data = await res.json()
     const last_products = data.last_products;
 
   
     return {
-      props: {
         last_products
-      },
     }
 }
 

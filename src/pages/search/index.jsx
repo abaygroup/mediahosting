@@ -43,17 +43,14 @@ const Search = ({sup_categories, sub_categories}) => {
     )
 }
 
-export async function getStaticProps() {
+Search.getInitialProps = async () => {
     const res = await fetch(`${BACKEND_URL}/api/categories/`)
     const data = await res.json()
     const sup_categories = data.sup_categories;
     const sub_categories = data.sub_categories;
 
-  
     return {
-      props: {
         sup_categories, sub_categories
-      },
     }
 }
 

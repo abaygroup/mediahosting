@@ -49,13 +49,10 @@ const CategoryDetail = ({subcategory, products}) => {
 
 
 CategoryDetail.getInitialProps = async (context) => {
-    console.log(context);
     const response = await fetch(`${BACKEND_URL}/api/category/${context.query.slug}/`);
     const data = await response.json()
     const subcategory = data.sub_category;
     const products = data.products
-
-    console.log(data);
 
     return {
         subcategory, products
