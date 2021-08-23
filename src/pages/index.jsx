@@ -31,16 +31,14 @@ const Main = ({last_products, future_products}) => {
 }
 
 
-export async function getStaticProps() {
+Main.getInitialProps = async () => {
     const res = await fetch(`${BACKEND_URL}/api/`)
     const data = await res.json()
     const last_products = data.last_products;
     const future_products = data.future_products;
   
     return {
-      props: {
-        last_products, future_products
-      },
+      last_products, future_products
     }
 }
 

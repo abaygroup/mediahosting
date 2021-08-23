@@ -7,6 +7,7 @@ import { BACKEND_URL } from '../../actions/types';
 
 const CategoryDetail = ({subcategory, products}) => {
     const router = useRouter()
+    
     return (
         <Layout
             title={`${router.query.slug} | mediahosting`}
@@ -14,11 +15,13 @@ const CategoryDetail = ({subcategory, products}) => {
         >
             <div className="category-detail">
                 <div className="category-content">
+                    
                     <div className="head" style={{ backgroundImage: `url(${subcategory.image})`}}>
                         <div className="backdrop">
                             <h1>{subcategory.name}</h1>
                         </div>
                     </div>
+                    
 
                     <div className="block">
                     {products.map((product, i) => (
@@ -45,28 +48,17 @@ const CategoryDetail = ({subcategory, products}) => {
 }
 
 
-export async function getStaticPaths() {
-    const res = await fetch(`${BACKEND_URL}/api/categories/`)
-    const data = await res.json()
-    const subcategories = data.sub_categories
-  
-    const paths = subcategories.map((sub) => ({
-      params: { slug: sub.slug },
-    }))
-  
-    return { paths, fallback: true }
-}
-
-export async function getStaticProps(context) {
-    const response = await fetch(`${BACKEND_URL}/api/category/${context.params.slug}/`);
+CategoryDetail.getInitialProps = async (context) => {
+    console.log(context);
+    const response = await fetch(`${BACKEND_URL}/api/category/${context.query.slug}/`);
     const data = await response.json()
     const subcategory = data.sub_category;
     const products = data.products
 
+    console.log(data);
+
     return {
-      props: {
         subcategory, products
-      },
     }
   }
 
