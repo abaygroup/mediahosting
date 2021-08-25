@@ -1,0 +1,160 @@
+.product-container {
+    .head {
+        height: 400px;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        transform: translateY(-60px);
+
+        .backdrop {
+            width: 100%;
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(0,0,0);
+            background: linear-gradient(0deg, rgba(0,0,0,1) 7%, rgba(70,70,70,0) 100%);
+            backdrop-filter: blur(100px);
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            align-items: center;
+            padding: 0 50px;
+
+
+            img {
+                width: 360px;
+                border-radius: 10px;
+                display: block;
+                transition: all .3s;
+            }
+
+            .product-name {
+                margin-left: 20px;
+
+                .production {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        width: 26px;
+                        height: 26px;
+                    }
+                    span {
+                        margin-left: 5px;
+                    }
+                }
+
+                h1 {
+                    font-size: 4rem;
+                }
+
+                small {
+                    display: block;
+                    margin-top: 10px;
+                }
+            }
+            
+        }
+    }
+
+    .product-block {
+        margin: 0 10px;
+        transform: translateY(-60px);
+
+        .subtitles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin: 5px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgb(41, 41, 41);
+
+            small {
+                color: silver;
+            }
+        }
+        
+        .block {
+            display: flex;
+            flex-direction: column;
+    
+            
+        
+            .product-item {
+                padding: 5px;
+                border-radius: 4px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.42);
+                margin: 5px;
+                transition: all .3s;
+                position: relative;
+                
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                align-items: center;
+
+                .picture {
+                    position: relative;
+                    img {
+                        height: 40px;
+                        border-radius: 3px;
+                    }
+
+                    .body-comments {
+                        position: absolute;
+                        top: 5px;
+                        left: 100px;
+                        display: none;
+                        z-index: 100;
+                        
+                        .body, .comments {
+                            margin: 0 5px;
+                            border-radius: 5px;
+                            padding: 5px;
+                            transition: all .3s;
+
+                            img {
+                                width: 20px;
+                                height: 20px; 
+                            }
+
+                            &:hover {
+                                background-color: rgb(58, 58, 58);
+                            }
+                        }
+                    }
+                }
+                .title {
+                    span {
+                        font-weight: 300;
+                        color: silver;
+                    }
+                }
+
+                .timestamp {
+                    small {
+                        color: silver;
+                    }
+                }
+
+                .access {
+                    position: absolute;
+                    right: 50px;
+
+                    img {
+                        width: 26px;
+                        height: 26px;
+                    }
+                }
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.11);
+
+                    .picture {
+                        .body-comments {
+                            display: flex;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

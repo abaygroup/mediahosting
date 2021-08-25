@@ -282,12 +282,6 @@
         .category-content {
             .block {
                 grid-template-columns: repeat(3, 1fr);
-
-                .product-box {
-                    .picture {
-                        max-height: 180px;
-                    }
-                }
             }
         }
     }
@@ -314,11 +308,6 @@
         .category-content {
             .block {
                 grid-template-columns: repeat(2, 1fr);
-                .product-box {
-                    .picture {
-                        max-height: 220px;
-                    }
-                }
             }
         }
     }

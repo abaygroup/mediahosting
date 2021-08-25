@@ -1,0 +1,85 @@
+.videohosting-container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-template-rows: 1fr;  
+    height: 100%;  
+    
+
+    .youtube-frame {
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+
+    .playlist-block {
+        background-color: black;
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            border-bottom: 1px solid dimgray;
+
+            a {
+                img {
+                    width: 250px;
+                }
+            }
+        }
+
+        .block {
+            display: flex;
+            flex-direction: column;
+    
+            
+        
+            .product-item {
+                padding: 10px;
+                border-radius: 4px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.42);
+                margin: 0 5px;
+                transition: all .3s;
+                position: relative;
+                
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                align-items: center;
+
+
+                
+                .title {
+                    span {
+                        font-weight: 300;
+                        color: silver;
+                        font-size: 14px;
+                    }
+                }
+
+                .timestamp {
+                    small {
+                        color: silver;
+                    }
+                }
+
+                .access {
+                    position: absolute;
+                    right: 10px;
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.11);
+                }
+            }
+        }
+
+
+    }
+
+}

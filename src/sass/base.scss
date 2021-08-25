@@ -8,6 +8,9 @@
 @import './pages/main';
 @import './pages/category';
 @import './pages/accounts';
+@import './pages/profile';
+@import './pages/product';
+@import './pages/videohosting';
 
 
 * {
@@ -26,7 +29,7 @@ body {
 
     #root {
         background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0,0,0,1) 33%, rgba(84,84,84,1) 100%);
+        background: linear-gradient(0deg, rgba(0,0,0,1) 33%, rgba(84,84,84,1) 100%);
         height: 100vh;
 
         .i18next {
