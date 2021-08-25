@@ -5,7 +5,7 @@ import { BACKEND_URL } from "../../actions/types";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import React, { useState } from "react";
-import { Modal, BodyModal, CommentModal } from "../../components/Modal";
+import { Modal } from "../../components/Modal";
 
 const ProductDetail = ({product, videohosting}) => {
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
@@ -35,7 +35,7 @@ const ProductDetail = ({product, videohosting}) => {
                         <Image src={product.picture} width={820} height={480} />
                         <div className="product-name">
                             <h4 className="production"> 
-                                <img src="https://img.icons8.com/fluent/48/000000/verified-badge.png" alt="" />
+                                <Image width={100} height={100} src="https://img.icons8.com/fluent/48/000000/verified-badge.png" alt="" />
                                 <span>Доступный продукт</span>
                             </h4>
                             <h1>{product.title}</h1>

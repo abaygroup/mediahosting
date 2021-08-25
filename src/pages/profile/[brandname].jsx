@@ -27,7 +27,7 @@ const Profile = ({profile, products}) => {
                         <div className="profile-name" onClick={() => alert("hello wolrd")}>
                             <h4 className="branding">{profile.branding ? 
                                 <>
-                                    <img src="https://img.icons8.com/fluent/48/000000/verified-badge.png" alt="" />
+                                    <Image width={100} height={100} src="https://img.icons8.com/fluent/48/000000/verified-badge.png" alt="" />
                                     <span>Подтвержденный бренд</span>
                                 </>
                                 : 
