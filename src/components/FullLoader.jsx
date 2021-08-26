@@ -66,6 +66,18 @@ const LoaderContainer = styled.div`
             }
         }
     }
+
+    @media screen and (max-width: 820px) {
+        .loading-box {
+            left: 42%;
+        }
+    }
+
+    @media screen and (max-width: 420px) {
+        .loading-box {
+            left: 40%;
+        }
+    }
 `;
 
 const FullLoader = () => {

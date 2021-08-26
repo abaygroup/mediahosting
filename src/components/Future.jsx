@@ -14,7 +14,7 @@ const Future = ({products}) => {
             {products.map((product, i) => (
                 <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
                     <a className="product-box">
-                        <Image width={640} height={360} src={product.picture} alt={product.title} />
+                        <Image width={1280} height={720} src={product.picture} alt={product.title} />
                         <div className="title">
                             <h4>{product.title}</h4>
                         </div>

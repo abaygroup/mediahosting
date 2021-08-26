@@ -21,7 +21,7 @@ const Main = ({last_products, future_products}) => {
         }
 
         if(!last_products && !future_products) {
-            // setTimeout(() => load(), 5000)
+            // setTimeout(() => load(), 100000)
             load()
         }
     }, [])
@@ -40,17 +40,17 @@ const Main = ({last_products, future_products}) => {
           content="Главная страница mediahosting"
         >
             <div className="main-container-block">
-            {/* Future */}
-            {futureProducts.length > 0 && <Future products={futureProducts} />}
-              
-              
-            {/* Your Mediahosting */}
-            {isAuthenticated && <MyVideoHosting products={lastProducts} />}
+                {/* Future */}
+                {futureProducts.length > 0 && <Future products={futureProducts} />}
+                
+                
+                {/* Your Mediahosting */}
+                {isAuthenticated && <MyVideoHosting products={lastProducts} />}
 
-            {/* Following */}
-              
-            {/* Last products */}
-            <LastProducts products={lastProducts} />
+                {/* Following */}
+                
+                {/* Last products */}
+                <LastProducts products={lastProducts} />
             </div>
         </Layout>
     )

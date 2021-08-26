@@ -10,23 +10,23 @@ const LoaderContainer = styled.div`
 
     div {
         position: absolute;
-        top: 33px;
-        width: 13px;
-        height: 13px;
+        top: 30px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
-        background: #D8D8D7;
+        background: black;
         animation-timing-function: cubic-bezier(0, 1, 1, 0);
 
         &:nth-child(1) {
-            left: 8px;
+            left: 0;
             animation: lds-ellipsis1 0.6s infinite;
         }
         &:nth-child(2) {
-            left: 8px;
+            left: 0;
             animation: lds-ellipsis2 0.6s infinite;
         }
         &:nth-child(3) {
-            left: 32px;
+            left: 22px;
             animation: lds-ellipsis2 0.6s infinite;
         }
         &:nth-child(4) {
