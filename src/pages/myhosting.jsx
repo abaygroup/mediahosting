@@ -5,48 +5,27 @@ import { useSelector } from "react-redux";
 import { BACKEND_URL } from "../actions/types";
 import Layout from "../hocs/layout";
 import useTranslation from "next-translate/useTranslation";
-import { useEffect, useState } from "react";
-import FullLoader from "../components/FullLoader";
 
-const MyHosting = ({last_products}) => {
+
+const MyHosting = ({my_mediahosting}) => {
     const router = useRouter();
-    const [lastProducts, setLastProducts] = useState(last_products);
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     const { t } = useTranslation();
 
-    useEffect(() => {
-        async function load() {
-            const res = await fetch(`${BACKEND_URL}/api/`)
-            const data = await res.json();
-            setLastProducts(data.last_products);
-        }
-
-        if(!last_products) {
-            load()
-        }
-    }, []);
-
-    if(!lastProducts) {
-        return (
-            <Layout>
-                <FullLoader />
-            </Layout>
-        )
-    }
 
     if(typeof window !== "undefined" && !isAuthenticated)
         router.push("/accounts/login")
 
     return (
         <Layout
-            title="Мой хостинг | mediahosting"
+            title="Мой медиахостинг | mediahosting"
             content="Поисковая страница mediahosting"
         >
             {isAuthenticated && <div className="main-container-block">
                 <div className="my-videohosting">
                     <h1>{t("common:main.h2")}</h1>
                     <div className="block">
-                    {lastProducts.map((product, i) => (
+                    {my_mediahosting && my_mediahosting.map((product, i) => (
                         <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
                             <a className="product-box">
                                 <div className="picture" >
@@ -69,20 +48,20 @@ const MyHosting = ({last_products}) => {
     )
 }
 
-MyHosting.getInitialProps = async ({req}) => {
-    if (!req) {
-        return {
-            last_products: null
+export async function getServerSideProps(context) {
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `JWT ${context.req.cookies.access}`
         }
     }
-
-    const res = await fetch(`${BACKEND_URL}/api/`)
-    const data = await res.json()
-    const last_products = data.last_products;
-
+    const res = await fetch(`${BACKEND_URL}/api/mymediahosting/`, context.req.cookies.access && config)
+    const my_mediahosting = await res.json()
   
     return {
-        last_products
+        props: {
+            my_mediahosting
+        }
     }
 }
 

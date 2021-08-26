@@ -1,15 +1,13 @@
 import React from 'react';
-import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link';
 import Image from 'next/image';
 
 
-const LastProducts = ({products}) => {
-    const { t } = useTranslation();
+const ProductsList = ({title, products}) => {
 
     return (
         <div className="products">
-            <h1>{t("common:main.h3")}</h1>
+            <h1>{title}</h1>
             <div className="block">
             {products.map((product, i) => (
                 <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
@@ -26,11 +24,10 @@ const LastProducts = ({products}) => {
                         </div>
                     </a>
                 </Link>
-
             ))}
             </div>
         </div>
     )
 }
 
-export default LastProducts;
+export default ProductsList;

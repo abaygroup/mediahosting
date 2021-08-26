@@ -46,14 +46,17 @@ const CategoryDetail = ({subcategory, products}) => {
 }
 
 
-CategoryDetail.getInitialProps = async (context) => {
-    const response = await fetch(`${BACKEND_URL}/api/category/${context.query.slug}/`);
+export async function getServerSideProps(context) {
+    const response = await fetch(`${BACKEND_URL}/api/category/${context.params.slug}/`);
     const data = await response.json()
     const subcategory = data.sub_category;
     const products = data.products
 
     return {
-        subcategory, products
+        props: {
+            subcategory, 
+            products
+        }
     }
   }
 

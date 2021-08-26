@@ -1,38 +1,17 @@
 import Layout from "../hocs/layout";
-import Future from "../components/Future";
-import LastProducts from "../components/Lasts";
-import MyVideoHosting from "../components/MyVideoHosting";
+import Future from '../components/Future';
+import ProductsList from "../components/ProductsList";
 import { BACKEND_URL } from "../actions/types";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import FullLoader from "../components/FullLoader";
+import useTranslation from 'next-translate/useTranslation'
+import Favorites from "../components/Favorites";
 
-const Main = ({last_products, future_products}) => {
+
+const Main = ({data}) => {
+    const {future_products, favorites_products, following_products, my_mediahosting,  last_products } = data
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-    const [futureProducts, setFutureProducts] = useState(future_products);
-    const [lastProducts, setLastProducts] = useState(last_products);
-
-    useEffect(() => {
-        async function load() {
-            const res = await fetch(`${BACKEND_URL}/api/`)
-            const data = await res.json();
-            setFutureProducts(data.future_products);
-            setLastProducts(data.last_products);
-        }
-
-        if(!last_products && !future_products) {
-            // setTimeout(() => load(), 100000)
-            load()
-        }
-    }, [])
-
-    if(!futureProducts || !lastProducts) {
-        return (
-            <Layout>
-                <FullLoader />
-            </Layout>
-        )
-    }
+    
+    const { t } = useTranslation();
 
     return (
         <Layout
@@ -41,38 +20,39 @@ const Main = ({last_products, future_products}) => {
         >
             <div className="main-container-block">
                 {/* Future */}
-                {futureProducts.length > 0 && <Future products={futureProducts} />}
-                
-                
-                {/* Your Mediahosting */}
-                {isAuthenticated && <MyVideoHosting products={lastProducts} />}
-
-                {/* Following */}
+                {future_products.length > 0 && <Future products={future_products} />}
                 
                 {/* Last products */}
-                <LastProducts products={lastProducts} />
+                <ProductsList title={t("common:main.h5")} products={last_products} />
+
+                {/* Your Mediahosting */}
+                {(isAuthenticated && my_mediahosting.length > 0) && <ProductsList title={t("common:main.h4")} products={my_mediahosting} />}
+
+                {/* Following */} 
+                {(isAuthenticated && following_products.length > 0) && <ProductsList title={t("common:main.h2")} products={following_products} />}
+                
+                {/* Favorites */}
+                {(isAuthenticated && favorites_products.length > 0) && <Favorites title={t("common:main.h3")} products={favorites_products} />}
             </div>
         </Layout>
     )
 }
 
 
-Main.getInitialProps = async (context) => {
-    if(!context.req) {
-        return {
-            last_products: null,
-            future_products: null
+export async function getServerSideProps(context) {
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `JWT ${context.req.cookies.access}`
         }
     }
-
-    const res = await fetch(`${BACKEND_URL}/api/`)
+    const res = await fetch(`${BACKEND_URL}/api/`, context.req.cookies.access && config)
     const data = await res.json()
-    const last_products = data.last_products;
-    const future_products = data.future_products;
   
     return {
-      last_products, 
-      future_products
+        props: {
+            data
+        }
     }
 }
 
