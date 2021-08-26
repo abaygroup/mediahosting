@@ -143,20 +143,40 @@
             width: 100%;
 
             .form-group {
-                margin: 10px 5px;
+                margin: 10px 20px;
 
                input {
                    padding: 5px 10px;
                }
             }
             .submit {
-                margin: 10px 5px;
+                margin: 10px 20px;
             }
         }
 
         .register-block {
             a {
-                margin: 10px 5px;
+                margin: 10px 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .accounts-container {
+        form, .register-block {
+
+            .form-group {
+                margin: 10px;
+            }
+            .submit {
+                margin: 10px;
+            }
+        }
+
+        .register-block {
+            a {
+                margin: 10px;
             }
         }
     }
