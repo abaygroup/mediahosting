@@ -1,8 +1,8 @@
 {
     "main": {
         "head": {
-            "title": "",
-            "description": ""
+            "title": "Басты бет | mediahosting",
+            "content": "mediahosting платформасының басты беті"
         },
         "h1": "Жақында шығарылады деп күтілуде",
         "h2": "Cіз тіркелген өнімдер",
@@ -12,22 +12,30 @@
     },
     "category": {
         "head": {
-            "title": "",
-            "description": ""
+            "title": "Іздеу | mediahosting",
+            "content": "mediahosting платформасының іздеу парақшасы"
         }
     },
     "following": {
         "head": {
-            "title": "",
-            "description": ""
+            "title": "Сіз тіркелгендер | mediahosting",
+            "content": "mediahosting платформасының сіз тіркелгендер тізімі туралы парақша"
         },
         "h1": "Cіз тіркелген өнімдер"
     },
 
+    "mymediahosting": {
+        "head": {
+            "title": "Медиахостинг | mediahosting",
+            "content": "Сіздің медиахостинг парақшасындағы өнімдеріңіз"
+        },
+        "h1": "Медиахостинг"
+    },
+
     "favorites": {
         "head": {
-            "title": "",
-            "description": ""
+            "title": "Сақталғандар | mediahosting",
+            "content": "Өнімдер сақталған бет"
         },
         "h1": "Сіз сақтап қойған өнімдер"
     },
@@ -36,7 +44,7 @@
         "main": "Негізгі",
         "search": "Іздеу",
         "following": "Сіз тіркелгендер",
-        "myhosting": "Мендегі медиахостинг",
+        "myhosting": "Медиахостинг",
         "favorites": "Таңдалғандар"
     }
 }

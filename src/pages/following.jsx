@@ -18,8 +18,8 @@ const Following = ({following_products}) => {
     
     return (
         <Layout
-            title="Подписка | mediahosting"
-            content="Все ваше продукты подписке в бренд mediahosting"
+            title={t("common:following.head.title")}
+            content={t("common:following.head.content")}
         >
             {isAuthenticated && <div className="main-container-block">
                 <div className="following">
@@ -29,7 +29,7 @@ const Following = ({following_products}) => {
                             <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} locale={router.locale} key={i}>
                                 <a className="product-box">
                                     <div className="picture" >
-                                        <Image width={1280} height={720} src={product.picture} alt={product.title} />
+                                        <Image width={1280} height={720} src={product.picture ? product.picture : "/icons/noimage.jpg"} alt={product.title} />
                                     </div>
                                     <div className="title">
                                         <h4>{product.title}</h4>

@@ -1,8 +1,8 @@
 {
     "main": {
         "head": {
-            "title": "",
-            "description": ""
+            "title": "Главная | mediahosting",
+            "content": "Главная страница mediahosting"
         },
         "h1": "Ожидается, что  скоро будет выпущен",
         "h2": "Продукты, которые вы подписали",
@@ -13,21 +13,28 @@
     },
     "category": {
         "head": {
-            "title": "",
-            "description": ""
+            "title": "Поиск | mediahosting",
+            "content": "Поисковая страница mediahosting"
         }
     },
     "following": {
         "head": {
-            "title": "",
-            "description": ""
+            "title": "Подписка | mediahosting",
+            "content": "Все ваше продукты подписке в бренд mediahosting"
         },
         "h1": "Продукты, которые вы подписали"
     },
+    "mymediahosting": {
+        "head": {
+            "title": "Мой медиахостинг | mediahosting",
+            "content": "Ваше медиахостинг в странице mediahosting"
+        },
+        "h1": "Ваше медиахостинг"
+    },
     "favorites": {
         "head": {
-            "title": "",
-            "description": ""
+            "title": "Избранные | mediahosting",
+            "content": "Избранная страница mediahosting"
         },
         "h1": "Избранные"
     },

@@ -18,18 +18,18 @@ const MyHosting = ({my_mediahosting}) => {
 
     return (
         <Layout
-            title="Мой медиахостинг | mediahosting"
-            content="Поисковая страница mediahosting"
+            title={t("common:mymediahosting.head.title")}
+            content={t("common:mymediahosting.head.content")}
         >
             {isAuthenticated && <div className="main-container-block">
                 <div className="my-videohosting">
-                    <h1>{t("common:main.h2")}</h1>
+                    <h1>{t("common:mymediahosting.h1")}</h1>
                     <div className="block">
                     {my_mediahosting && my_mediahosting.map((product, i) => (
                         <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
                             <a className="product-box">
                                 <div className="picture" >
-                                    <Image width={1280} height={720} src={product.picture} alt={product.title} />
+                                    <Image width={1280} height={720} src={product.picture ? product.picture : "/icons/noimage.jpg"} alt={product.title} />
                                 </div>
                                 <div className="title">
                                     <h4>{product.title}</h4>

@@ -14,16 +14,16 @@ const Profile = ({profile, products}) => {
         router.push('/accounts/login')
     }
 
-
     return (
         <Layout
-            title={profile !== null ? profile.brandname : "Профиль"}
+            title={profile !== null && `${profile.brand.brandname} | Профиль`}
             content="Страница профиля"
-        >   {isAuthenticated &&
+        >   
+            {isAuthenticated &&
             <div className="profile-container">
                 <div className="head" style={{backgroundImage: `url(${profile.logotype})`}}>
                     <div className="backdrop">
-                        <Image src={profile.logotype} width={512} height={512} />
+                        <Image src={profile.logotype ? profile.logotype : "/icons/noimage.jpg"} width={512} height={512} />
                         <div className="profile-name" onClick={() => alert("hello wolrd")}>
                             <h4 className="branding">{profile.branding ? 
                                 <>
@@ -46,7 +46,7 @@ const Profile = ({profile, products}) => {
                         <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
                             <a className="product-box">
                                 <div className="picture" >
-                                    <Image width={1920} height={1080} src={product.picture} alt="" />
+                                    <Image width={1920} height={1080} src={product.picture ? product.picture : "/icons/noimage.jpg"} alt="" />
                                 </div>
                                 <div className="title">
                                     <h4>{product.title}</h4>
@@ -75,7 +75,7 @@ export async function getServerSideProps(context) {
           }
     } 
 
-    const response = await fetch(`${BACKEND_URL}/api/profile/${context.params.brandname}`, {
+    const response = await fetch(`${BACKEND_URL}/api/profile/${context.params.brandname}/`, {
         headers: {
             "Content-Type": "application/json",
             "Authorization": `JWT ${context.req.cookies.access}`

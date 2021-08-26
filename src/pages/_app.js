@@ -5,6 +5,7 @@ import NextNprogress from 'nextjs-progressbar';
  
 function App({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState);
+
   return (
     <Provider store={store}>
       <NextNprogress

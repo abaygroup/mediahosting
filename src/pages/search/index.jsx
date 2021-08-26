@@ -3,13 +3,15 @@ import Image from 'next/image';
 import { BACKEND_URL } from "../../actions/types";
 import SearchForm from "../../components/Search";
 import Layout from "../../hocs/layout";
+import useTranslation from "next-translate/useTranslation";
 
 const Search = ({sup_categories, sub_categories}) => {
+    const { t } = useTranslation();
 
     return (
         <Layout
-            title="Поиск | mediahosting"
-            content="Поисковая страница mediahosting"
+            title={t("common:category.head.title")}
+            content={t("common:category.head.content")}
         >
             <div className="search-container-block">
                 <SearchForm />

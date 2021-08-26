@@ -17,18 +17,18 @@ const Favorites = ({favorites_products}) => {
 
     return (
         <Layout
-            title="Избранные | mediahosting"
-            content="Избранная страница mediahosting"
+            title={t('common:favorites.head.title')}
+            content={t('common:favorites.head.content')}
         >
             {isAuthenticated &&<div className="main-container-block">
                 <div className="favorites">
-                    <h1>{t('common:following.h1')}</h1>
+                    <h1>{t('common:favorites.h1')}</h1>
                     <div className="block">
                     {favorites_products && favorites_products.map((obj, i) => (
                         <Link href={`/product/${encodeURIComponent(obj.product.isbn_code)}`} locale={router.locale} key={i}>
                             <a className="product-box">
                                 <div className="picture" >
-                                    <Image width={1280} height={720} src={obj.product.picture} alt={obj.product.title} />
+                                    <Image width={1280} height={720} src={obj.product.picture ? obj.product.picture : "/icons/noimage.jpg"} alt={obj.product.title} />
                                 </div>
                                 <div className="title">
                                     <h4>{obj.product.title}</h4>

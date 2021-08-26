@@ -13,7 +13,7 @@ const ProductsList = ({title, products}) => {
                 <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
                     <a className="product-box">
                         <div className="picture" >
-                            <Image width={1280} height={720} src={product.picture} alt={product.title} />
+                            <Image width={1280} height={720} src={product.picture ? product.picture : "/icons/noimage.jpg"} alt={product.title} />
                         </div>
                         <div className="title">
                             <h4>{product.title}</h4>

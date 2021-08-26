@@ -13,7 +13,7 @@ const Favorites = ({title, products}) => {
                 <Link href={`/product/${encodeURIComponent(obj.product.isbn_code)}`} key={i}>
                     <a className="product-box">
                         <div className="picture" >
-                            <Image width={1280} height={720} src={obj.product.picture} alt={obj.product.title} />
+                            <Image width={1280} height={720} src={obj.product.picture ? obj.product.picture : "/icons/noimage.jpg"} alt={obj.product.title} />
                         </div>
                         <div className="title">
                             <h4>{obj.product.title}</h4>

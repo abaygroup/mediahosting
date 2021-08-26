@@ -5,18 +5,19 @@ import { BACKEND_URL } from "../actions/types";
 import { useSelector } from "react-redux";
 import useTranslation from 'next-translate/useTranslation'
 import Favorites from "../components/Favorites";
+import { useRouter } from "next/router";
 
 
 const Main = ({data}) => {
     const {future_products, favorites_products, following_products, my_mediahosting,  last_products } = data
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-    
     const { t } = useTranslation();
+
 
     return (
         <Layout
-          title="Главная | mediahosting"
-          content="Главная страница mediahosting"
+          title={t("common:main.head.title")}
+          content={t("common:main.head.content")}
         >
             <div className="main-container-block">
                 {/* Future */}
