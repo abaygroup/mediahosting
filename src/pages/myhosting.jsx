@@ -42,7 +42,7 @@ const MyHosting = ({last_products}) => {
             title="Мой хостинг | mediahosting"
             content="Поисковая страница mediahosting"
         >
-            <div className="main-container-block">
+            {isAuthenticated && <div className="main-container-block">
                 <div className="my-videohosting">
                     <h1>{t("common:main.h2")}</h1>
                     <div className="block">
@@ -50,7 +50,7 @@ const MyHosting = ({last_products}) => {
                         <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
                             <a className="product-box">
                                 <div className="picture" >
-                                    <Image width={640} height={360} src={product.picture} alt={product.title} />
+                                    <Image width={1280} height={720} src={product.picture} alt={product.title} />
                                 </div>
                                 <div className="title">
                                     <h4>{product.title}</h4>
@@ -64,7 +64,7 @@ const MyHosting = ({last_products}) => {
                     ))}
                     </div>
                 </div>
-            </div>
+            </div>}
         </Layout>
     )
 }

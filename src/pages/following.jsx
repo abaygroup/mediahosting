@@ -23,7 +23,6 @@ const Following = ({last_products}) => {
         }
 
         if(!last_products) {
-            // setTimeout(() => load(), 100000)
             load()
         }
     }, []);
@@ -44,7 +43,7 @@ const Following = ({last_products}) => {
             title="Подписка | mediahosting"
             content="Все ваше продукты подписке в бренд mediahosting"
         >
-            <div className="main-container-block">
+            {isAuthenticated && <div className="main-container-block">
                 <div className="following">
                     <h1>{t('common:following.h1')}</h1>
                     <div className="block">
@@ -52,7 +51,7 @@ const Following = ({last_products}) => {
                         <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} locale={router.locale} key={i}>
                             <a className="product-box">
                                 <div className="picture" >
-                                    <Image width={640} height={360} src={product.picture} alt={product.title} />
+                                    <Image width={1280} height={720} src={product.picture} alt={product.title} />
                                 </div>
                                 <div className="title">
                                     <h4>{product.title}</h4>
@@ -66,7 +65,7 @@ const Following = ({last_products}) => {
                     ))}
                     </div>
                 </div>
-            </div>
+            </div>}
         </Layout>
     )
 }
