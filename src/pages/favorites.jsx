@@ -5,11 +5,34 @@ import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { BACKEND_URL } from "../actions/types";
 import Layout from "../hocs/layout";
+import { useEffect, useState } from "react";
+import FullLoader from "../components/FullLoader";
 
 const Favorites = ({last_products}) => {
     const router = useRouter();
+    const [lastProducts, setLastProducts] = useState(last_products);
     const { t } = useTranslation();
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+
+    useEffect(() => {
+        async function load() {
+            const res = await fetch(`${BACKEND_URL}/api/`)
+            const data = await res.json();
+            setLastProducts(data.last_products);
+        }
+
+        if(!last_products) {
+            load()
+        }
+    }, []);
+
+    if(!lastProducts) {
+        return (
+            <Layout>
+                <FullLoader />
+            </Layout>
+        )
+    }
 
     if(typeof window !== "undefined" && !isAuthenticated)
         router.push("/accounts/login")
@@ -24,7 +47,7 @@ const Favorites = ({last_products}) => {
                 <div className="favorites">
                     <h1>{t('common:following.h1')}</h1>
                     <div className="block">
-                    {last_products.map((product, i) => (
+                    {lastProducts.map((product, i) => (
                         <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} locale={router.locale} key={i}>
                             <a className="product-box">
                                 <div className="picture" >
@@ -47,7 +70,12 @@ const Favorites = ({last_products}) => {
     )
 }
 
-Favorites.getInitialProps = async () => {
+Favorites.getInitialProps = async ({req}) => {
+    if (!req) {
+        return {
+            last_products: null
+        }
+    }
     const res = await fetch(`${BACKEND_URL}/api/`)
     const data = await res.json()
     const last_products = data.last_products;
