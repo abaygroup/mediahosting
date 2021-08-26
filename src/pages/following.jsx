@@ -20,7 +20,7 @@ const Following = ({last_products}) => {
             content="Все ваше продукты подписке в бренд mediahosting"
         >
             <div className="main-container-block">
-                <div className="products">
+                <div className="following">
                     <h1>{t('common:following.h1')}</h1>
                     <div className="block">
                     {last_products.map((product, i) => (
@@ -38,7 +38,6 @@ const Following = ({last_products}) => {
                                 </div>
                             </a>
                         </Link>
-                        
                     ))}
                     </div>
                 </div>
