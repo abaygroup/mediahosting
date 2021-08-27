@@ -38,9 +38,11 @@ const Layout = (props) => {
             <FootBar />
             <nav className="i18next">
                 {router.locales.map(locale => (
-                    <Link href={router.asPath} locale={locale} key={locale}><a>
-                        {locale.toLocaleUpperCase()}
-                    </a></Link>
+                    <Link href={router.asPath} locale={locale} key={locale}>
+                        <a>
+                            {locale === "ru" ? "Русский" : locale === "kz" ? "Қазашқа" : null}
+                        </a>
+                    </Link>
                 ))}
             </nav>
             </div>

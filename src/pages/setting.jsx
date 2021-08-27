@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../actions/auth';
+import { useRouter } from 'next/router';
 
 const SettingContainer = styled.div`
     position: absolute;
@@ -54,7 +55,7 @@ const SettingContainer = styled.div`
                 }
             }
 
-            .logout, .register, .login {
+            .logout, .register, .login, a {
                 display: inline-block;
                 padding: 10px;
             }
@@ -65,6 +66,7 @@ const SettingContainer = styled.div`
 
 const Setting = () => {
     const dispatch = useDispatch();
+    const router = useRouter()
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     const user = useSelector(state => state.auth.user)
 
@@ -73,6 +75,7 @@ const Setting = () => {
             dispatch(logout())
         }
     }
+
 
     return (
         <Layout
@@ -103,6 +106,13 @@ const Setting = () => {
                                     <a className="login">Вход</a>
                                 </Link>
                             </li>
+                            {router.locales.map(locale => (
+                                <li key={locale}>
+                                    <Link href={router.asPath} locale={locale}>
+                                        <a>{locale === "ru" ? "Русский" : locale === "kz" ? "Қазашқа" : null}</a>
+                                    </Link>
+                                </li>
+                            ))}
                         </React.Fragment>    
                     : 
                         <React.Fragment>
@@ -113,6 +123,13 @@ const Setting = () => {
                                     </a>
                                 </Link>
                             </li>
+                            {router.locales.map(locale => (
+                                <li key={locale}>
+                                    <Link href={router.asPath} locale={locale}>
+                                        <a>{locale === "ru" ? "Русский" : locale === "kz" ? "Қазашқа" : null}</a>
+                                    </Link>
+                                </li>
+                            ))}
                             <li>
                                 <span className="logout" onClick={logoutHandler}>Выйти</span>
                             </li>
