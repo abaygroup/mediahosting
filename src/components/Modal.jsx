@@ -17,6 +17,16 @@ const Background = styled.div`
         top: 20px;
         right: 20px;
         cursor: pointer;
+        font-size: 14px;
+    }
+
+    .modal-block {
+        padding: 0 40px;
+
+        p {
+            font-size: 14px;
+            color: silver;
+        }
     }
 `;
 
