@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import FootBar from '../components/FootBar';
 import { useDispatch } from 'react-redux';
 import { check_auth_status } from '../actions/auth';
 
@@ -28,7 +27,6 @@ const ProductLayout = (props) => {
                 <div className="product-container">
                     {props.children}
                 </div>
-                <FootBar />
             </div>
         </React.Fragment>
     )

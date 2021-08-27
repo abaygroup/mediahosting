@@ -8,7 +8,6 @@ import { BACKEND_URL } from '../../../../actions/types';
 
 const VideoHosting = ({video, videohosting}) => {
     const router = useRouter();
-    console.log(video.id);
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
     if(typeof window !== 'undefined' && !isAuthenticated) {
@@ -21,16 +20,21 @@ const VideoHosting = ({video, videohosting}) => {
         >
             {isAuthenticated &&
             <div className="videohosting-container">
-                <div className="youtube-frame">
-                    <iframe src={video.frame_url} frameBorder="0"></iframe>
-                </div>
-
-                <div className="playlist-block">
-                    <div className="logo">
-                        <Link href={"/"}>
-                            <a><Image src="/icons/mediahosting-white.png" width={1354} height={206} /></a>
-                        </Link>
+                <div className="video-block">
+                    <div className="m-header">
+                        <div className="logo">
+                            <Link href={"/"}>
+                                <a><Image src="/icons/mediahosting-white.png" width={1354} height={206} /></a>
+                            </Link>
+                        </div>
                     </div>
+                    
+                    <div className="youtube-frame">
+                        <iframe src={video.frame_url} frameBorder="0" title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    </div>
+                </div>
+                
+                <div className="playlist-block">
                     <div className="block">
                         {videohosting.map((video, i) => (
                             <Link href={`/product/${encodeURIComponent(router.query.isbn_code)}/videohosting/${encodeURIComponent(video.id)}`} key={i}>

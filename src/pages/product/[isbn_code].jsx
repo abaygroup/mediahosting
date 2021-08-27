@@ -20,7 +20,6 @@ const ProductDetail = ({product, videohosting}) => {
         setProductModal(prev => !prev);
     }
 
-
     return (
         <Layout
             title={product !== null ? product.title : "Продукт"}
