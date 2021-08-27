@@ -32,15 +32,14 @@ const ProductDetail = ({product, videohosting}) => {
             <div className="product-container">
                 <div className="head" style={{backgroundImage: `url(${product.picture})`}}>
                     <div className="backdrop">
-                        <Image src={product.picture} width={820} height={480} />
+                        <Image src={product.picture ? product.picture : '/icons/noimage.jpg'} width={820} height={480} />
                         <div className="product-name">
                             <h4 className="production"> 
                                 <Image width={100} height={100} src="https://img.icons8.com/fluent/48/000000/verified-badge.png" alt="" />
                                 <span>Доступный продукт</span>
                             </h4>
-                            <h1>{product.title}</h1>
+                            <h1 onClick={modalHandler}>{product.title}</h1>
                             <small>5 доступный видеолист | 15 закрытый видеолист</small>
-                            <button onClick={modalHandler}>Описание</button>
                         </div>
                     </div>
                 </div>

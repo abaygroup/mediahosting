@@ -52,6 +52,7 @@
                 small {
                     display: block;
                     margin-top: 10px;
+                    color: silver;
                 }
             }
             
@@ -79,11 +80,9 @@
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.42);
                 margin: 5px;
                 transition: all .3s;
-                
     
                 .picture {
                     width: 100%;
-                    max-height: 140px;
                     overflow: hidden;
                     border-radius: 3px;
     
@@ -201,6 +200,36 @@
 
 @media screen and (max-width: 1024px) {
     .profile-container {
+        .head {
+            .backdrop {
+                grid-template-columns: 160px 1fr;
+                padding: 0 25px;
+
+                img {
+                    width: 160px;
+                    height: 160px;
+                }
+    
+                .profile-name {
+                    margin-left: 20px;
+    
+                    .branding {
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
+                        span {
+                            font-size: 14px;
+                        }
+                    }
+    
+                    h1 {
+                        font-size: 3.5rem;
+                    }
+                }
+            }
+        }
+
         .profile-block {
             .block {
                 grid-template-columns: repeat(2, 1fr);
@@ -209,21 +238,83 @@
     }
 }
 
-@media screen and (max-width: 1024px) {
-    .profile-container {
-        .profile-block {
-            .block {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    }
-}
 
 @media screen and (max-width: 820px) {
     .profile-container {
+        .head {
+            .backdrop {
+                padding: 0 20px;
+                margin: 0 auto;
+
+                img {
+                    width: 160px;
+                    height: 160px;
+                }
+    
+                .profile-name {
+                    margin-left: 20px;
+    
+                    .branding {
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
+                        span {
+                            font-size: 14px;
+                        }
+                    }
+    
+                    h1 {
+                        font-size: 3.5rem;
+                    }
+                }
+            }
+        }
         .profile-block {
             .block {
                 grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .profile-container {
+        .head {
+            .backdrop {
+                padding-top: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                img {
+                    width: 140px;
+                    height: 140px;
+                }
+    
+                .profile-name {
+                    position: relative;
+                    margin: 10px 0 0 0;
+    
+                    .branding {
+                        position: absolute;
+                        top: 10px;
+                        right: -30px;
+
+                        img {
+                            width: 26px;
+                            height: 26px;
+                        }
+                        span {
+                            display: none;
+                        }
+                    }
+    
+                    h1 {
+                        font-size: 2rem;
+                    }
+                }
             }
         }
     }
@@ -231,9 +322,100 @@
 
 @media screen and (max-width: 420px) {
     .profile-container {
+        .head {
+            .backdrop {
+                padding-top: 20px;
+
+                img {
+                    width: 100px;
+                    height: 100px;
+                }
+    
+                .profile-name {
+                    .branding {
+                        top: 3px;
+                        right: -25px;
+
+                        img {
+                            width: 24px;
+                            height: 24px;
+                        }
+                    }
+                    h1 {
+                        font-size: 1.5rem;
+                    }
+
+                    small {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
         .profile-block {
+            h2 {
+                margin: 5px 0;
+                text-align: center;
+                font-size: 120%;
+            }
+
             .block {
+                margin: 5px 0;
+                display: grid;
                 grid-template-columns: repeat(1, 1fr);
+    
+                .product-box {
+                    border-radius: 5px;
+                    margin: 5px;
+                    display: flex;
+                    align-items: center;
+                    overflow: hidden;
+                    transition: all .3s;
+                    position: relative;
+                    padding: 0;
+                    
+                    .picture {
+                        width: auto;
+
+                        img {
+                            width: auto;
+                            height: 50px;
+                        }
+                    }
+                  
+    
+                    .title {
+                        max-width: 200px;
+                        margin: 0 10px;
+                        
+                        h4 {
+                            font-weight: normal;
+                            font-size: 13px;
+                            -webkit-line-clamp: 1; 
+                            -webkit-box-orient: vertical;
+                            display: -webkit-box;
+                            overflow: hidden;
+                        }
+
+                        small {
+                            -webkit-line-clamp: 1; 
+                            font-size: 12px;
+                        }
+
+                    }
+    
+                    .goto {
+                        display: none;
+                    }
+    
+                    &:hover {
+                        background-color: rgba(255, 255, 255, 0.212);
+
+                        .goto {
+                            display: none;
+                        }
+                    }
+                }
             }
         }
     }
