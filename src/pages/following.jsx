@@ -11,8 +11,6 @@ const Following = ({following_products}) => {
     const { t } = useTranslation();
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
-
-
     if(typeof window !== "undefined" && !isAuthenticated)
         router.push("/accounts/login")
     
@@ -33,7 +31,7 @@ const Following = ({following_products}) => {
                                     </div>
                                     <div className="title">
                                         <h4>{product.title}</h4>
-                                        <small>{product.body}</small>
+                                        <small>{product.about}</small>
                                     </div>
                                     <div className="goto">
                                         <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png" alt={product.title} />

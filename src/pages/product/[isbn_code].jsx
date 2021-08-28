@@ -7,7 +7,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { Modal } from "../../components/Modal";
 
-const ProductDetail = ({product, videohosting}) => {
+const ProductDetail = ({product, videohosting, published_count, private_count}) => {
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     const router = useRouter();
     const [productModal, setProductModal] = useState(false)
@@ -38,7 +38,7 @@ const ProductDetail = ({product, videohosting}) => {
                                 <span>Доступный продукт</span>
                             </h4>
                             <h1 onClick={modalHandler}>{product.title}</h1>
-                            <small>5 доступный видеолист | 15 закрытый видеолист</small>
+                            <small>{published_count} доступный видеолист | {private_count} закрытый видеолист</small>
                         </div>
                     </div>
                 </div>
@@ -142,11 +142,15 @@ export async function getServerSideProps(context) {
     const data = await response.json()
     const product = data.product;
     const videohosting = data.videohosting
+    const published_count = data.published_count;
+    const private_count = data.private_count;
 
     return {
         props: {
             product,
-            videohosting
+            videohosting,
+            published_count,
+            private_count
         },
     }
 }

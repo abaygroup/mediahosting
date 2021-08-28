@@ -6,9 +6,9 @@ import Layout from '../../hocs/layout';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
 
-const Profile = ({profile, products}) => {
+const Profile = ({profile, products, production_count}) => {
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-    const router = useRouter()
+    const router = useRouter();
 
     if(typeof window !== 'undefined' && !isAuthenticated) {
         router.push('/accounts/login')
@@ -34,7 +34,7 @@ const Profile = ({profile, products}) => {
                                 "Профиль"}
                             </h4>
                             <h1>{profile.first_name && profile.last_name ? <p>{profile.first_name} {profile.last_name}</p> : router.query.brandname}</h1>
-                            <small>4 доступный продукт</small>
+                            <small>{production_count} доступный продукт</small>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@ const Profile = ({profile, products}) => {
                                 </div>
                                 <div className="title">
                                     <h4>{product.title}</h4>
-                                    <small>{product.body}</small>
+                                    <small>{product.about}</small>
                                 </div>
                                 <div className="goto">
                                     <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png"/>
@@ -85,11 +85,13 @@ export async function getServerSideProps(context) {
     const data = await response.json()
     const profile = data.profile;
     const products = data.products;
+    const production_count = data.production_count;
 
     return {
         props: {
             profile,
-            products
+            products,
+            production_count
         },
     }
 }

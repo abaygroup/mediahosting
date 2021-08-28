@@ -5,7 +5,6 @@ import { BACKEND_URL } from "../actions/types";
 import { useSelector } from "react-redux";
 import useTranslation from 'next-translate/useTranslation'
 import Favorites from "../components/Favorites";
-import { useRouter } from "next/router";
 
 
 const Main = ({data}) => {

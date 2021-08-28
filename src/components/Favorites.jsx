@@ -9,15 +9,15 @@ const Favorites = ({title, products}) => {
         <div className="products">
             <h1>{title}</h1>
             <div className="block">
-            {products.map((obj, i) => (
-                <Link href={`/product/${encodeURIComponent(obj.product.isbn_code)}`} key={i}>
+            {products.map((product, i) => (
+                <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
                     <a className="product-box">
                         <div className="picture" >
-                            <Image width={1280} height={720} src={obj.product.picture ? obj.product.picture : "/icons/noimage.jpg"} alt={obj.product.title} />
+                            <Image width={1280} height={720} src={product.picture ? product.picture : "/icons/noimage.jpg"} alt={product.title} />
                         </div>
                         <div className="title">
-                            <h4>{obj.product.title}</h4>
-                            <small>{obj.product.body}</small>
+                            <h4>{product.title}</h4>
+                            <small>{product.about}</small>
                         </div>
                         <div className="goto">
                             <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png"/>

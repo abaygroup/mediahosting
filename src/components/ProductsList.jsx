@@ -4,7 +4,6 @@ import Image from 'next/image';
 
 
 const ProductsList = ({title, products}) => {
-
     return (
         <div className="products">
             <h1>{title}</h1>
@@ -17,7 +16,7 @@ const ProductsList = ({title, products}) => {
                         </div>
                         <div className="title">
                             <h4>{product.title}</h4>
-                            <small>{product.body}</small>
+                            <small>{product.about}</small>
                         </div>
                         <div className="goto">
                             <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png"/>
