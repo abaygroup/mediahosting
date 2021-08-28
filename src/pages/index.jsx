@@ -4,14 +4,12 @@ import ProductsList from "../components/ProductsList";
 import { BACKEND_URL } from "../actions/types";
 import { useSelector } from "react-redux";
 import useTranslation from 'next-translate/useTranslation'
-import Favorites from "../components/Favorites";
 
 
 const Main = ({data}) => {
     const {future_products, favorites_products, following_products, my_mediahosting,  last_products } = data
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     const { t } = useTranslation();
-
 
     return (
         <Layout
@@ -23,7 +21,7 @@ const Main = ({data}) => {
                 {future_products.length > 0 && <Future products={future_products} />}
                 
                 {/* Last products */}
-                <ProductsList title={t("common:main.h5")} products={last_products} />
+                {last_products.length > 0 && <ProductsList title={t("common:main.h5")} products={last_products} />}
 
                 {/* Your Mediahosting */}
                 {(isAuthenticated && my_mediahosting.length > 0) && <ProductsList title={t("common:main.h4")} products={my_mediahosting} />}
@@ -32,7 +30,7 @@ const Main = ({data}) => {
                 {(isAuthenticated && following_products.length > 0) && <ProductsList title={t("common:main.h2")} products={following_products} />}
                 
                 {/* Favorites */}
-                {(isAuthenticated && favorites_products.length > 0) && <Favorites title={t("common:main.h3")} products={favorites_products} />}
+                {(isAuthenticated && favorites_products.length > 0) && <ProductsList title={t("common:main.h3")} products={favorites_products} />}
             </div>
         </Layout>
     )

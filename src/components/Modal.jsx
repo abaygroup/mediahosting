@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ReactHtmlParser from 'react-html-parser';
 
 const Background = styled.div`
     position: fixed;
@@ -9,7 +10,6 @@ const Background = styled.div`
     background: black;
     display: flex;
     justify-content: center;
-    align-items: center;
     z-index: 1000;
 
     .close-btn {
@@ -21,23 +21,28 @@ const Background = styled.div`
     }
 
     .modal-block {
-        padding: 0 40px;
+        margin: 60px 0;
+        overflow: auto;
 
-        p {
+        h4 {
+            margin-bottom: 10px;
+        }
+        .body {
             font-size: 14px;
             color: silver;
         }
     }
 `;
 
-export const Modal = ({body, showModal, setShowModal}) => {
+export const Modal = ({about, body, showModal, setShowModal}) => {
     return (
         <>
         {showModal ?
         <Background>
             <span className="close-btn" onClick={() => setShowModal(prev => !prev)}>Закрыть</span>
             <div className="modal-block">
-                <p>{body}</p>
+                <h4>{about ? about : "Hello world"}</h4>
+                <div className="body">{ReactHtmlParser(body)}</div>
             </div>
         </Background>
         : null}

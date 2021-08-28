@@ -45,6 +45,7 @@
 
                 h1 {
                     font-size: 4rem;
+                    cursor: pointer;
                 }
 
                 small {
@@ -53,7 +54,22 @@
                     margin-top: 10px;
                 }
             }
-            
+
+            .handlers {
+                position: absolute;
+                bottom: 20px;
+                display: flex;
+    
+                .favorite, .follow {
+                    cursor: pointer;
+                    margin: 0 10px;
+                    
+                    img {
+                        width: 32px;
+                        height: 32px;
+                    }
+                }
+            }
         }
     }
 
@@ -110,6 +126,7 @@
                             border-radius: 5px;
                             padding: 5px;
                             transition: all .3s;
+                            cursor: pointer;
 
                             img {
                                 width: 20px;
@@ -163,6 +180,13 @@
                 }
             }
         }
+    }
+
+    .empty {
+        width: 100%;
+        display: block;
+        text-align: center;
+        color: silver;
     }
 }
 
@@ -229,6 +253,9 @@
                     }
                 }
                 
+                .handlers {
+                    bottom: 50px;
+                }
             }
         }
     }
@@ -259,6 +286,9 @@
                     }
                 }
                 
+                .handlers {
+                    bottom: 80px;
+                }
             }
         }
     }
@@ -277,8 +307,11 @@
                         font-size: 2.5rem;
                     }
                 }
-                
             }
+        }
+
+        .product-block {
+            padding-bottom: 40px;
         }
     }
 }
@@ -311,6 +344,10 @@
                     small {
                         text-align: center;
                     }
+                }
+
+                .handlers {
+                    bottom: -10px;
                 }
             }
         }
@@ -357,6 +394,10 @@
                         font-size: 1.2rem;
                     }
                 }
+
+                .handlers {
+                    bottom: 10px;
+                }
             }
         }
 
@@ -390,7 +431,7 @@
                     }
     
                     .access {
-                        right: 10px;
+                        right: 5px;
                     }
                 }
             }

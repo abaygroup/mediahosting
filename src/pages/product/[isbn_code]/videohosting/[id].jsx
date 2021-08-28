@@ -39,7 +39,7 @@ const VideoHosting = ({video, videohosting}) => {
                         {videohosting.map((video, i) => (
                             <Link href={`/product/${encodeURIComponent(router.query.isbn_code)}/videohosting/${encodeURIComponent(video.id)}`} key={i}>
                                 <a className="product-item">
-                                    <div className="title">
+                                    <div className="title" title={video.title}>
                                         <span>{video.title}</span>
                                     </div>
                                     <div className="access">

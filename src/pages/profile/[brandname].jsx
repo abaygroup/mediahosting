@@ -5,10 +5,13 @@ import { BACKEND_URL } from '../../actions/types';
 import Layout from '../../hocs/layout';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
+import useTranslation from 'next-translate/useTranslation';
+
 
 const Profile = ({profile, products, production_count}) => {
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     const router = useRouter();
+    const { t } = useTranslation()
 
     if(typeof window !== 'undefined' && !isAuthenticated) {
         router.push('/accounts/login')
@@ -28,19 +31,20 @@ const Profile = ({profile, products, production_count}) => {
                             <h4 className="branding">{profile.branding ? 
                                 <>
                                     <Image width={100} height={100} src="https://img.icons8.com/fluent/48/000000/verified-badge.png" alt="" />
-                                    <span>Подтвержденный бренд</span>
+                                    <span>{t("common:profile.branding")}</span>
                                 </>
                                 : 
-                                "Профиль"}
+                                <span>Профиль</span>}
                             </h4>
                             <h1>{profile.first_name && profile.last_name ? <p>{profile.first_name} {profile.last_name}</p> : router.query.brandname}</h1>
-                            <small>{production_count} доступный продукт</small>
+                            <small>{production_count} {t("common:profile.production_count")}</small>
                         </div>
                     </div>
                 </div>
                 
+                {products.length > 0 &&
                 <div className="profile-block">
-                    <h2>Продукты</h2>
+                    <h2>{t("common:profile.product_head")}</h2>
                     <div className="block">
                     {products.map((product, i) => (
                         <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
@@ -59,7 +63,7 @@ const Profile = ({profile, products, production_count}) => {
                         </Link>
                     ))}
                     </div>
-                </div>
+                </div>}
             </div>}
         </Layout>
     )
@@ -70,7 +74,8 @@ export async function getServerSideProps(context) {
         return {
             props: {
               profile: null,
-              products: null
+              products: null,
+              production_count: null,
             },
           }
     } 

@@ -12,7 +12,7 @@
             background-color: black;
             padding: 10px;
             display: flex;
-            border-bottom: 1px solid white;
+            border-bottom: 1px solid dimgray;
 
             .logo {
                 a {
@@ -32,15 +32,17 @@
     }
 
     .playlist-block {
-        border-left: 1px solid white;
+        border-left: 1px solid dimgray;
         background-color: black;
+        overflow-y: auto;
 
         .block {
             display: flex;
             flex-direction: column;
+            overflow-y: auto;
     
             .product-item {
-                padding: 10px;
+                padding: 15px 10px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.42);
                 transition: all .3s;
                 position: relative;
@@ -51,18 +53,18 @@
 
                 .title {
                     span {
+                        width: 100%;
+                        padding-right: 20px;
                         font-weight: 300;
                         color: silver;
                         font-size: 14px;
+                        -webkit-line-clamp: 1; 
+                        -webkit-box-orient: vertical;
+                        display: -webkit-box;
+                        overflow: hidden;
                     }
                 }
-
-                .timestamp {
-                    small {
-                        color: silver;
-                    }
-                }
-
+            
                 .access {
                     position: absolute;
                     right: 10px;
@@ -85,7 +87,7 @@
 @media screen and (max-width: 820px) {
     .videohosting-container {
         grid-template-columns: 1fr;
-        grid-template-rows: auto;  
+        grid-template-rows: 280px 1fr;  
     
         .video-block {
             display: grid;
