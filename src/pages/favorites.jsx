@@ -35,7 +35,7 @@ const Favorites = ({favorites_products}) => {
                                     <small>{product.about}</small>
                                 </div>
                                 <div className="goto">
-                                    <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png" alt={obj.product.title} />
+                                    <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png" alt={product.title} />
                                 </div>
                             </a>
                         </Link>

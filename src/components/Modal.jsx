@@ -21,7 +21,7 @@ const Background = styled.div`
     }
 
     .modal-block {
-        margin: 60px 0;
+        margin: 60px;
         overflow: auto;
 
         h4 {

@@ -22,14 +22,17 @@ const CategoryDetail = ({data, access}) => {
                 }
                 const response = await fetch(`${BACKEND_URL}/api/category/${router.query.slug}/`, access && config);
                 const data = await response.json()
-                setProducts(data.favorites)
+                if (!cleanupFunction) {
+                    setProducts(data.favorites)
+                }
             }
         }
 
-        fetchData()
+        fetchData();
         return () => cleanupFunction = true; 
     }, [favorites])
 
+    // Add To Favorite Handle
     const addToFavorite = async (isbn_code) => {
         if (access) {
             try {
@@ -44,7 +47,7 @@ const CategoryDetail = ({data, access}) => {
                 console.log(e);
             }
         } else {
-            router.push('/accounts/login')
+            router.push('/accounts/login');
         }
     }
 
@@ -67,7 +70,7 @@ const CategoryDetail = ({data, access}) => {
                             <Link href={`/product/${encodeURIComponent(product.isbn_code)}`}>
                                 <a>
                                     <div className="picture" >
-                                        <Image width={1920} height={1080} src={product.picture} alt="" />
+                                        <Image width={1920} height={1080} src={product.picture ? product.picture : "/icons/noimage.jpg"} alt={product.title} />
                                     </div>
                                     <div className="title">
                                         <h4>{product.title}</h4>

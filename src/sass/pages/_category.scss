@@ -154,10 +154,12 @@
                     }
     
                     .goto {
-                        display: none;
                         position: absolute;
                         right: 15px;
-                        bottom: 60px;
+                        bottom: 40px;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: all .3s;
     
                         img {
                             width: 48px;
@@ -187,7 +189,9 @@
                     
                     a {
                         .goto {
-                            display: block;
+                            bottom: 60px;
+                            visibility: visible;
+                            opacity: 1;
                         }
                     }
                 }
