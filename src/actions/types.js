@@ -12,8 +12,8 @@ export const AUTHENTICATED_FAIL = "AUTHENTICATED_FAIL";
 
 
 
-// export const DEVELOPMENT = "DEVELOPMENT"; 
-export const DEVELOPMENT = "PRODUCTION"; 
+export const DEVELOPMENT = "DEVELOPMENT"; 
+// export const DEVELOPMENT = "PRODUCTION"; 
 // Backend URLs
-// export const BACKEND_URL = 'http://127.0.0.1:8000';
-export const BACKEND_URL = 'https://api.abaystreet.com';
+export const BACKEND_URL = 'http://127.0.0.1:8000';
+// export const BACKEND_URL = 'https://api.abaystreet.com';

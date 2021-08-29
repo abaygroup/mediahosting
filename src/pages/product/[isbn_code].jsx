@@ -81,6 +81,9 @@ const ProductDetail = ({product, videohosting, favorites, published_count, priva
                             </h4>
                             <h1 onClick={modalHandler}>{product.title}</h1>
                             <small>{published_count} {t("common:product.published_count")} | {private_count} {t("common:product.private_count")}</small>
+                            <Link href={`/profile/${product.owner.brandname}`}>
+                                <a>{product.owner.brandname}</a>
+                            </Link>
                         </div>
                         <div className="handlers">
                             <div onClick={() => addToFavorite(product.isbn_code)} className="favorite" title="Добавить">
