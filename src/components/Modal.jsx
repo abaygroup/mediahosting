@@ -21,20 +21,46 @@ const Background = styled.div`
     }
 
     .modal-block {
-        margin: 60px;
+        padding: 60px;
         overflow: auto;
 
         h4 {
             margin-bottom: 10px;
         }
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            max-width: 820px;
+            margin: 20px auto;
+
+            li {
+                display: flex;
+                border-bottom: 1px solid silver;
+                justify-content: space-between;
+                padding: 10px;
+                color: silver;
+                font-size: 14px;
+            }
+        }
+
         .body {
             font-size: 14px;
             color: silver;
         }
     }
+
+
+    // mediaqueries
+    // ========================================
+    @media screen and (max-width: 420px) {
+        .modal-block {
+            padding: 60px 20px;
+        }
+    }
 `;
 
-export const Modal = ({about, body, showModal, setShowModal}) => {
+export const Modal = ({about, features, body, showModal, setShowModal}) => {
     return (
         <>
         {showModal ?
@@ -42,6 +68,14 @@ export const Modal = ({about, body, showModal, setShowModal}) => {
             <span className="close-btn" onClick={() => setShowModal(prev => !prev)}>Закрыть</span>
             <div className="modal-block">
                 <h4>{about ? about : "Hello world"}</h4>
+                {features.length > 0 &&
+                <ul>
+                    {features.map((feature, i) => (
+                        <li key={i}>
+                            <b>{feature.label}:</b><span>{feature.value}</span>
+                        </li>
+                    ))}
+                </ul>}
                 <div className="body">{ReactHtmlParser(body)}</div>
             </div>
         </Background>

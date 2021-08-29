@@ -39,6 +39,10 @@ const Profile = ({profile, products, favorites, production_count, access}) => {
         router.push('/accounts/login')
     }
 
+    const editProfile = () => {
+        alert("Эти компоненты еще не готовы. Предпологаем следующее версий")
+    }
+
     // Add To Favorite Handle
     const addToFavorite = async (isbn_code) => {
         try {
@@ -64,7 +68,7 @@ const Profile = ({profile, products, favorites, production_count, access}) => {
                 <div className="head" style={{backgroundImage: `url(${profile.logotype})`}}>
                     <div className="backdrop">
                         <Image src={profile.logotype ? profile.logotype : "/icons/noimage.jpg"} width={512} height={512} />
-                        <div className="profile-name" onClick={() => alert("hello wolrd")}>
+                        <div className="profile-name" onClick={() => editProfile()}>
                             <h4 className="branding">{profile.branding ? 
                                 <>
                                     <Image width={100} height={100} src="https://img.icons8.com/fluent/48/000000/verified-badge.png" alt="" />
@@ -75,6 +79,9 @@ const Profile = ({profile, products, favorites, production_count, access}) => {
                             </h4>
                             <h1>{profile.first_name && profile.last_name ? <p>{profile.first_name} {profile.last_name}</p> : router.query.brandname}</h1>
                             <small>{production_count} {t("common:profile.production_count")}</small>
+                        </div>
+                        <div className="edit-btn">
+                            <span onClick={() => editProfile()}>Изменить профиль</span>
                         </div>
                     </div>
                 </div>

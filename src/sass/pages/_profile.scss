@@ -56,6 +56,20 @@
                 }
             }
             
+            .edit-btn {
+                display: none;
+                justify-content: center;
+                position: absolute;
+                bottom: 15px;
+
+                span {
+                    border-radius: 50px;
+                    padding: 5px 20px;
+                    border: 1px solid silver;
+                    color: silver;
+                    font-size: 12px;
+                }
+            }
         }
     }
 
@@ -370,6 +384,10 @@
                     small {
                         text-align: center;
                     }
+                }
+
+                .edit-btn {
+                    display: flex;
                 }
             }
         }

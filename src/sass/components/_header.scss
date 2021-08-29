@@ -85,9 +85,20 @@
 
                 img {
                     width: 20px;
+                    padding-right: 5px;
                 }
+
                 span {
+                    margin-left: 5px;
                     font-size: 14px;
+                    transition: all .3s;
+                    color: silver;
+                }
+
+                &:hover {
+                    span {
+                        color: white;
+                    }
                 }
             }
 

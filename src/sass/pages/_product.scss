@@ -49,20 +49,29 @@
                     line-height: 1;
                 }
 
-                a {
-                    font-size: 13px;
-                    color: silver;
-                    font-weight: 300;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-
                 small {
                     display: block;
                     color: silver;
                     margin-top: 10px;
+                }
+
+                .owner {
+                    margin-top: 10px;
+                    color: silver;
+                    display: flex;
+                    align-items: center;
+
+                    a {
+                        font-size: 13px;
+                        display: inline-block;
+                        margin: 0 5px;
+                        font-weight: 300;
+                        color: silver;
+    
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
                 }
             }
 
@@ -356,10 +365,15 @@
                         text-align: center;
                     }
 
-                    a {
-                        display: block;
-                        text-align: center;
+                    .owner {
+                        justify-content: center;
                         margin-top: 5px;
+
+                        a {
+                            display: block;
+                            text-align: center;
+                            margin-top: 0px;
+                        }
                     }
                 }
 
