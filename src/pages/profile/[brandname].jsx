@@ -15,7 +15,6 @@ const Profile = ({profile, products, favorites, production_count, access}) => {
     const router = useRouter();
     const { t } = useTranslation();
     const [favoritesData, setFavoritesData] = useState(favorites);
-
     const [editModal, setEditModal] = useState(false)
 
     useEffect(() => {
@@ -69,7 +68,7 @@ const Profile = ({profile, products, favorites, production_count, access}) => {
         >   
             {isAuthenticated &&
             <>
-                <EditModal showModal={editModal} setShowModal={setEditModal} />
+                <EditModal data={profile} showModal={editModal} setShowModal={setEditModal} />
                 <div className="profile-container">
                     <div className="head" style={{backgroundImage: `url(${profile.logotype})`}}>
                         <div className="backdrop">
