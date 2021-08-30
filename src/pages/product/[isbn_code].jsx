@@ -11,7 +11,7 @@ import useTranslation from "next-translate/useTranslation";
 const ProductDetail = ({product, videohosting,  favorites, features, followings, published_count, private_count, access}) => {
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     const router = useRouter();
-    const [productModal, setProductModal] = useState(false)
+    const [productModal, setProductModal] = useState(false);
     const { t } = useTranslation();
     const [favoritesList, setFavoritesData] = useState(favorites);
     const [followingsList, setFollowingsData] = useState(followings)
@@ -90,7 +90,7 @@ const ProductDetail = ({product, videohosting,  favorites, features, followings,
                 <div className="product-container">
                     <div className="head" style={{backgroundImage: `url(${product.picture})`}}>
                         <div className="backdrop">
-                            <Image src={product.picture ? product.picture : '/icons/noimage.jpg'} width={820} height={480} />
+                            <Image src={product.picture ? product.picture : '/icons/noimage.jpg'} width={1280} height={720} />
                             <div className="product-name">
                                 <h4 className="production"> 
                                     <Image width={100} height={100} src="https://img.icons8.com/fluent/48/000000/verified-badge.png" alt="" />
@@ -143,7 +143,7 @@ const ProductDetail = ({product, videohosting,  favorites, features, followings,
                                         <Link href={`/product/${encodeURIComponent(product.isbn_code)}/videohosting/${encodeURIComponent(video.id)}`}>
                                             <a className="product-item">
                                                 <div className="picture">
-                                                    <Image width={1920} height={1080} src={product.picture} alt="" />
+                                                    <Image width={1920} height={1080} src={product.picture ? product.picture : "/icons/noimage.jpg"} alt="" />
                                                     <div className="body-comments">
                                                         <span onClick={bodyCommentHandle} className="body">
                                                             <Image width={100} height={100} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAAAhklEQVR4nO3ZsRGAMAwEQUT/PYsOMNGPjHdjBxpf+NcFAACQVasH3d2JQ05RVa9/fqcO4RtBhhEEAAAAAACAKJt6mE19M4IMIwgAAAAAAABRNvUwm/pmBBlGEAAAAAAAAKJs6mE29c0IMowgAAAAAAAARP1+U19t2NNYDIcRZBhBAAAADvcAB34UJNfaZ00AAAAASUVORK5CYII=" />

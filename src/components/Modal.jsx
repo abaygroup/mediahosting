@@ -27,7 +27,7 @@ const Background = styled.div`
         h4 {
             margin-bottom: 10px;
         }
-        ul {
+        .features {
             list-style: none;
             display: flex;
             flex-direction: column;
@@ -50,6 +50,10 @@ const Background = styled.div`
         }
     }
 
+    .edit-block {
+        padding: 60px; 
+    }
+
 
     // mediaqueries
     // ========================================
@@ -57,6 +61,11 @@ const Background = styled.div`
         .modal-block {
             padding: 60px 20px;
         }
+
+        .edit-block {
+            padding: 60px 20px;
+        }
+    
     }
 `;
 
@@ -69,7 +78,7 @@ export const Modal = ({about, features, body, showModal, setShowModal}) => {
             <div className="modal-block">
                 <h4>{about ? about : "Hello world"}</h4>
                 {features.length > 0 &&
-                <ul>
+                <ul className="features">
                     {features.map((feature, i) => (
                         <li key={i}>
                             <b>{feature.label}:</b><span>{feature.value}</span>
@@ -84,14 +93,14 @@ export const Modal = ({about, features, body, showModal, setShowModal}) => {
     )
 }
 
-export const BodyModal = ({body, showModal, setShowModal}) => {
+export const EditModal = ({showModal, setShowModal}) => {
     return (
         <>
             {showModal ?
             <Background>
                 <span className="close-btn" onClick={() => setShowModal(prev => !prev)}>Закрыть</span>
-                <div className="modal-block">
-                    <p>{body}</p>
+                <div className="edit-block">
+                    <h1>Edit modal</h1>
                 </div>
             </Background>
             : null}
@@ -99,18 +108,33 @@ export const BodyModal = ({body, showModal, setShowModal}) => {
     )
 }
 
-export const CommentModal = ({body, showModal, setShowModal}) => {
-    return (
-        <>
-            {showModal ?
-            <Background>
-                <span className="close-btn" onClick={() => setShowModal(prev => !prev)}>Закрыть</span>
-                <div className="modal-block">
-                    <p>{body}</p>
-                </div>
-            </Background>
-            : null}
-        </>
-    )
-}
+// export const BodyModal = ({body, showModal, setShowModal}) => {
+//     return (
+//         <>
+//             {showModal ?
+//             <Background>
+//                 <span className="close-btn" onClick={() => setShowModal(prev => !prev)}>Закрыть</span>
+//                 <div className="modal-block">
+//                     <p>{body}</p>
+//                 </div>
+//             </Background>
+//             : null}
+//         </>
+//     )
+// }
+
+// export const CommentModal = ({body, showModal, setShowModal}) => {
+//     return (
+//         <>
+//             {showModal ?
+//             <Background>
+//                 <span className="close-btn" onClick={() => setShowModal(prev => !prev)}>Закрыть</span>
+//                 <div className="modal-block">
+//                     <p>{body}</p>
+//                 </div>
+//             </Background>
+//             : null}
+//         </>
+//     )
+// }
 
