@@ -6,8 +6,7 @@ import { useSelector } from "react-redux";
 import useTranslation from 'next-translate/useTranslation'
 
 
-const Main = ({data}) => {
-    const {future_products, favorites_products, following_products, my_mediahosting,  last_products } = data
+const Main = ({future_products, favorites_products, following_products, my_mediahosting, last_products}) => {
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     const { t } = useTranslation();
 
@@ -45,11 +44,20 @@ export async function getServerSideProps(context) {
         }
     }
     const res = await fetch(`${BACKEND_URL}/api/`, context.req.cookies.access && config)
-    const data = await res.json()
+    const data = await res.json();
+    const future_products = data.future_products;
+    const favorites_products = data.favorites_products || null;
+    const following_products = data.following_products || null;
+    const my_mediahosting = data.my_mediahosting || null;
+    const last_products = data.last_products;
   
     return {
         props: {
-            data
+            future_products,
+            favorites_products,
+            following_products,
+            my_mediahosting,
+            last_products
         }
     }
 }
