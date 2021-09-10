@@ -35,12 +35,12 @@ const Login = () => {
         <React.Fragment>
             <Head>
                 <title>Авторизация | mediahosting</title>
-                <link rel="shortcut icon" href="https://abayst.netlify.app/icon64.png" />
+                <link rel="shortcut icon" href="/icons/m-black.png" />
             </Head>
             <div className="accounts-container">
                 <div className="head">
                     <Link href="/"><a className="back"><Image width={100} height={100} src="https://img.icons8.com/ios/100/000000/back--v1.png"/></a></Link>
-                    <Image width={1354} height={206} src="/icons/mediahosting-black.png" />
+                    <Image width={5276} height={730} src="/icons/logo-black.png" />
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h4>Чтобы продолжить, войдите в mediahosting.</h4>

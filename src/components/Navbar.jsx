@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="navbar-container">
             <div className="logo">
                 <Link href="/">
-                    <a><Image src="/icons/mediahosting-white.png" width={1354} height={206} /></a>
+                    <a><Image src="/icons/logo.png" width={5276} height={730} /></a>
                 </Link>
             </div>
             <ul>
