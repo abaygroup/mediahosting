@@ -9,7 +9,7 @@ function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <NextNprogress
-        color="crimson"
+        color="#03a9f4"
         startPosition={0.3}
         stopDelayMs={200}
         height={3}
