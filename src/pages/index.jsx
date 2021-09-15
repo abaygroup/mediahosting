@@ -50,7 +50,7 @@ export async function getServerSideProps(context) {
     const following_products = data.following_products || null;
     const my_mediahosting = data.my_mediahosting || null;
     const last_products = data.last_products;
-  
+
     return {
         props: {
             future_products,

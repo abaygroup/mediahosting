@@ -8,13 +8,28 @@ import { useRouter } from 'next/router'
 import { check_auth_status, login } from '../../actions/auth';
 import Loader from '../../components/Loader';
 
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+
+const schema = yup.object().shape({
+    email: yup.string()
+        .email('Электронная почта должна быть действительной')
+        .required('Электронная почта требуется'),
+    password: yup.string()
+        .required('Необходим пароль')
+        .matches(
+            /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/,
+            "Должен содержать 6 символов, один верхний регистр, один нижний регистр, одно число и один символ специального регистра."
+        ),
+});
+
 const Login = () => {
     const router = useRouter()
     const loading = useSelector(state => state.auth.loading);
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     const dispatch = useDispatch()
 
-    const { register, handleSubmit } = useForm();
+    const { register, formState:{ errors }, handleSubmit } = useForm({ resolver: yupResolver(schema) });
 
     const onSubmit = (data) => {
         if (dispatch && dispatch !== null && dispatch !== undefined) {
@@ -46,11 +61,13 @@ const Login = () => {
                     <h4>Чтобы продолжить, войдите в mediahosting.</h4>
                     <div className="form-group">
                         <label htmlFor="">Email адрес</label>
-                        <input type="text" {...register("email")} placeholder="example@gmail.com" minLength="3" maxLength="32" required/>
+                        <input type="text" {...register("email")} placeholder="example@gmail.com" minLength="3" maxLength="32"/>
+                        {errors["email"] ? <p>{errors["email"].message}</p>: null}
                     </div>
                     <div className="form-group">
                         <label htmlFor="">Пароль</label>
-                        <input type="password" {...register("password")} placeholder="Введите пароль" minLength="8" required/>
+                        <input type="password" {...register("password")} placeholder="Введите пароль" minLength="8"/>
+                        {errors["password"] ? <p>{errors["password"].message}</p>: null}
                     </div>
                     <div className="submit">
                         <Link href="https://dashboard.abaystreet.com/accounts/password/reset">
