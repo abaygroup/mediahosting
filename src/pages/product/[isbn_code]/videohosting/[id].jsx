@@ -27,6 +27,11 @@ const VideoHosting = ({video, videohosting}) => {
                                 <a><Image src="/icons/logo.png" width={5276} height={730} /></a>
                             </Link>
                         </div>
+                        <div className="nav">
+                            <span>О продукте</span>
+                            <span>Исходник</span>
+                            <span>Авторы</span>
+                        </div>
                     </div>
                     
                     <div className="youtube-frame">

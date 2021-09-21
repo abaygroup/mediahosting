@@ -17,10 +17,7 @@ const schema = yup.object().shape({
         .required('Электронная почта требуется'),
     password: yup.string()
         .required('Необходим пароль')
-        .matches(
-            /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/,
-            "Должен содержать 6 символов, один верхний регистр, один нижний регистр, одно число и один символ специального регистра."
-        ),
+        .min(6, 'Пароль должен состоять из 6 или более символов'),
 });
 
 const Login = () => {
@@ -37,11 +34,13 @@ const Login = () => {
         }
     };
 
+
     useEffect(() => {
         if (dispatch && dispatch !== null && dispatch !== undefined)
             dispatch(check_auth_status());
 
     }, [dispatch]);
+
 
     if (typeof window !== "undefined" && isAuthenticated)
         router.push("/");
@@ -66,7 +65,7 @@ const Login = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="">Пароль</label>
-                        <input type="password" {...register("password")} placeholder="Введите пароль" minLength="8"/>
+                        <input type="password" {...register("password")} placeholder="Введите пароль" />
                         {errors["password"] ? <p>{errors["password"].message}</p>: null}
                     </div>
                     <div className="submit">
@@ -78,8 +77,8 @@ const Login = () => {
                 </form>
                 <div className="register-block">
                     <h4>Нет аккаунта?</h4>
-                    <Link href="https://dashboard.abaystreet.com/accounts/register">
-                        <a target="_blank">Регистрация</a>
+                    <Link href="/accounts/register">
+                        <a>Регистрация</a>
                     </Link>
                 </div>
             </div>

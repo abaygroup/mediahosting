@@ -9,7 +9,7 @@ const Background = styled.div`
     top:0; left: 0;
     width: 100%;
     height: 100%;
-    background: black;
+    background: #333333;
     display: flex;
     justify-content: center;
     z-index: 1000;
@@ -41,14 +41,14 @@ const Background = styled.div`
                 border-bottom: 1px solid silver;
                 justify-content: space-between;
                 padding: 10px;
-                color: silver;
+                color: whitesmoke;
                 font-size: 14px;
             }
         }
 
         .body {
             font-size: 14px;
-            color: silver;
+            color: whitesmoke;
         }
     }
 
@@ -86,8 +86,8 @@ const Background = styled.div`
                     input {
                         display: block;
                         color: silver;
-                        border: 1px solid #333;
-                        background: #333;
+                        border: 1px solid black;
+                        background: black;
                         padding: 5px 20px;
                         font-size: 20px;
                         margin: 10px 0;
@@ -213,14 +213,13 @@ export const EditModal = ({data, showModal, setShowModal}) => {
                 <div className="edit-block">
                     <form onSubmit={handleSubmit(saveProfile)}>
                         <div className="logotype" >
-                            <Image src={data.logotype} width={512} height={512} />
+                            <Image src={data.logotype ? data.logotype : "/icons/noimage.jpg"} width={512} height={512} />
                             <input type="file" {...register("logotype")}/>
                         </div>
                         <div className="profile-name">
                             <h2>Профиль данные</h2>
                             <div className="form-group">
-                                <input type="text" defaultValue={data.first_name} {...register("first_name")}/>
-                                <input type="text" defaultValue={data.last_name} {...register("last_name")}/>
+                                <input type="text" defaultValue={data.full_name} {...register("full_name")}/>
                             </div>
                             <div className="submit">
                                 <input type="submit" value="Сохранить" />

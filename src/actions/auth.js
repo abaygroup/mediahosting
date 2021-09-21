@@ -1,4 +1,6 @@
 import { 
+    REGISTER_SUCCESS,
+    REGISTER_FAIL,
     AUTHENTICATED_FAIL,
     AUTHENTICATED_SUCCESS,
     LOAD_USER_FAIL,
@@ -11,7 +13,7 @@ import {
     SET_AUTH_LOADING 
 } 
 from "./types"
-
+import {setAlert } from './alert'
 
 // Load user 
 export const load_user = () => async dispatch => {
@@ -70,6 +72,48 @@ export const check_auth_status = () => async dispatch => {
     }
 };
 
+
+// Sign Up
+export const signup = (brandname, email, password, re_password) => async dispatch => {
+    const body = JSON.stringify({ brandname, email, password, re_password });
+
+    dispatch({
+        type: SET_AUTH_LOADING
+    });
+
+    try {
+        const res = await fetch('/api/accounts/register', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: body
+        });
+
+        if (res.status === 201) {
+            dispatch({
+                type: REGISTER_SUCCESS
+            });
+            dispatch(setAlert('Новая учетная запись успешно зарегистрирована', 'success'))
+        } else {
+            dispatch({
+                type: REGISTER_FAIL
+            });
+            dispatch(setAlert('Произошла ошибка при регистрации аккаунта', 'error'))
+        }
+    } catch(err) {
+        dispatch({
+            type: REGISTER_FAIL
+        });
+        dispatch(setAlert('Произошла ошибка при регистрации аккаунта', 'error'))
+    }
+
+    dispatch({
+        type: REMOVE_AUTH_LOADING
+    });
+};
+
 // Login
 export const login = (email, password) => async dispatch => {
     const body = JSON.stringify({ email, password })
@@ -90,16 +134,19 @@ export const login = (email, password) => async dispatch => {
             dispatch({
                 type: LOGIN_SUCCESS
             })
+            dispatch(setAlert('Ваша учетная запись была успешно авторизована', 'success'))
         } else {
             dispatch({
                 type: LOGIN_FAIL
             })
+            dispatch(setAlert('Произошла ошибка при входе в систему. Возможно, адрес электронной почты или пароль введены неверно.', 'error'))
         }
 
     } catch(err) {
         dispatch({
             type: LOGIN_FAIL
         })
+        dispatch(setAlert('Произошла ошибка при входе в систему. Возможно, адрес электронной почты или пароль введены неверно.', 'error'))
     }
 
     dispatch({
@@ -121,15 +168,18 @@ export const logout = () => async dispatch => {
         if (response.status === 200) {
             dispatch({
                 type: LOGOUT_SUCCESS
-            }) 
+            })
+            dispatch(setAlert('Вы вышли из системы', 'success'))
         } else {
             dispatch({
                 type: LOGOUT_FAIL
             })
+            dispatch(setAlert('Произошла ошибка', 'error'))
         }
     } catch (err) {
         dispatch({
             type: LOGOUT_FAIL
         })
+        dispatch(setAlert('Произошла ошибка', 'error'))
     }
 }

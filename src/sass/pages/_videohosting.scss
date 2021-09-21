@@ -12,6 +12,7 @@
             background-color: black;
             padding: 10px;
             display: flex;
+            align-items: center;
             border-bottom: 1px solid dimgray;
 
             .logo {
@@ -19,6 +20,16 @@
                     img {
                         width: 250px;
                     }
+                }
+            }
+
+            .nav {
+                margin-left: 40px;
+
+                span {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    color: silver;
                 }
             }
         }
@@ -95,12 +106,19 @@
     
             .m-header {
                 justify-content: center;
+                flex-direction: column;
     
                 .logo {
                     a {
                         img {
                             width: 200px;
                         }
+                    }
+                }
+
+                .nav {
+                    span {
+                        font-size: 14px;
                     }
                 }
             }

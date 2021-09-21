@@ -8,7 +8,6 @@ import FootBar from '../components/FootBar';
 import { useDispatch } from 'react-redux';
 import { check_auth_status } from '../actions/auth';
 
-
 const Layout = (props) => {
     const router = useRouter();
     const dispatch = useDispatch();
@@ -24,27 +23,28 @@ const Layout = (props) => {
         <React.Fragment>
             <Head>
                 <title>{props.title}</title>
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossOrigin="anonymous" />
                 <meta name="description" content={props.content} />
                 <link rel="shortcut icon" href="/icons/m-black.png"/>
             </Head>
             <div id="root">
-            <div className="main-container">
-                <Navbar />
-                <div className="platform">
-                    <Header />
-                    {props.children}
+                <div className="main-container">
+                    <Navbar />
+                    <div className="platform">
+                        <Header />
+                        {props.children}
+                    </div>
                 </div>
-            </div>
-            <FootBar />
-            <nav className="i18next">
-                {router.locales.map(locale => (
-                    <Link href={router.asPath} locale={locale} key={locale}>
-                        <a>
-                            {locale === "ru" ? "Русский" : locale === "kz" ? "Қазашқа" : null}
-                        </a>
-                    </Link>
-                ))}
-            </nav>
+                <FootBar />
+                <nav className="i18next">
+                    {router.locales.map(locale => (
+                        <Link href={router.asPath} locale={locale} key={locale}>
+                            <a>
+                                {locale === "ru" ? "Русский" : locale === "kz" ? "Қазашқа" : null}
+                            </a>
+                        </Link>
+                    ))}
+                </nav>
             </div>
         </React.Fragment>
     )

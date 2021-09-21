@@ -82,7 +82,7 @@ const Profile = ({profile, products, favorites, production_count, access}) => {
                                     : 
                                     <span>Профиль</span>}
                                 </h4>
-                                <h1>{profile.first_name && profile.last_name ? <p>{profile.first_name} {profile.last_name}</p> : router.query.brandname}</h1>
+                                <h1>{profile.full_name ? <p>{profile.full_name}</p> : router.query.brandname}</h1>
                                 <small>{production_count} {t("common:profile.production_count")}</small>
                             </div>
                             {user !== null && user.brandname === profile.brand.brandname &&
