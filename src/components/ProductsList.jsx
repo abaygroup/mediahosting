@@ -16,7 +16,9 @@ const ProductsList = ({title, products}) => {
                         </div>
                         <div className="title">
                             <h4>{product.title}</h4>
-                            <small>{product.about}</small>
+                            {product.authors.length > 0 ? product.authors.map(item => (
+                                <small key={item.id}>{item.full_name + " | "}</small> 
+                            )): <small>fuck |</small>}
                         </div>
                         <div className="goto">
                             <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png"/>
