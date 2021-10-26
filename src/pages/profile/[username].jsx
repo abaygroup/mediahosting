@@ -26,7 +26,7 @@ const Profile = ({profile, products, favorites, production_count, access}) => {
                     "Authorization": `JWT ${access}`
                 }
             }
-            const response = await fetch(`${BACKEND_URL}/api/profile/${router.query.brandname}/`, access && config);
+            const response = await fetch(`${BACKEND_URL}/api/profile/${router.query.username}/`, access && config);
             const data = await response.json()
             if (!cleanupFunction) {
                 setFavoritesData(data.favorites)
@@ -63,17 +63,17 @@ const Profile = ({profile, products, favorites, production_count, access}) => {
 
     return (
         <Layout
-            title={profile !== null && `${profile.brand.brandname} | Профиль`}
+            title={profile !== null && `${profile.user.username} - Профиль`}
             content="Страница профиля"
         >   
             {isAuthenticated &&
             <>
                 <EditModal data={profile} showModal={editModal} setShowModal={setEditModal} />
                 <div className="profile-container">
-                    <div className="head" style={{backgroundImage: `url(${profile.logotype})`}}>
+                    <div className="head" style={{backgroundImage: `url(${profile.avatar})`}}>
                         <div className="backdrop">
-                            <Image src={profile.logotype ? profile.logotype : "/icons/noimage.jpg"} width={512} height={512} />
-                            <div className="profile-name" onClick={() => user !== null && user.brandname === profile.brand.brandname && editProfile()}>
+                            <Image src={profile.avatar ? profile.avatar : "/icons/avatar.jpg"} width={512} height={512} />
+                            <div className="profile-name" onClick={() => user !== null && user.username === profile.user.username && editProfile()}>
                                 <h4 className="branding">{profile.branding ? 
                                     <>
                                         <Image width={100} height={100} src="https://img.icons8.com/fluent/48/000000/verified-badge.png" alt="" />
@@ -82,12 +82,12 @@ const Profile = ({profile, products, favorites, production_count, access}) => {
                                     : 
                                     <span>Профиль</span>}
                                 </h4>
-                                <h1>{profile.full_name ? <p>{profile.full_name}</p> : router.query.brandname}</h1>
+                                <h1>{profile.user.profile_name ? <p>{profile.user.profile_name}</p> : router.query.username}</h1>
                                 <small>{production_count} {t("common:profile.production_count")}</small>
                             </div>
-                            {user !== null && user.brandname === profile.brand.brandname &&
+                            {user !== null && user.username === profile.user.username &&
                             <div className="edit-btn">
-                                <span onClick={() => editProfile()}>Изменить профиль</span>
+                                <span onClick={() => editProfile()}>{t("common:profile.edit_profile")}</span>
                             </div>
                             }
                         </div>
@@ -95,18 +95,31 @@ const Profile = ({profile, products, favorites, production_count, access}) => {
                     
                     {products.length > 0 &&
                     <div className="profile-block">
-                        <h2>{t("common:profile.product_head")}</h2>
+                        <div className="product-head">
+                            <div className="left">
+                                <h2>{t("common:profile.product_head")}</h2>
+                                <small className="sub-head">{t("common:profile.sub_header")}</small>
+                            </div>
+                            <div className="right">
+                                <Link href="/"><a>{t("common:profile.edit_btn")}</a></Link>
+                            </div>
+                        </div>
+   
                         <div className="block">
                         {products.map((product, i) => (
                             <div className="product-box" key={i}>
                                 <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
                                     <a>
                                         <div className="picture" >
-                                            <Image width={1920} height={1080} src={product.picture ? product.picture : "/icons/noimage.jpg"} alt="" />
+                                            <Image width={1920} height={1080} src={product.album ? product.album : "/icons/noimage.jpg"} alt="" />
                                         </div>
                                         <div className="title">
                                             <h4>{product.title}</h4>
-                                            <small>{product.about}</small>
+                                            <small>
+                                            {product.authors.length > 0 && product.authors.map(item => (
+                                                <React.Fragment key={item.id}>{item.profile_name + ", "}</React.Fragment>))}
+                                            </small>
+                                            <small className="counts">{product.observers.length} людею и {product.favorites.length} лайков</small>
                                         </div>
                                         <div className="goto">
                                             <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png"/>
@@ -151,7 +164,7 @@ export async function getServerSideProps(context) {
             "Authorization": `JWT ${access}`
         }
     }
-    const response = await fetch(`${BACKEND_URL}/api/profile/${context.params.brandname}/`, access && config)
+    const response = await fetch(`${BACKEND_URL}/api/profile/${context.params.username}/`, access && config)
     
     const data = await response.json();
     const profile = data.profile;

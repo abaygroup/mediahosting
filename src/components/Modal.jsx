@@ -213,7 +213,7 @@ export const EditModal = ({data, showModal, setShowModal}) => {
                 <div className="edit-block">
                     <form onSubmit={handleSubmit(saveProfile)}>
                         <div className="logotype" >
-                            <Image src={data.logotype ? data.logotype : "/icons/noimage.jpg"} width={512} height={512} />
+                            <Image src={data.avatar ? data.avatar : "/icons/avatar.jpg"} width={512} height={512} />
                             <input type="file" {...register("logotype")}/>
                         </div>
                         <div className="profile-name">

@@ -77,8 +77,33 @@
         margin: 0 10px;
         transform: translateY(-60px);
 
-        h2 {
-            margin: 5px;
+        .product-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h2 {
+                margin-top: 10px;
+                margin-left: 10px;
+            }
+
+            .sub-head {
+                margin-left: 10px;
+                color: rgba(255, 255, 255, 0.705);
+            }
+
+            .right {
+                a {
+                    font-weight: bold;
+                    color: rgba(255, 255, 255, 0.705);
+                    margin-right: 10px;
+                    font-size: 14px;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
         }
         
         .block {
@@ -120,19 +145,24 @@
                             overflow: hidden; 
                         }
                         small {
-                            -webkit-line-clamp: 2; 
+                            -webkit-line-clamp: 1; 
                             -webkit-box-orient: vertical;
                             display: -webkit-box;
                             overflow: hidden;
                             color: silver;
                         }
+                        .counts { 
+                            margin-top: 5px;
+                        }
                     }
         
                     .goto {
-                        display: none;
                         position: absolute;
                         right: 15px;
-                        bottom: 60px;
+                        bottom: 40px;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: all .3s;
         
                         img {
                             width: 48px;
@@ -162,7 +192,9 @@
                     
                     a {
                         .goto {
-                            display: block;
+                            bottom: 60px;
+                            visibility: visible;
+                            opacity: 1;
                         }
                     }
                 }
@@ -393,10 +425,23 @@
         }
 
         .profile-block {
-            h2 {
-                margin: 5px 0;
-                text-align: center;
-                font-size: 120%;
+
+            .product-head {
+                h2 {
+                    margin: 5px 0;
+                    text-align: center;
+                    font-size: 120%;
+                }
+    
+                .sub-head {
+                    display: none;
+                }
+    
+                .right {
+                    a {
+                        display: none;
+                    }
+                }
             }
 
             .block {

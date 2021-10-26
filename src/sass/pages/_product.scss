@@ -202,11 +202,61 @@
         }
     }
 
-    .empty {
-        width: 100%;
-        display: block;
-        text-align: center;
-        color: silver;
+    .empty-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+
+        img {
+            width: 50px;
+        }
+
+        .empty {
+            color: silver;
+        }
+    }
+
+    .fist-about {
+        max-width: 720px;
+        transform: translateY(-40px);
+        padding: 0 20px 20px 20px;
+        margin: 0 auto;
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        small {
+            color: silver;
+            a {
+                color: silver;
+                text-decoration: underline;
+
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+
+        button {
+            color: black;
+            font-family: "Inter", sans-serif;
+            border: none;
+            display: block;
+            background-color: white;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 50px;
+            margin: 20px auto;
+            cursor: pointer;
+            transition: all .3s;
+
+            &:hover {
+                opacity: .7;
+            }
+        }
     }
 }
 

@@ -9,12 +9,15 @@ const Future = ({products}) => {
 
     return (
         <div className="future">
-            <h1>{t("common:main.h1")}</h1>
+            <div className="head">
+                <h1>{t("common:main.h1")}</h1>
+                <small className="sub-header">{t("common:main.sub1")}</small>
+            </div>
             <div className="block">
             {products.map((product, i) => (
                 <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
                     <a className="product-box">
-                        <Image width={1280} height={720} src={product.picture ? product.picture : "/icons/noimage.jpg"} alt={product.title} />
+                        <Image width={1280} height={720} src={product.album ? product.album : "/icons/noimage.jpg"} alt={product.title} />
                         <div className="title">
                             <h4>{product.title}</h4>
                         </div>

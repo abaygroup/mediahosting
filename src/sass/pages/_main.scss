@@ -13,6 +13,10 @@
             margin-left: 10px;
             font-size: 150%;
         }
+        small {
+            margin-left: 10px;
+            color: rgb(136, 136, 136);
+        }
 
         .block {
             margin: 10px 0;
@@ -44,6 +48,7 @@
                         display: -webkit-box;
                         overflow: hidden;
                     }
+                    
                 }
 
                 .goto {
@@ -76,10 +81,40 @@
     .products, .following, .my-videohosting, .favorites {
         margin-bottom: 40px;
 
-        h1 {
-            margin-left: 10px;
-            font-size: 150%;
+        .head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h1 {
+                margin-left: 10px;
+                font-size: 150%;
+
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+            }
+    
+            .sub-header {
+                margin-left: 10px;
+                color: rgba(255, 255, 255, 0.705);
+            }
+
+            .right {
+                a {
+                    font-weight: bold;
+                    color: rgba(255, 255, 255, 0.705);
+                    margin-right: 10px;
+                    font-size: 14px;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
         }
+
 
         .block {
             margin: 10px 0;
@@ -118,11 +153,15 @@
                         overflow: hidden; 
                     }
                     small {
-                        -webkit-line-clamp: 2; 
+                        -webkit-line-clamp: 1; 
                         -webkit-box-orient: vertical;
                         display: -webkit-box;
                         overflow: hidden;
                         color: silver;
+                    }
+
+                    .counts {
+                        margin-top: 4px;
                     }
                 }
 
@@ -304,9 +343,12 @@
         }
 
         .products, .following, .my-videohosting, .favorites {
-            h1 {
-                font-size: 150%;
+            .head {
+                h1 {
+                    font-size: 150%;
+                }
             }
+      
             .block {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -326,6 +368,10 @@
             h1 {
                 margin: 0;
                 font-size: 120%;
+            }
+
+            .sub-header {
+                display: none;
             }
 
             .block {
@@ -357,9 +403,14 @@
         .products {
             margin-bottom: 20px;
 
-            h1 {
-                margin: 0 10px;
-                font-size: 120%;
+            .head {
+                h1 {
+                    margin: 0 10px;
+                    font-size: 120%;
+                }
+                .sub-header {
+                    display: none;
+                }
             }
 
             .block {

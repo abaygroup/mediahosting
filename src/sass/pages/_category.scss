@@ -145,11 +145,14 @@
                             overflow: hidden; 
                         }
                         small {
-                            -webkit-line-clamp: 2; 
+                            -webkit-line-clamp: 1; 
                             -webkit-box-orient: vertical;
                             display: -webkit-box;
                             overflow: hidden;
                             color: silver;
+                        }
+                        .counts {
+                            margin-top: 4px;
                         }
                     }
     

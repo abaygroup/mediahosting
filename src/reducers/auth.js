@@ -11,6 +11,8 @@ import {
     SET_AUTH_LOADING,
     REGISTER_SUCCESS,
     REGISTER_FAIL,
+    ACTIVATION_SUCCESS,
+    ACTIVATION_FAIL,
 } 
 
 from "../actions/types";
@@ -77,6 +79,8 @@ const authReducer = (state=initialState, action) => {
                 isAuthenticated: false,
                 user: null
             }
+        case ACTIVATION_SUCCESS:
+        case ACTIVATION_FAIL:
         case LOGIN_FAIL:
             return {
                 ...state

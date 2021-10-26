@@ -70,11 +70,15 @@ const CategoryDetail = ({data, access}) => {
                             <Link href={`/product/${encodeURIComponent(product.isbn_code)}`}>
                                 <a>
                                     <div className="picture" >
-                                        <Image width={1920} height={1080} src={product.picture ? product.picture : "/icons/noimage.jpg"} alt={product.title} />
+                                        <Image width={1920} height={1080} src={product.album ? product.album : "/icons/noimage.jpg"} alt={product.title} />
                                     </div>
                                     <div className="title">
                                         <h4>{product.title}</h4>
-                                        <small>{product.about}</small>
+                                        <small>
+                                            {product.authors.length > 0 && product.authors.map(item => (
+                                            <React.Fragment key={item.id}>{item.profile_name + ", "}</React.Fragment>))}
+                                        </small>
+                                        <small className="counts">{product.observers.length} людею и {product.favorites.length} лайков</small>
                                     </div>
                                     <div className="goto">
                                         <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png"/>

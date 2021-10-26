@@ -18,12 +18,9 @@ const schema = yup.object().shape({
     email: yup.string()
         .email('Электронная почта должна быть действительной')
         .required('Электронная почта требуется'),
-    password: yup.string()
-        .required('Необходим пароль')
-        .min(6, 'Пароль должен состоять из 6 или более символов'),
 });
 
-const Login = () => {
+const PasswordReset = () => {
     const router = useRouter()
     const loading = useSelector(state => state.auth.loading);
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
@@ -33,9 +30,10 @@ const Login = () => {
     const { register, formState:{ errors }, handleSubmit } = useForm({ resolver: yupResolver(schema) });
 
     const onSubmit = (data) => {
-        if (dispatch && dispatch !== null && dispatch !== undefined) {
-            dispatch(login(data.email, data.password));
-        }
+        // if (dispatch && dispatch !== null && dispatch !== undefined) {
+        //     dispatch(login(data.email, data.password));
+        // }
+        alert(data.email)
     };
 
 
@@ -51,41 +49,30 @@ const Login = () => {
 
     return (
         <React.Fragment>
-            <AccountLayout title="Авторизация - mediahosting" content="Авторизация">
+            <AccountLayout title="Сброс пароля - mediahosting" content="Сброс пароля">
             <div className="accounts-container">
                 <div className="head">
                     <Link href="/"><a className="back"><Image width={100} height={100} src="https://img.icons8.com/ios/100/000000/back--v1.png"/></a></Link>
                     <Link href="/"><a><Image width={5276} height={730} src="/icons/logo-black.png" /></a></Link>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <h4>{t("common:accounts.login.h4")}</h4>
+                    <h4>{t("common:accounts.password-reset.h4")}</h4>
                     <div className="form-group">
-                        <label htmlFor="">{t("common:accounts.login.form.email.label")}</label>
-                        <input type="text" className={errors["email"] && "warning"} {...register("email")} placeholder={t("common:accounts.login.form.email.placeholder")} minLength="3" maxLength="32"/>
+                        <label htmlFor="">{t("common:accounts.password-reset.form.email.label")}</label>
+                        <input type="text" className={errors["email"] && "warning"} {...register("email")} placeholder={t("common:accounts.password-reset.form.email.placeholder")} minLength="3" maxLength="32"/>
                         {errors["email"] ? <p>{errors["email"].message}</p>: null}
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="">{t("common:accounts.login.form.password.label")}</label>
-                        <input type="password" className={errors["password"] && "warning"} {...register("password")} placeholder={t("common:accounts.login.form.password.placeholder")} />
-                        {errors["password"] ? <p>{errors["password"].message}</p>: null}
-                    </div>
                     <div className="submit">
-                        <Link href="/accounts/password-reset">
-                            <a>{t("common:accounts.forgot_password")}</a>
+                        <Link href="/accounts/login">
+                            <a>{t("common:accounts.back")}</a>
                         </Link>
-                        {loading ? <Loader />: <input type="submit" value={t("common:accounts.enter")} />}
+                        {loading ? <Loader />: <input type="submit" value={t("common:accounts.password-reset.form.submit")} />}
                     </div>
                 </form>
-                <div className="register-block">
-                    <h4>{t("common:accounts.is_register")}</h4>
-                    <Link href="/accounts/register">
-                        <a>{t("common:accounts.register.form.submit")}</a>
-                    </Link>
-                </div>
             </div>
             </AccountLayout>
         </React.Fragment>
     ) 
 }
 
-export default Login;
+export default PasswordReset;

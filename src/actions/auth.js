@@ -10,7 +10,9 @@ import {
     LOGOUT_FAIL, 
     LOGOUT_SUCCESS, 
     REMOVE_AUTH_LOADING, 
-    SET_AUTH_LOADING 
+    SET_AUTH_LOADING, 
+    ACTIVATION_SUCCESS,
+    ACTIVATION_FAIL
 } 
 from "./types"
 import {setAlert } from './alert'
@@ -72,10 +74,41 @@ export const check_auth_status = () => async dispatch => {
     }
 };
 
+// Activation
+export const activation = (uid, token) => async dispatch => {
+    const body = JSON.stringify({ uid, token });
+    try {
+        const response = await fetch('/api/accounts/activate', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: body
+        });
+
+        if (response.status === 200) {
+            dispatch({
+                type: ACTIVATION_SUCCESS
+            });
+            dispatch(setAlert('Активация прошло успешно!', 'success'))
+        } else {
+            dispatch({
+                type: ACTIVATION_FAIL
+            });
+            dispatch(setAlert('Активация не выполнено!', 'error'))
+        }
+    } catch(err) {
+        dispatch({
+            type: ACTIVATION_FAIL
+        });
+        dispatch(setAlert('Активация не выполнено!', 'error'))
+    }
+}
 
 // Sign Up
-export const signup = (brandname, email, password, re_password) => async dispatch => {
-    const body = JSON.stringify({ brandname, email, password, re_password });
+export const signup = (username, email, profile_name, phone, password, re_password) => async dispatch => {
+    const body = JSON.stringify({ username, email, profile_name, phone, password, re_password });
 
     dispatch({
         type: SET_AUTH_LOADING

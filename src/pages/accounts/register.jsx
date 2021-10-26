@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import Loader from '../../components/Loader';
@@ -12,11 +11,14 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { BACKEND_URL } from '../../actions/types';
+import AccountLayout from '../../hocs/accountsLayout';
+import useTranslation from 'next-translate/useTranslation'
 
 
 const Register = () => {
     const [emailList, setEmailList] = useState([])
-    const [brandList, setBrandList] = useState([])
+    const [userList, setUserList] = useState([])
+    const { t } = useTranslation();
 
     useEffect(() => {
         let cleanupFunction = false;
@@ -28,7 +30,7 @@ const Register = () => {
                 const data = await res.json()
                 data.map(user => {
                     setEmailList(emailList => [...emailList, user.email])
-                    setBrandList(brandList => [...brandList, user.brandname])
+                    setUserList(userList => [...userList, user.username])
                 })
             } catch (e) {
                 console.log(e);
@@ -39,8 +41,8 @@ const Register = () => {
     }, [])
 
     const schema = yup.object().shape({
-        brandname: yup.string()
-        .notOneOf(brandList, 'Имя такое же пользователь уже существует')
+        username: yup.string()
+        .notOneOf(userList, 'Имя такое же пользователь уже существует')
         .min(3, "Минимум 3 символа")
         .max(32, "Максимум 32 символов")
         .matches(
@@ -52,6 +54,12 @@ const Register = () => {
             .notOneOf(emailList, 'Электронная почта уже существует')
             .required('Электронная почта требуется')
             .max(32, "Максимум 32 символов"),
+        profile_name: yup.string()
+            .required('Имя требуется')
+            .max(32, "Максимум 32 символов"),
+        phone: yup.string()
+            .required('Телефон требуется')
+            .max(32, "Максимум 12 символов"),
         password: yup.string()
             .required('Необходим пароль')
             .min(6, 'Пароль должен состоять из 6 или более символов')
@@ -74,7 +82,7 @@ const Register = () => {
 
     const onSubmit = (data) => {
         if (dispatch && dispatch !== null && dispatch !== undefined)
-            dispatch(signup(data.brandname, data.email, data.password, data.re_password));
+            dispatch(signup(data.username, data.email, data.profile_name, data.phone, data.password, data.re_password));
     };
 
 
@@ -89,52 +97,60 @@ const Register = () => {
 
 
         if (register_success)
-            router.push('/accounts/login');
+            router.push('/accounts/success');
     return (
         <React.Fragment>
-            <Head>
-                <title>Регистрация | mediahosting</title>
-                <link rel="shortcut icon" href="/icons/m-black.png" />
-            </Head>
+            <AccountLayout title="Регистрация - mediahosting" content="Регистрация">
             <div className="accounts-container">
                 <div className="head">
                     <Link href="/"><a className="back"><Image width={100} height={100} src="https://img.icons8.com/ios/100/000000/back--v1.png"/></a></Link>
-                    <Image width={5276} height={730} src="/icons/logo-black.png" />
+                    <Link href="/"><a><Image width={5276} height={730} src="/icons/logo-black.png" /></a></Link>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <h4>Зарегистрируйтесь бесплатно, чтобы начать обучаться.</h4>
+                    <h4>{t("common:accounts.register.h4")}</h4>
                     <div className="form-group">
-                        <label htmlFor="">Имя пользователя</label>
-                        <input type="text" {...register("brandname")} placeholder="Ваше имя пользователья" />
-                        {errors["brandname"] ? <p>{errors["brandname"].message}</p>: null}
+                        <label htmlFor="">{t("common:accounts.register.form.username.label")}</label>
+                        <input type="text" className={errors["username"] && "warning"} {...register("username")} placeholder={t("common:accounts.register.form.username.placeholder")} />
+                        {errors["username"] ? <p>{errors["username"].message}</p>: null}
                     </div>
                     <div className="form-group">
-                        <label htmlFor="">Email адрес</label>
-                        <input type="email" {...register("email")} placeholder="example@gmail.com"/>
+                        <label htmlFor="">{t("common:accounts.register.form.email.label")}</label>
+                        <input type="email" className={errors["email"] && "warning"} {...register("email")} placeholder={t("common:accounts.register.form.email.placeholder")} />
                         {errors["email"] ? <p>{errors["email"].message}</p>: null}
                     </div>
                     <div className="form-group">
-                        <label htmlFor="">Пароль</label>
-                        <input type="password" {...register("password")} placeholder="Введите пароль" minLength="8"/>
+                        <label htmlFor="">{t("common:accounts.register.form.profile_name.label")}</label>
+                        <input type="text" className={errors["profile_name"] && "warning"} {...register("profile_name")} placeholder={t("common:accounts.register.form.profile_name.placeholder")} />
+                        {errors["profile_name"] ? <p>{errors["profile_name"].message}</p>: null}
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="">{t("common:accounts.register.form.phone.label")}</label>
+                        <input type="text" className={errors["phone"] && "warning"} {...register("phone")} placeholder="+X (XXX) XXX XX XX" />
+                        {errors["phone"] ? <p>{errors["phone"].message}</p>: null}
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="">{t("common:accounts.register.form.password.label")}</label>
+                        <input type="password" className={errors["password"] && "warning"} {...register("password")} placeholder={t("common:accounts.register.form.password.placeholder")} minLength="8"/>
                         {errors["password"] ? <p>{errors["password"].message}</p>: null}
                     </div>
                     <div className="form-group">
-                        <label htmlFor="">Повторить пароль</label>
-                        <input type="password" {...register("re_password")} placeholder="Введите пароль еще раз" minLength="8"/>
+                        <label htmlFor="">{t("common:accounts.register.form.re_password.label")}</label>
+                        <input type="password" className={errors["re_password"] && "warning"} {...register("re_password")} placeholder={t("common:accounts.register.form.re_password.placeholder")} minLength="8"/>
                         {errors["re_password"] ? <p>{errors["re_password"].message}</p>: null}
                     </div>
                     <div className="submit">
                         <span></span>
-                        {loading ? <Loader />: <input type="submit" value="Регистрация" />}
+                        {loading ? <Loader />: <input type="submit" value={t("common:accounts.register.form.submit")} />}
                     </div>
                 </form>
                 <div className="register-block">
-                    <h4>У вас есть аккаунт?</h4>
+                    <h4>{t("common:accounts.is_accounts")}</h4>
                     <Link href="/accounts/login">
-                        <a>Войти</a>
+                        <a>{t("common:accounts.enter")}</a>
                     </Link>
                 </div>
             </div>
+            </AccountLayout>
         </React.Fragment>
     )
 }

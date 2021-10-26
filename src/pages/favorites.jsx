@@ -1,4 +1,5 @@
 import useTranslation from "next-translate/useTranslation";
+import React from 'react';
 import Link from "next/link";
 import Image from 'next/image';
 import { useRouter } from "next/router";
@@ -22,17 +23,23 @@ const Favorites = ({favorites_products}) => {
         >
             {isAuthenticated &&<div className="main-container-block">
                 <div className="favorites">
-                    <h1>{t('common:favorites.h1')}</h1>
+                    <div className="head">
+                        <h1>{t('common:favorites.h1')}</h1>
+                    </div>
                     <div className="block">
                     {favorites_products && favorites_products.map((product, i) => (
                         <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} locale={router.locale} key={i}>
                             <a className="product-box">
                                 <div className="picture" >
-                                    <Image width={1280} height={720} src={product.picture ? product.picture : "/icons/noimage.jpg"} alt={product.title} />
+                                    <Image width={1280} height={720} src={product.album ? product.album : "/icons/noimage.jpg"} alt={product.title} />
                                 </div>
                                 <div className="title">
                                     <h4>{product.title}</h4>
-                                    <small>{product.about}</small>
+                                    <small>
+                                        {product.authors.length > 0 && product.authors.map(item => (
+                                        <React.Fragment key={item.id}>{item.profile_name + ", "}</React.Fragment>))}
+                                    </small>
+                                    <small className="counts">{product.observers.length} людею и {product.favorites.length} лайков</small>
                                 </div>
                                 <div className="goto">
                                     <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png" alt={product.title} />

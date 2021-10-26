@@ -2,8 +2,8 @@ import { BACKEND_URL } from '../../../actions/types';
 
 export default async (req, res) => {
     if(req.method === "POST") {
-        const { brandname, email, password, re_password } = req.body;
-        const body = JSON.stringify({ brandname, email, password, re_password })
+        const { username, email, profile_name, phone, password, re_password } = req.body;
+        const body = JSON.stringify({ username, email, profile_name, phone, password, re_password })
         
         try {
             const response = await fetch(`${BACKEND_URL}/auth/users/`, {
