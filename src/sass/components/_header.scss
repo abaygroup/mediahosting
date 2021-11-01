@@ -4,6 +4,7 @@
     top: 0;
     z-index: 1000;
     padding: 15px 20px;
+    transition: all .3s;
 
     
     .intro-header {
@@ -30,6 +31,25 @@
                 &:hover {
                     background: rgb(36, 36, 36);
                 }
+            }
+        }
+
+        .play {
+            margin-right: auto;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            img {
+                position: absolute;
+                width: 36px;
+                height: 36px;
+            }
+
+            h2 {
+                margin-left: 45px;
+                display: inline-block;
             }
         }
 
@@ -128,6 +148,10 @@
         
         .intro-header {
             .prev-next {
+                display: none;
+            }
+
+            .play {
                 display: none;
             }
 

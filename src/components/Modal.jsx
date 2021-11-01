@@ -9,9 +9,10 @@ const Background = styled.div`
     top:0; left: 0;
     width: 100%;
     height: 100%;
-    background: #333333;
+    background: #000000d9;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     z-index: 1000;
 
     .close-btn {
@@ -23,8 +24,12 @@ const Background = styled.div`
     }
 
     .modal-block {
-        padding: 60px;
+        max-width: 640px;
+        margin: 50px auto;
+        border-radius: 5px;
+        padding: 40px;
         overflow: auto;
+        background: #333;
 
         h4 {
             margin-bottom: 10px;
@@ -53,7 +58,12 @@ const Background = styled.div`
     }
 
     .edit-block {
-        padding: 60px;
+        max-width: 640px;
+        margin: 50px auto;
+        border-radius: 5px;
+        padding: 40px;
+        overflow: auto;
+        background: #333;
         overflow-y: auto;
 
         ::-webkit-scrollbar {
@@ -63,12 +73,11 @@ const Background = styled.div`
         form {
             display: flex;
             justify-content: center;
-            align-items: center;
 
             .logotype {
                 img {
-                    width: 220px;
-                    height: 220px;
+                    width: 180px;
+                    height: 180px;
                     border-radius: 50%;
                     margin: 10px auto;
                 }
@@ -78,7 +87,11 @@ const Background = styled.div`
             }
 
             .profile-name {
-                margin: 10px;
+                margin: 10px 20px;
+
+                h2 {
+                    margin-bottom: 20px;
+                }
                 
                 .form-group {
                     text-align: center;
@@ -86,12 +99,12 @@ const Background = styled.div`
                     input {
                         display: block;
                         color: silver;
-                        border: 1px solid black;
-                        background: black;
+                        border: 1px solid #b3b3b352;
+                        background: #b3b3b352;
                         padding: 5px 20px;
                         font-size: 20px;
                         margin: 10px 0;
-                        border-radius: 50px;
+                        border-radius: 5px;
                     }
                 }
     
@@ -99,6 +112,7 @@ const Background = styled.div`
                     display: flex;
                     justify-content: center;
                     margin-top: 20px;
+                    transition: all .3s;
     
                     input {
                         padding: 5px 20px;
@@ -108,8 +122,20 @@ const Background = styled.div`
                         font-size: 14px;
                         cursor: pointer;
                     }
+
+                    &:hover {
+                        opacity: .7;
+                    }
                 }
             }
+        }
+
+        small.conf {
+            font-size: 12px;
+            color: silver;
+            text-align: center;
+            display: block;
+            margin-top: 20px;
         }
     }
 
@@ -226,6 +252,10 @@ export const EditModal = ({data, showModal, setShowModal}) => {
                             </div>
                         </div>
                     </form>
+                    <small className="conf">
+                        Продолжая, ты предоставляешь Mediahosting доступ к выбранному изображению. 
+                        Пожалуйста, не загружай файлы, которые ты не имеешь права распространять.
+                    </small>
                 </div>
             </Background>
             : null}

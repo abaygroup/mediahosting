@@ -37,7 +37,7 @@ const ProductDetail = ({product, videohosting, favorites, features, followings, 
 
         fetchData();
         return () => cleanupFunction = true; 
-    }, [favoritesList, followingsList])
+    }, [])
 
     if(typeof window !== 'undefined' && !isAuthenticated) {
         router.push('/accounts/login')
@@ -85,6 +85,7 @@ const ProductDetail = ({product, videohosting, favorites, features, followings, 
         <Layout
             title={product !== null ? product.title : "Продукт"}
             content="Страница продуктов"
+            header={product !== null && product.title}
         >
             {isAuthenticated &&
             <>

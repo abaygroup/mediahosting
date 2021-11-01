@@ -8,6 +8,7 @@ import FootBar from '../components/FootBar';
 import { useDispatch } from 'react-redux';
 import { check_auth_status } from '../actions/auth';
 
+
 const Layout = (props) => {
     const router = useRouter();
     const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const Layout = (props) => {
                 <div className="main-container">
                     <Navbar />
                     <div className="platform">
-                        <Header />
+                        <Header header={props.header} />
                         {props.children}
                     </div>
                 </div>
