@@ -10,6 +10,7 @@ const Header = (props) => {
     const dispatch = useDispatch();
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     const user = useSelector(state => state.auth.user)
+    const title = props.header ? `<img src='https://img.icons8.com/color/96/000000/circled-play--v1.png' /><h2>${props.header}</h2>` : ""
 
     const logoutHandler = () => {
         if(dispatch && dispatch !== null && dispatch !== undefined) {
@@ -23,11 +24,11 @@ const Header = (props) => {
                 {`
                     var platform = document.querySelector('.platform');
                     
+
                     platform.addEventListener('scroll', function() {
                         if (platform.scrollTop > 60) {
                             document.querySelector('.header').classList.add('sticky')
-                            document.querySelector('.play').innerHTML = "<img src='https://img.icons8.com/color/96/000000/circled-play--v1.png' /><h2>${props.header}</h2>"
-                            
+                            document.querySelector('.play').innerHTML = "${title}"
                         } else {
                             document.querySelector('.header').classList.remove('sticky');
                             document.querySelector('.play').innerHTML = ""
