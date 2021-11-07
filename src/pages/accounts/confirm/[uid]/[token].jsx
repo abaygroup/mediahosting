@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import AccountLayout from '../../hocs/accountsLayout';
+import AccountLayout from '../../../../hocs/accountsLayout';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router'
-import { check_auth_status, login } from '../../actions/auth';
-import Loader from '../../components/Loader';
+import { check_auth_status, reset_password_confirm } from '../../../../actions/auth';
+import Loader from '../../../../components/Loader';
 
 import useTranslation from 'next-translate/useTranslation'
 
@@ -37,10 +37,10 @@ const PasswordResetConfirm = () => {
     const { register, formState:{ errors }, handleSubmit } = useForm({ resolver: yupResolver(schema) });
 
     const onSubmit = (data) => {
-        // if (dispatch && dispatch !== null && dispatch !== undefined) {
-        //     dispatch(login(data.email, data.password));
-        // }
-        alert(data.new_password, data.re_new_password)
+        if (dispatch && dispatch !== null && dispatch !== undefined) {
+            dispatch(reset_password_confirm(router.query.uid, router.query.token, data.new_password, data.re_new_password));
+        }
+        router.push('/accounts/login')
     };
 
 

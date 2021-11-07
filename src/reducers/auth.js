@@ -13,6 +13,10 @@ import {
     REGISTER_FAIL,
     ACTIVATION_SUCCESS,
     ACTIVATION_FAIL,
+    PASSWORD_RESET_SUCCESS,
+    PASSWORD_RESET_CONFIRM_SUCCESS,
+    PASSWORD_RESET_FAIL,
+    PASSWORD_RESET_CONFIRM_FAIL,
 } 
 
 from "../actions/types";
@@ -79,16 +83,19 @@ const authReducer = (state=initialState, action) => {
                 isAuthenticated: false,
                 user: null
             }
+        case PASSWORD_RESET_SUCCESS:
+        case PASSWORD_RESET_CONFIRM_SUCCESS:
         case ACTIVATION_SUCCESS:
+
+        case PASSWORD_RESET_FAIL:
+        case PASSWORD_RESET_CONFIRM_FAIL:
         case ACTIVATION_FAIL:
         case LOGIN_FAIL:
-            return {
-                ...state
-            }
         case LOGOUT_FAIL:
             return {
                 ...state
             }
+
         default:
             return state;
     }

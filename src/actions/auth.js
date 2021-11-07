@@ -12,7 +12,11 @@ import {
     REMOVE_AUTH_LOADING, 
     SET_AUTH_LOADING, 
     ACTIVATION_SUCCESS,
-    ACTIVATION_FAIL
+    ACTIVATION_FAIL,
+    PASSWORD_RESET_SUCCESS,
+    PASSWORD_RESET_FAIL,
+    PASSWORD_RESET_CONFIRM_FAIL,
+    PASSWORD_RESET_CONFIRM_SUCCESS
 } 
 from "./types"
 import {setAlert } from './alert'
@@ -186,6 +190,61 @@ export const login = (email, password) => async dispatch => {
         type: REMOVE_AUTH_LOADING
     })
 }
+
+// Password reset 
+export const passwordReset = (email) => async dispatch => {
+    const body = JSON.stringify({ email });
+    try {
+        const response = await fetch('/api/accounts/reset-password/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: body
+        });
+
+        if(response.status === 200) {
+            dispatch({ type: PASSWORD_RESET_SUCCESS });
+            dispatch(setAlert('Сброс пароля прошло успешно!', 'success'))
+        } else {
+            dispatch({ type: PASSWORD_RESET_FAIL });
+            dispatch(setAlert('Сброс пароля не выполнено!', 'error'))
+        }
+        
+    } catch (err) {
+        dispatch({ type: PASSWORD_RESET_FAIL });
+        dispatch(setAlert('Сброс пароля не выполнено!', 'error'))
+    }
+}
+
+
+// Reset password confirm
+export const reset_password_confirm = (uid, token, new_password, re_new_password) => async dispatch => {
+    const body = JSON.stringify({ uid, token, new_password, re_new_password });
+    try {
+        const response = await fetch('/api/accounts/reset-password-confirm/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: body
+        });
+
+        if(response.status === 200) {
+            dispatch({ type: PASSWORD_RESET_CONFIRM_SUCCESS });
+            dispatch(setAlert('Новый пароль прошло успешно!', 'success'))
+        } else {
+            dispatch({ type: PASSWORD_RESET_CONFIRM_FAIL });
+            dispatch(setAlert('Новый пароль не выполнено!', 'error'))
+        }
+        
+    } catch (err) {
+        dispatch({  type: PASSWORD_RESET_CONFIRM_FAIL });
+        dispatch(setAlert('Новый пароль не выполнено!', 'error'))
+    }
+};
 
 
 // Logout

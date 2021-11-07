@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router'
-import { check_auth_status, login } from '../../actions/auth';
+import { check_auth_status, passwordReset } from '../../actions/auth';
 import Loader from '../../components/Loader';
 
 import useTranslation from 'next-translate/useTranslation'
@@ -30,10 +30,9 @@ const PasswordReset = () => {
     const { register, formState:{ errors }, handleSubmit } = useForm({ resolver: yupResolver(schema) });
 
     const onSubmit = (data) => {
-        // if (dispatch && dispatch !== null && dispatch !== undefined) {
-        //     dispatch(login(data.email, data.password));
-        // }
-        alert(data.email)
+        if (dispatch && dispatch !== null && dispatch !== undefined) {
+            dispatch(passwordReset(data.email));
+        }
     };
 
 
