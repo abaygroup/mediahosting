@@ -28,9 +28,9 @@ const VideoHosting = ({video, videohosting}) => {
                             </Link>
                         </div>
                         <div className="nav">
-                            <span>О продукте</span>
+                            {/* <span>О продукте</span>
                             <span>Исходник</span>
-                            <span>Авторы</span>
+                            <span>Авторы</span> */}
                         </div>
                     </div>
                     
