@@ -30,6 +30,7 @@ const Background = styled.div`
         border-radius: 5px;
         padding: 40px;
         background: #333;
+        overflow-x: scroll;
 
         h4 {
             margin-bottom: 10px;
@@ -169,7 +170,9 @@ const Background = styled.div`
 
     @media screen and (max-width: 420px) {
         .modal-block {
-            padding: 60px 20px;
+            padding: 60px 10px;
+            margin-left: 10px;
+            margin-right: 10px;
 
             .body {
                 p {
