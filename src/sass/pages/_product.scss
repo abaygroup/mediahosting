@@ -219,13 +219,18 @@
     }
 
     .fist-about {
-        max-width: 720px;
+        max-width: 1024px;
         transform: translateY(-40px);
         padding: 0 20px 20px 20px;
         margin: 0 auto;
 
-        h2 {
+        
+        h1, h4 {
             margin-bottom: 10px;
+            text-align: center;
+        }
+        h4 {
+            color: silver;
         }
 
         small {

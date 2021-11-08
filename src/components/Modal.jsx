@@ -14,6 +14,7 @@ const Background = styled.div`
     justify-content: center;
     align-items: flex-start;
     z-index: 1000;
+    overflow: auto;
 
     .close-btn {
         position: absolute;
@@ -24,11 +25,10 @@ const Background = styled.div`
     }
 
     .modal-block {
-        max-width: 640px;
+        max-width: 720px;
         margin: 50px auto;
         border-radius: 5px;
         padding: 40px;
-        overflow: auto;
         background: #333;
 
         h4 {
@@ -38,7 +38,7 @@ const Background = styled.div`
             list-style: none;
             display: flex;
             flex-direction: column;
-            max-width: 820px;
+            max-width: 720px;
             margin: 20px auto;
 
             li {
@@ -170,6 +170,12 @@ const Background = styled.div`
     @media screen and (max-width: 420px) {
         .modal-block {
             padding: 60px 20px;
+
+            .body {
+                p {
+                    max-width: 300px;
+                }
+            }
         }
 
         .edit-block {

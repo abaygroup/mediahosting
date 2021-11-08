@@ -147,7 +147,7 @@ const ProductDetail = ({product, videohosting, favorites, features, followings, 
                                                 <Link href={`/product/${encodeURIComponent(product.isbn_code)}/videohosting/${encodeURIComponent(video.id)}`}>
                                                     <a className="product-item">
                                                         <div className="picture">
-                                                            <Image width={1920} height={1080} src={product.picture ? product.picture : "/icons/noimage.jpg"} alt="" />
+                                                            <Image width={1920} height={1080} src={product.album ? product.album : "/icons/noimage.jpg"} alt="" />
                                                             <div className="body-comments">
                                                                 <span onClick={bodyCommentHandle} className="body">
                                                                     <Image width={100} height={100} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAAAhklEQVR4nO3ZsRGAMAwEQUT/PYsOMNGPjHdjBxpf+NcFAACQVasH3d2JQ05RVa9/fqcO4RtBhhEEAAAAAACAKJt6mE19M4IMIwgAAAAAAABRNvUwm/pmBBlGEAAAAAAAAKJs6mE29c0IMowgAAAAAAAARP1+U19t2NNYDIcRZBhBAAAADvcAB34UJNfaZ00AAAAASUVORK5CYII=" />
@@ -171,7 +171,7 @@ const ProductDetail = ({product, videohosting, favorites, features, followings, 
                                                 :
                                                 <div className="product-item">
                                                     <div className="picture">
-                                                        <Image width={1920} height={1080} src={product.picture} alt="" />
+                                                        <Image width={1920} height={1080} src={product.album} alt="" />
                                                         <div className="body-comments">
                                                             <span onClick={bodyCommentHandle} className="body">
                                                                 <Image width={100} height={100} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAAAhklEQVR4nO3ZsRGAMAwEQUT/PYsOMNGPjHdjBxpf+NcFAACQVasH3d2JQ05RVa9/fqcO4RtBhhEEAAAAAACAKJt6mE19M4IMIwgAAAAAAABRNvUwm/pmBBlGEAAAAAAAAKJs6mE29c0IMowgAAAAAAAARP1+U19t2NNYDIcRZBhBAAAADvcAB34UJNfaZ00AAAAASUVORK5CYII=" />
@@ -204,7 +204,7 @@ const ProductDetail = ({product, videohosting, favorites, features, followings, 
                         </React.Fragment>
                     :   
                         <div className="fist-about">
-                            <h2>{product.about}</h2>
+                            <h4>{product.about}</h4>
                             <small>{ReactHtmlParser(product.body)}</small>
                             <button onClick={() => FollowHandler(product.isbn_code)} title="Подписаться">+ Подписаться</button>
                         </div>
