@@ -55,6 +55,38 @@ const Background = styled.div`
         .body {
             font-size: 14px;
             color: whitesmoke;
+
+            h1, h4 {
+                margin-bottom: 10px;
+                text-align: center;
+            }
+            h4 {
+                color: silver;
+            }
+    
+            h1, h2, h3, h4, h5, h6 {
+                margin: 5px 0;
+            }
+    
+            ul {
+                li {
+                    margin-left: 10px;
+                }
+            }
+    
+            img {
+                display: block;
+                margin: 10px auto;
+            }
+    
+            a {
+                color: silver;
+                text-decoration: underline;
+    
+                &:hover {
+                    color: white;
+                }
+            }
         }
     }
 

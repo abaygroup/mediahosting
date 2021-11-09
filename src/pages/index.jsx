@@ -20,16 +20,16 @@ const Main = ({future_products, favorites_products, following_products, my_media
                 {future_products.length > 0 && <Future products={future_products} />}
                 
                 {/* Last products */}
-                {last_products.length > 0 && <ProductsList title={t("common:main.h5")} subheader={t("common:main.sub2")} products={last_products} />}
+                {last_products.length > 0 && <ProductsList title={t("common:main.h5")} url={"search"} subheader={t("common:main.sub2")} products={last_products} />}
 
                 {/* Your Mediahosting */}
-                {(isAuthenticated && my_mediahosting.length > 0) && <ProductsList title={t("common:main.h4")} subheader={t("common:main.sub4")} products={my_mediahosting} />}
+                {(isAuthenticated && my_mediahosting.length > 0) && <ProductsList title={t("common:main.h4")} url={"myhosting"} subheader={t("common:main.sub4")} products={my_mediahosting} />}
 
                 {/* Following */} 
-                {(isAuthenticated && following_products.length > 0) && <ProductsList title={t("common:main.h2")} subheader={t("common:main.sub5")} products={following_products} />}
+                {(isAuthenticated && following_products.length > 0) && <ProductsList title={t("common:main.h2")} url={"following"} subheader={t("common:main.sub5")} products={following_products} />}
                 
                 {/* Favorites */}
-                {(isAuthenticated && favorites_products.length > 0) && <ProductsList title={t("common:main.h3")} subheader={t("common:main.sub3")} products={favorites_products} />}
+                {(isAuthenticated && favorites_products.length > 0) && <ProductsList title={t("common:main.h3")} url={"favorites"} subheader={t("common:main.sub3")} products={favorites_products} />}
             </div>
         </Layout>
     )

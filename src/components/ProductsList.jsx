@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 
-const ProductsList = ({title, subheader, products}) => {
-
+const ProductsList = ({title, url, subheader, products}) => {
+    const url_name = url || ""
     return (
         <div className="products">
             <div className="head">
@@ -13,7 +13,7 @@ const ProductsList = ({title, subheader, products}) => {
                     <small className="sub-header">{subheader}</small>
                 </div>
                 <div className="right">
-                    <Link href="/"><a>Еще</a></Link>
+                    <Link href={`/${url_name}`}><a>Еще</a></Link>
                 </div>
             </div>
             <div className="block">
