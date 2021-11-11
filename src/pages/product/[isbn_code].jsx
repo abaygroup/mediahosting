@@ -5,7 +5,7 @@ import { BACKEND_URL } from "../../actions/types";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { Modal } from "../../components/Modal";
+import { AlbumModal, Modal } from "../../components/Modal";
 import useTranslation from "next-translate/useTranslation";
 import ReactHtmlParser from 'react-html-parser';
 
@@ -14,6 +14,8 @@ const ProductDetail = ({product, videohosting, favorites, features, followings, 
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     const router = useRouter();
     const [productModal, setProductModal] = useState(false);
+    const [albumModal, setAlbumModal] = useState(false)
+
     const { t } = useTranslation();
     const [favoritesList, setFavoritesData] = useState(favorites);
     const [followingsList, setFollowingsData] = useState(followings)
@@ -47,11 +49,16 @@ const ProductDetail = ({product, videohosting, favorites, features, followings, 
         setProductModal(prev => !prev);
     }
 
+    const albumHandler = () => {
+        setAlbumModal(prev => !prev)
+    }
+
     const bodyCommentHandle = () => {
         alert("Эти компоненты еще не готовы. Предпологаем следующее версий")
     }
 
     // Add To Favorite Handle
+    // ==================================================================
     const addToFavorite = async (isbn_code) => {
         try {
             await fetch(`${BACKEND_URL}/api/favorites/${isbn_code}/`, {
@@ -74,6 +81,7 @@ const ProductDetail = ({product, videohosting, favorites, features, followings, 
     }
 
     // Follow Handle
+    // ==================================================================
     const FollowHandler = async (isbn_code) => {
         try {
             await fetch(`${BACKEND_URL}/api/follow/${isbn_code}/`, {
@@ -111,6 +119,7 @@ const ProductDetail = ({product, videohosting, favorites, features, followings, 
             console.log(e);
         }
     }
+    // ==================================================================
 
     return (
         <Layout
@@ -121,10 +130,11 @@ const ProductDetail = ({product, videohosting, favorites, features, followings, 
             {isAuthenticated &&
             <>
                 <Modal about={product.about} features={features} body={product.body} showModal={productModal} setShowModal={setProductModal} />
+                <AlbumModal album={product.album} albumModal={albumModal} setAlbumModal={setAlbumModal} />
                 <div className="product-container">
                     <div className="head" style={{backgroundImage: `url(${product.album})`}}>
                         <div className="backdrop">
-                            <Image src={product.album ? product.album : '/icons/noimage.jpg'} width={1280} height={720} />
+                            <Image onClick={albumHandler} src={product.album ? product.album : '/icons/noimage.jpg'} width={1280} height={720} />
                             <div className="product-name">
                                 <h4 className="production"> 
                                     <Image width={100} height={100} src="https://img.icons8.com/fluent/48/000000/verified-badge.png" alt="" />

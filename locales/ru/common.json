@@ -102,27 +102,27 @@
     },
     "category": {
         "head": {
-            "title": "Поиск | mediahosting",
+            "title": "Поиск - mediahosting",
             "content": "Поисковая страница mediahosting"
         }
     },
     "following": {
         "head": {
-            "title": "Подписка | mediahosting",
+            "title": "Подписка - mediahosting",
             "content": "Все ваше продукты подписке в бренд mediahosting"
         },
         "h1": "Продукты, которые вы подписали"
     },
     "mymediahosting": {
         "head": {
-            "title": "Мой медиахостинг | mediahosting",
+            "title": "Мой медиахостинг - mediahosting",
             "content": "Ваше медиахостинг в странице mediahosting"
         },
         "h1": "Ваше медиахостинг"
     },
     "favorites": {
         "head": {
-            "title": "Избранные | mediahosting",
+            "title": "Избранные - mediahosting",
             "content": "Избранная страница mediahosting"
         },
         "h1": "Избранные"
@@ -163,5 +163,14 @@
         "following": "Подписки",
         "myhosting": "Мой медиахостинг",
         "favorites": "Избранные"
+    },
+
+    "modal": {
+        "close": "Закрыть",
+        "button": "Сохранить",
+        "edit-block": {
+            "h2": "Профиль данные",
+            "conf": "Продолжая, ты предоставляешь Mediahosting доступ к выбранному изображению. Пожалуйста, не загружай файлы, которые ты не имеешь права распространять."
+        }
     }
 }

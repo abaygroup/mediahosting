@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import ReactHtmlParser from 'react-html-parser';
 import Image from 'next/image';
 import { useForm } from "react-hook-form";
+import useTranslation from 'next-translate/useTranslation';
+
 
 const Background = styled.div`
     position: fixed;
@@ -90,7 +92,7 @@ const Background = styled.div`
         }
     }
 
-    .edit-block {
+    .edit-block, .album-block {
         max-width: 640px;
         margin: 50px auto;
         border-radius: 5px;
@@ -131,11 +133,13 @@ const Background = styled.div`
     
                     input {
                         display: block;
-                        color: silver;
                         border: 1px solid #b3b3b352;
                         background: #b3b3b352;
-                        padding: 5px 20px;
-                        font-size: 20px;
+                        color: white;
+                        font-family: "Inter", sans-serif;
+                        font-weight: 300;
+                        padding: 5px 15px;
+                        font-size: 15px;
                         margin: 10px 0;
                         border-radius: 5px;
                     }
@@ -172,6 +176,15 @@ const Background = styled.div`
         }
     }
 
+    .album-block {
+        max-width: 1024px;
+        padding: 0;
+
+        img {
+            border-radius: 5px;
+        }
+    }
+
 
     // mediaqueries
     // ========================================
@@ -196,8 +209,9 @@ const Background = styled.div`
                 }
             }
         }
-    
     }
+
+
 
 
     @media screen and (max-width: 420px) {
@@ -241,13 +255,15 @@ const Background = styled.div`
 `;
 
 export const Modal = ({about, features, body, showModal, setShowModal}) => {
+    const { t } = useTranslation();
+
     return (
         <>
         {showModal ?
         <Background>
-            <span className="close-btn" onClick={() => setShowModal(prev => !prev)}>Закрыть</span>
+            <span className="close-btn" onClick={() => setShowModal(prev => !prev)}>{t("common:modal.close")}</span>
             <div className="modal-block">
-                <h4>{about ? about : "Hello world"}</h4>
+                <h4>{about ? about : ""}</h4>
                 {features.length > 0 &&
                 <ul className="features">
                     {features.map((feature, i) => (
@@ -266,17 +282,19 @@ export const Modal = ({about, features, body, showModal, setShowModal}) => {
 
 export const EditModal = ({data, showModal, setShowModal}) => {
     const { register, handleSubmit } = useForm();
+    const { t } = useTranslation();
+
     
     const saveProfile = (data) => {
         alert(JSON.stringify(data));
         alert("Эти компоненты еще не готовы. Предпологаем следующее версий")
     }
-   
+
     return (
         <>
             {showModal ?
             <Background>
-                <span className="close-btn" onClick={() => setShowModal(prev => !prev)}>Закрыть</span>
+                <span className="close-btn" onClick={() => setShowModal(prev => !prev)}>{t("common:modal.close")}</span>
                 <div className="edit-block">
                     <form onSubmit={handleSubmit(saveProfile)}>
                         <div className="logotype" >
@@ -284,22 +302,35 @@ export const EditModal = ({data, showModal, setShowModal}) => {
                             <input type="file" {...register("logotype")}/>
                         </div>
                         <div className="profile-name">
-                            <h2>Профиль данные</h2>
+                            <h2>{t("common:modal.edit-block.h2")}</h2>
                             <div className="form-group">
-                                <input type="text" defaultValue={data.full_name} {...register("full_name")}/>
+                                <input type="text" defaultValue={data.user.profile_name} {...register("profile_name")}/>
                             </div>
                             <div className="submit">
-                                <input type="submit" value="Сохранить" />
+                                <input type="submit" value={t("common:modal.button")} />
                             </div>
                         </div>
                     </form>
-                    <small className="conf">
-                        Продолжая, ты предоставляешь Mediahosting доступ к выбранному изображению. 
-                        Пожалуйста, не загружай файлы, которые ты не имеешь права распространять.
-                    </small>
+                    <small className="conf">{t("common:modal.edit-block.conf")}</small>
                 </div>
             </Background>
             : null}
+        </>
+    )
+}
+
+
+export const AlbumModal = ({album, albumModal, setAlbumModal}) => {
+    return (
+        <>
+           {albumModal ?
+            <Background>
+                <span className="close-btn" onClick={() => setAlbumModal(prev => !prev)}>Закрыть</span>
+                <div className="album-block">
+                    <Image src={album ? album : '/icons/noimage.jpg'} width={1280} height={720} />                
+                </div>
+            </Background>
+            : null} 
         </>
     )
 }
