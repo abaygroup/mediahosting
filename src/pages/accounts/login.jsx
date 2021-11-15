@@ -47,7 +47,7 @@ const Login = () => {
 
 
     if (typeof window !== "undefined" && isAuthenticated)
-        router.push("/");
+        router.push(localStorage.getItem("currentPage"));
 
     return (
         <React.Fragment>

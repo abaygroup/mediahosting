@@ -4,18 +4,34 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../actions/auth';
 import Script from 'next/script'
+import useTranslation from 'next-translate/useTranslation';
+import { useRouter } from 'next/router';
 
 
 const Header = (props) => {
+    const router = useRouter();
     const dispatch = useDispatch();
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     const user = useSelector(state => state.auth.user)
     const title = props.header ? `<img src='https://img.icons8.com/color/96/000000/circled-play--v1.png' /><h2>${props.header}</h2>` : ""
+    const { t } = useTranslation();
 
     const logoutHandler = () => {
         if(dispatch && dispatch !== null && dispatch !== undefined) {
             dispatch(logout())
         }
+    }
+
+    const prevPage = (e) => {
+        e.preventDefault();
+        if (typeof window !== "undefined" && isAuthenticated)
+            router.push(localStorage.getItem("prev"));
+    }
+
+    const nextPage = (e) => {
+        e.preventDefault();
+        if (typeof window !== "undefined" && isAuthenticated)
+            router.push(localStorage.getItem("next"));
     }
 
     return (
@@ -40,8 +56,8 @@ const Header = (props) => {
             <div className="header">
                 <div className="intro-header">
                     <div className="prev-next">
-                        <Link href="/"><a><Image width={100} height={100} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAACzElEQVR4nO3dMWiUZxwG8ERbFSliKRQEUal0cSjYsUhwkEAcDI04OHWKi0uhS1fdujm5lC4uTu3iUDp0cHHooODgoCBJGhAEUdC0aU3665ADk/O9MXnCe/8f3HwPTyCX+77nezMxUbbALJbxJ2bSecbKoPx/vbOUzjQ2MI1VWy2kc40FTGFlqPw1fJ3O1j2cxsuh8v/DfDpb9/AFXnjfd+ls3cPneNYo//t0tu7hGBYa5V9LZ+sejuJpo/wb6Wzdw6d41Cj/J0ym83UNh3G/Uf4t7Enn6xoO4Y9G+T/jg3S+ruEg7jbK/w370/m6hn34tVH+7ziQztc1fIg7jfLv4aN0vq5hL243yn+Aj9P5uoZJ/Ngo/yE+Sefr2qD8m43yH+NIOl/38EOj/EUcT2frHq43yl/GZ+ls3cO3jfKf41Q6W/dwtVH+K3yZztY9fIP1ofLf4Ew6W/dwEW+Hyv8LZ9PZuocLts5H4B+cT2frHs7h76Hy13Apna17+Aqvh8pfx+V0tu4ZPR+5ks7WPTUfyVHzkRw1H8lR85EcNR/JUfORHKPnI7+o+cj2UvORHDUfyVHzkRw1H8lR85Eco+cjT9R8ZPtpz0eWcCKdrXtGz0dOprN1T81HctR8JEfNR3IwZ+Om+WYrmEpnGwuDD9jNVjGdzrVb7MTlXTvwHmWU+hW0C9SH8C5Qf4buAuqLWJ66FJGnLsZlqcvReeqGTJ66JZmnbsrnqVlKnhpm5alpYp4a5+apeXqeekAjTz2ilKce0stTj6nmqQe189RRBXnqsI48dVxNnjqwKU/NXfLU3CVPzV3y1MGteero4ix1eHeemrvkqblLnpq75Km5S56au+Spf+SWp+YueWrukqfmLnlq7pKn5i55au6SZ/TcZT6dbWxgysbxCZutYS6dbWxg2sZJLpstpnONFczaOndZSmcaO4MfwtLgNbPd7/c/4cALHqzZgaAAAAAASUVORK5CYII="/></a></Link>
-                        <Link href="/"><a><Image width={100} height={100} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAACq0lEQVR4nO3dv6uVdQAGcE37QUgUQRBEgoNDQ0ODQ8OlIS7YoHCjocnJyUVoabXNzcnFWlycmhqioaGlocGgoaEhSAVBCCrxR3r103COcHj70nZ9gu/z+QfOw3ku997zvs/7Pfv27TEcx3XcwMm9fr1aWL/xTzxoCU/Z+qd/031sp3NNAzvYXZRwB1vpbNPAKTxalPAnjqWzTQNn/NsfeCedbRo4OyjhFt5KZ5sGPhuUcANH0tmmgfODEn7D4XS2KWA/Lg5K+AWvp/NNYV3CpUEJP+HVdL4p4ACuDEr4Ea+k800Bz+KrQQnf41A63xTwHL4elPAtXkjnmwJexHeDEr7B8+l8U8BL+GFQwpc4mM43BbyMq4MSLuOZdL4p4DX8PCjhC+xP55sC3sCvgxIupLNNA29aXaJYOpfONg0cxc1BCZ+ms00Db+P3QQmfpLNNA8fw16KAxzidzjYNvIvbixJ28XE62zTwPu4NSvgonW0aOGG1Mdr0Nz5IZ5sGPsTDRQl38V462zR07pKnc5c8nbvk6dwlT+cuWTp3yVuX8PmghM5dnhadu+Tp3CVP5y55OnfJ07lLns5d8nTukqdzlzydu+Tp3CVP5y55OnfJw5bV8QmbdrGTzjYNbFsdJLLp2l6/bj+A/DfpAFPor6Cg/hEO6r+hQfpBLEcvReToxbgcvRydozdkcvSWZI7elM/RWUqODrNydJqYo+PcHJ2nZ+kDGjn6iFKOPqSXo4+p5uiD2jl6VEGOHtaRo8fV5OiBTTk6H8nR+UiOzkdydD6So/ORHJ2P5Oh8JEfnIzk6H8nR+UiOzkdydD6So19lmKPzkSydj+TofCRH5yM5Oh/J0flIDnas7ttuuoOtdLYp4Prizb+P7XSuaSwKeICT6UxTwfF1CddwIp3n/+YfPYoLHYmOanUAAAAASUVORK5CYII="/></a></Link>
+                        <span onClick={e => prevPage(e)}><Image width={100} height={100} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAACzElEQVR4nO3dMWiUZxwG8ERbFSliKRQEUal0cSjYsUhwkEAcDI04OHWKi0uhS1fdujm5lC4uTu3iUDp0cHHooODgoCBJGhAEUdC0aU3665ADk/O9MXnCe/8f3HwPTyCX+77nezMxUbbALJbxJ2bSecbKoPx/vbOUzjQ2MI1VWy2kc40FTGFlqPw1fJ3O1j2cxsuh8v/DfDpb9/AFXnjfd+ls3cPneNYo//t0tu7hGBYa5V9LZ+sejuJpo/wb6Wzdw6d41Cj/J0ym83UNh3G/Uf4t7Enn6xoO4Y9G+T/jg3S+ruEg7jbK/w370/m6hn34tVH+7ziQztc1fIg7jfLv4aN0vq5hL243yn+Aj9P5uoZJ/Ngo/yE+Sefr2qD8m43yH+NIOl/38EOj/EUcT2frHq43yl/GZ+ls3cO3jfKf41Q6W/dwtVH+K3yZztY9fIP1ofLf4Ew6W/dwEW+Hyv8LZ9PZuocLts5H4B+cT2frHs7h76Hy13Apna17+Aqvh8pfx+V0tu4ZPR+5ks7WPTUfyVHzkRw1H8lR85EcNR/JUfORHKPnI7+o+cj2UvORHDUfyVHzkRw1H8lR85Eco+cjT9R8ZPtpz0eWcCKdrXtGz0dOprN1T81HctR8JEfNR3IwZ+Om+WYrmEpnGwuDD9jNVjGdzrVb7MTlXTvwHmWU+hW0C9SH8C5Qf4buAuqLWJ66FJGnLsZlqcvReeqGTJ66JZmnbsrnqVlKnhpm5alpYp4a5+apeXqeekAjTz2ilKce0stTj6nmqQe189RRBXnqsI48dVxNnjqwKU/NXfLU3CVPzV3y1MGteero4ix1eHeemrvkqblLnpq75Km5S56au+Spf+SWp+YueWrukqfmLnlq7pKn5i55au6SZ/TcZT6dbWxgysbxCZutYS6dbWxg2sZJLpstpnONFczaOndZSmcaO4MfwtLgNbPd7/c/4cALHqzZgaAAAAAASUVORK5CYII="/></span>
+                        <span onClick={e => nextPage(e)}><Image width={100} height={100} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAACq0lEQVR4nO3dv6uVdQAGcE37QUgUQRBEgoNDQ0ODQ8OlIS7YoHCjocnJyUVoabXNzcnFWlycmhqioaGlocGgoaEhSAVBCCrxR3r103COcHj70nZ9gu/z+QfOw3ku997zvs/7Pfv27TEcx3XcwMm9fr1aWL/xTzxoCU/Z+qd/031sp3NNAzvYXZRwB1vpbNPAKTxalPAnjqWzTQNn/NsfeCedbRo4OyjhFt5KZ5sGPhuUcANH0tmmgfODEn7D4XS2KWA/Lg5K+AWvp/NNYV3CpUEJP+HVdL4p4ACuDEr4Ea+k800Bz+KrQQnf41A63xTwHL4elPAtXkjnmwJexHeDEr7B8+l8U8BL+GFQwpc4mM43BbyMq4MSLuOZdL4p4DX8PCjhC+xP55sC3sCvgxIupLNNA29aXaJYOpfONg0cxc1BCZ+ms00Db+P3QQmfpLNNA8fw16KAxzidzjYNvIvbixJ28XE62zTwPu4NSvgonW0aOGG1Mdr0Nz5IZ5sGPsTDRQl38V462zR07pKnc5c8nbvk6dwlT+cuWTp3yVuX8PmghM5dnhadu+Tp3CVP5y55OnfJ07lLns5d8nTukqdzlzydu+Tp3CVP5y55OnfJw5bV8QmbdrGTzjYNbFsdJLLp2l6/bj+A/DfpAFPor6Cg/hEO6r+hQfpBLEcvReToxbgcvRydozdkcvSWZI7elM/RWUqODrNydJqYo+PcHJ2nZ+kDGjn6iFKOPqSXo4+p5uiD2jl6VEGOHtaRo8fV5OiBTTk6H8nR+UiOzkdydD6So/ORHJ2P5Oh8JEfnIzk6H8nR+UiOzkdydD6So19lmKPzkSydj+TofCRH5yM5Oh/J0flIDnas7ttuuoOtdLYp4Prizb+P7XSuaSwKeICT6UxTwfF1CddwIp3n/+YfPYoLHYmOanUAAAAASUVORK5CYII="/></span>
                     </div>
                     <div className="play">
                         
@@ -55,10 +71,10 @@ const Header = (props) => {
                         {!isAuthenticated ? 
                             <React.Fragment>
                                 <Link href="/accounts/register">
-                                    <a className="register">Регистрация</a>
+                                    <a className="register">{t("common:header.register")}</a>
                                 </Link>
                                 <Link href="/accounts/login">
-                                    <a className="login">Вход</a>
+                                    <a className="login">{t("common:header.login")}</a>
                                 </Link>
                             </React.Fragment>    
                         : 
@@ -69,7 +85,7 @@ const Header = (props) => {
                                         <span>{user !== null && user.username}</span>
                                     </a>
                                 </Link>
-                                <span className="logout" onClick={logoutHandler}>
+                                <span className="logout" onClick={logoutHandler} title={t("common:header.logout-title")}>
                                     <Image width={100} height={100} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAADl0lEQVR4nO3dTW9MYRjG8euZtBJha6P9CEiwEBESbxsqxLrL1sbGjqWtjS2J2OATeNn4ADShlSBiTyIWFpSmSFwW85TpSec4L/c95+64/suTc567eX6ZF53TkZAjuQXABQCzAHYB2AY12DcArwDcA3ArpfTDY0gCAJI7ATwEsNdjyBi2BGAmpfTBeuGUHxkLEEbdFgEcTCn9tFy0h/7TlDDqtx/AnPmqJBe4vvv5KUwNRHKK5IPCXj3xGLRcGDJlPmRMIjld2Ksv1jMSSa47kFKyHjJOee9Xz3Ix1T6BBEsgwRJIsAQSLIEESyDBEkiwBBIsgQRLIMESSP2uuK5e+O0l/32FInnZbb8E0qw1FOt1J6wX/F9KKV0judV8XX0eEiu9qAdLIMESSLAEUjGSu0k+JvmI5D7PQXrbWyGSSwPbtEzysNcggVSI5LvCVvmgCKRaJOeLe5VRjlgPEkjFSF4i+auwZd9IHrUcIpAalaAcsxogkJq5ogikWW4oAmmeC4pA2lWCcrzpggJpmSmKQGwyQxGIXSUoJ+osIhDDhqCsVEYRiH2tUATiU2MUgfg1BGWV5OmyiwTiWG0UgfhXC0Ugo6kEZaZ4okBGVCUUgYy2ISjfSZ4BAty5SHIWwHUAO0Y5N2CrAM51CkJyEsBnAOb3yG7SVrq+L6sHQE+TA3UKklL6DmAewMcuf44grQI4rxf1EZdf1Iv9faclkNH1T4x8kkBGUAnG6eKJAnGuMkY+WSCODcFYIXly2AUCcaoEY/hnIgLxqRFGvlAgxjXGyBcLxLAhGNXvPBGIXSUY1e/NEohNJhh5IYG0rASj/k3XAmmXKUZeUCANM8fIiwqkQS4YeWGB1MwNIy8ukBqVYNj8Ja5AqueOkYcIpEIkL26AoS8O6CKSk/mRUMTQV2t0EckeyU/uGHmYQCpE8hTJtyRfkDzoNafzOxfV+rq+UU4VEkiwBBIsgbSI5FWPRfUuq0Ekr7rsl0Dqt4YhkAANYnjsl/4dUjPv/dKLerAEEiyBBEsgwRJIsAQSLIEESyDBEkiwBBIsgQSrB2B58ADJ6Y5+lvBtsDfLG57Yoh6AN4VjN0hOWQ/a7GWMm4XDr63nTAC4C+DAwLEZAO/1m/hK3bFeMJHcAuApAL//Cm48ewbgUErpp+WivZTSD/QfFYuWC495zwGctcYAgD8frrD/7W5zAGYB7AGw3XrYJu8rgJfoP8Xf9sAAgN8+B2HqUfi1FAAAAABJRU5ErkJggg==" />
                                 </span>
                             </React.Fragment>

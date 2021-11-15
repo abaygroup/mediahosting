@@ -1,0 +1,191 @@
+.authors-list {
+    margin-bottom: 40px;
+
+    .head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h1 {
+            margin-left: 10px;
+            font-size: 150%;
+
+            &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+
+        .sub-header {
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.705);
+        }
+
+        .right {
+            a {
+                font-weight: bold;
+                color: rgba(255, 255, 255, 0.705);
+                margin-right: 10px;
+                font-size: 14px;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .authors {
+        margin: 10px 0;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+
+
+        .author-box {
+            position: relative;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.42);
+            margin: 5px;
+            transition: all .3s;
+
+            .avatar {
+                width: 100%;
+                overflow: hidden;
+                border-radius: 50%;
+
+                img {
+                    width: 100%;
+                    border-radius: 50%;;
+                }
+            }
+
+            .full-name {
+                text-align: center;
+                margin: 10px 0;
+
+                h4 {
+                    -webkit-line-clamp: 1; 
+                    -webkit-box-orient: vertical;
+                    display: -webkit-box;
+                    overflow: hidden;
+                }
+            }
+
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.11);
+            }
+        }
+    }
+}
+
+
+// Mediaqueries
+// ==========================================================
+@media screen and (min-width: 2030px) {
+    .authors-list {
+        .authors {
+            grid-template-columns: repeat(10, 220px);
+        }
+    }
+}
+
+@media screen and (max-width: 2030px) {
+    .authors-list {
+        .authors {
+            grid-template-columns: repeat(10, 220px);
+        }
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    .authors-list {
+        .authors {
+            grid-template-columns: repeat(9, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 1820px) {
+    .authors-list {
+        .authors {
+            grid-template-columns: repeat(8, 1fr);
+        }
+    }
+}
+
+
+@media screen and (max-width: 1600px) {
+    .authors-list {
+        .authors {
+            grid-template-columns: repeat(7, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .authors-list {
+        .authors {
+            grid-template-columns: repeat(6, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .authors-list {
+        .authors {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .authors-list {
+        .authors {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .authors-list {
+        .authors {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+
+@media screen and (max-width: 420px) {
+    .authors-list {
+        margin-bottom: 20px;
+
+        .head {
+            h1 {
+                margin: 0 10px;
+                font-size: 120%;
+            }
+            .sub-header {
+                display: none;
+            }
+        }
+
+        .authors {
+            overflow: auto;
+            grid-template-columns: repeat(10, 160px);
+
+            .author-box {
+                .full-name {
+                    h4 {
+                        font-size: 14px;
+                        font-weight: normal;
+                    }
+                    small {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

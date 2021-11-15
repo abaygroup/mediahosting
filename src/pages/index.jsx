@@ -4,12 +4,12 @@ import ProductsList from "../components/ProductsList";
 import { BACKEND_URL } from "../actions/types";
 import { useSelector } from "react-redux";
 import useTranslation from 'next-translate/useTranslation'
+import UsersList from "../components/UsersList";
 
 
-const Main = ({future_products, favorites_products, following_products, my_mediahosting, last_products}) => {
+const Main = ({authors, future_products, favorites_products, following_products, my_mediahosting, last_products}) => {
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     const { t } = useTranslation();
-
     return (
         <Layout
           title={t("common:main.head.title")}
@@ -22,6 +22,9 @@ const Main = ({future_products, favorites_products, following_products, my_media
                 {/* Last products */}
                 {last_products.length > 0 && <ProductsList title={t("common:main.h5")} url={"search"} subheader={t("common:main.sub2")} products={last_products} />}
 
+                {/* Authors */}
+                <UsersList title={t("common:main.h6")} subheader={t("common:main.sub6")} authors={authors} url={"search"} />
+                
                 {/* Your Mediahosting */}
                 {(isAuthenticated && my_mediahosting.length > 0) && <ProductsList title={t("common:main.h4")} url={"myhosting"} subheader={t("common:main.sub4")} products={my_mediahosting} />}
 
@@ -50,6 +53,7 @@ export async function getServerSideProps(context) {
     const following_products = data.following_products || null;
     const my_mediahosting = data.my_mediahosting || null;
     const last_products = data.last_products;
+    const authors = data.authors;
 
     return {
         props: {
@@ -57,7 +61,8 @@ export async function getServerSideProps(context) {
             favorites_products,
             following_products,
             my_mediahosting,
-            last_products
+            last_products,
+            authors
         }
     }
 }

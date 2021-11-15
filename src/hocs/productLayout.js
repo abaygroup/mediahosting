@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { check_auth_status } from '../actions/auth';
+import Script from 'next/script'
 
 
 const ProductLayout = (props) => {
@@ -23,6 +24,11 @@ const ProductLayout = (props) => {
                 <meta name="description" content={props.content} />
                 <link rel="shortcut icon" href="https://abayst.netlify.app/icon64.png" />
             </Head>
+            <Script>
+                {`
+                    localStorage.setItem('currentPage', "${router.asPath}");
+                `}
+            </Script>
             <div id="root">
                 <div className="product-container">
                     {props.children}

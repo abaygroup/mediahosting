@@ -7,11 +7,12 @@ import Navbar from "../components/Navbar";
 import FootBar from '../components/FootBar';
 import { useDispatch } from 'react-redux';
 import { check_auth_status } from '../actions/auth';
-
+import Script from 'next/script'
 
 const Layout = (props) => {
     const router = useRouter();
     const dispatch = useDispatch();
+
 
     useEffect(() => {
         if (dispatch && dispatch !== null && dispatch !== undefined)
@@ -28,6 +29,14 @@ const Layout = (props) => {
                 <meta name="description" content={props.content} />
                 <link rel="shortcut icon" href="/icons/m-black.png"/>
             </Head>
+            <Script>
+                {`
+                    localStorage.setItem('prev', localStorage.getItem("currentPage"));
+                    localStorage.setItem('currentPage', "${router.asPath}");
+                    localStorage.setItem('next', localStorage.getItem("prev"));
+                    
+                `}
+            </Script>
             <div id="root">
                 <div className="main-container">
                     <Navbar />

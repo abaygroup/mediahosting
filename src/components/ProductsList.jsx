@@ -1,10 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import useTranslation from 'next-translate/useTranslation';
 
 
 const ProductsList = ({title, url, subheader, products}) => {
-    const url_name = url || ""
+    const { t } = useTranslation();
+    const url_name = url || "";
+
     return (
         <div className="products">
             <div className="head">
@@ -13,7 +16,7 @@ const ProductsList = ({title, url, subheader, products}) => {
                     <small className="sub-header">{subheader}</small>
                 </div>
                 <div className="right">
-                    <Link href={`/${url_name}`}><a>Еще</a></Link>
+                    <Link href={`/${url_name}`}><a>{t("common:main.more")}</a></Link>
                 </div>
             </div>
             <div className="block">
@@ -29,7 +32,7 @@ const ProductsList = ({title, url, subheader, products}) => {
                                 {product.authors.length > 0 && product.authors.map(item => (
                                 <React.Fragment key={item.id}>{item.profile_name + ", "}</React.Fragment>))}
                             </small>
-                            <small className="counts">{product.observers.length} людею и {product.favorites.length} лайков</small>
+                            <small className="counts">{product.observers.length} {t("common:main.product-d.person")} {product.favorites.length} {t("common:main.product-d.likes")}</small>
                         </div>
                         <div className="goto">
                             <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png"/>

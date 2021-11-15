@@ -35,7 +35,7 @@ const VideoHosting = ({video, videohosting}) => {
                     </div>
                     
                     <div className="youtube-frame">
-                        <iframe src={`${video.frame_url}?rel=0&amp;showinfo=0`} frameBorder="0" title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        <iframe src={video.frame_url} frameBorder="0" title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                     </div>
                 </div>
                 

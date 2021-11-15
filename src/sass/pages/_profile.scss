@@ -309,8 +309,13 @@
             .backdrop {
                 grid-template-columns: 160px 1fr;
                 padding: 0 25px;
-
+              
                 .avatar {
+                    .edit-avatar {
+                        width: 160px;
+                        height: 160px; 
+                    }
+
                     img {
                         width: 160px;
                         height: 160px;
