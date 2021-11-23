@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import ReactHtmlParser from 'react-html-parser';
 import Image from 'next/image';
 import { useForm } from "react-hook-form";
 import useTranslation from 'next-translate/useTranslation';
+import { BACKEND_URL } from '../actions/types';
+import router from 'next/router';
 
 
 const Background = styled.div`
@@ -110,12 +112,23 @@ const Background = styled.div`
             justify-content: center;
 
             .logotype {
-                img {
-                    width: 180px;
-                    height: 180px;
-                    border-radius: 50%;
-                    margin: 10px auto;
+                label {
+                    
+                    img {
+                        width: 180px;
+                        height: 180px;
+                        border-radius: 50%;
+                        margin: 10px auto;
+                        cursor: pointer;
+                    }
+                   
+                    small {
+                        display: block;
+                        text-align: center;
+                        color: silver;
+                    }
                 }
+                
                 input {
                     display: none;
                 }
@@ -280,14 +293,38 @@ export const Modal = ({about, features, body, showModal, setShowModal}) => {
     )
 }
 
-export const EditModal = ({data, showModal, setShowModal}) => {
+export const EditModal = ({data, showModal, setShowModal, access}) => {
     const { register, handleSubmit } = useForm();
     const { t } = useTranslation();
+    const [avatarImg, setAvatarImg] = useState(null);
 
+    const handleChange = e => {
+		if ([e.target.name].toString() === 'avatar') {
+			setAvatarImg(e.target.files);
+		}
+    }
     
-    const saveProfile = (data) => {
-        alert(JSON.stringify(data));
-        alert("Эти компоненты еще не готовы. Предпологаем следующее версий")
+    const saveProfile = async (registerData) => {
+        const formData = new FormData();
+        avatarImg && formData.append('avatar', avatarImg[0]);
+        formData.append('profile_name', registerData.profile_name);
+
+
+        try {
+            await fetch(`${BACKEND_URL}/api/profile/${data.user.username}/`, {
+                method: "PUT",
+                headers: {
+                    "Authorization": `JWT ${access}`
+                },
+                body: formData
+            })
+
+            setShowModal(prev => !prev)
+            router.push(`/profile/${data.user.username}`);
+
+        } catch(e) {
+            console.log(e);
+        }
     }
 
     return (
@@ -297,9 +334,12 @@ export const EditModal = ({data, showModal, setShowModal}) => {
                 <span className="close-btn" onClick={() => setShowModal(prev => !prev)}>{t("common:modal.close")}</span>
                 <div className="edit-block">
                     <form onSubmit={handleSubmit(saveProfile)}>
-                        <div className="logotype" >
-                            <Image src={data.avatar ? data.avatar : "/icons/avatar.jpg"} width={512} height={512} />
-                            <input type="file" {...register("logotype")}/>
+                        <div className="logotype">
+                            <label htmlFor="avatar">
+                                <Image src={data.avatar ? data.avatar : "/icons/avatar.jpg"} width={512} height={512} />
+                                <small>{avatarImg && avatarImg[0].name}</small>
+                            </label>
+                            <input type="file" id="avatar" {...register("avatar")} onChange={handleChange} />
                         </div>
                         <div className="profile-name">
                             <h2>{t("common:modal.edit-block.h2")}</h2>

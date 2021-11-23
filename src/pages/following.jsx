@@ -26,7 +26,7 @@ const Following = ({following_products}) => {
                         <h1>{t('common:following.h1')}</h1>
                     </div>
                     <div className="block">
-                        {following_products && following_products.map((product, i) => (
+                        {following_products.length > 0 && following_products.map((product, i) => (
                             <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} locale={router.locale} key={i}>
                                 <a className="product-box">
                                     <div className="picture" >
