@@ -361,11 +361,13 @@ export const EditModal = ({data, showModal, setShowModal, access}) => {
 
 
 export const AlbumModal = ({album, albumModal, setAlbumModal}) => {
+    const { t } = useTranslation();
+
     return (
         <>
            {albumModal ?
             <Background>
-                <span className="close-btn" onClick={() => setAlbumModal(prev => !prev)}>Закрыть</span>
+                <span className="close-btn" onClick={() => setAlbumModal(prev => !prev)}>{t("common:modal.close")}</span>
                 <div className="album-block">
                     <Image src={album ? album : '/icons/noimage.jpg'} width={1280} height={720} />                
                 </div>

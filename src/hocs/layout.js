@@ -13,7 +13,6 @@ const Layout = (props) => {
     const router = useRouter();
     const dispatch = useDispatch();
 
-
     useEffect(() => {
         if (dispatch && dispatch !== null && dispatch !== undefined)
             dispatch(check_auth_status());
@@ -50,7 +49,7 @@ const Layout = (props) => {
                     {router.locales.map(locale => (
                         <Link href={router.asPath} locale={locale} key={locale}>
                             <a>
-                                {locale === "ru" ? "Русский" : locale === "kz" ? "Қазашқа" : null}
+                                {locale === "kz" ? "Қазашқа" : locale === "ru" ? "Русский" : null}
                             </a>
                         </Link>
                     ))}
