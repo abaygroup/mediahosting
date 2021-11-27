@@ -1,6 +1,7 @@
 {
     "locales": ["kz", "ru"],
     "defaultLocale": "kz",
+    "localeDetection": false,
     "pages": {
         "*": ["common"]
     }
