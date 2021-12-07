@@ -46,6 +46,7 @@ export async function getServerSideProps(context) {
             "Authorization": `JWT ${context.req.cookies.access}`
         }
     }
+    
     const res = await fetch(`${BACKEND_URL}/api/`, context.req.cookies.access && config)
     const data = await res.json();
     const future_products = data.future_products;

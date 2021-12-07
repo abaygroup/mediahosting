@@ -96,8 +96,9 @@ const Register = () => {
         router.push("/");
 
 
-        if (register_success)
-            router.push('/accounts/success');
+    if (register_success)
+        router.push('/accounts/login');
+
     return (
         <React.Fragment>
             <AccountLayout title="Регистрация - mediahosting" content="Регистрация">
