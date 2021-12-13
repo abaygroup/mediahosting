@@ -137,27 +137,21 @@
 
                     .body-comments {
                         position: absolute;
-                        top: 5px;
+                        top: 10px;
                         left: 100px;
                         display: none;
                         z-index: 100;
-                        
-                        .body, .comments {
-                            margin: 0 5px;
-                            border-radius: 5px;
-                            padding: 5px;
-                            transition: all .3s;
-                            cursor: pointer;
 
-                            img {
-                                width: 20px;
-                                height: 20px; 
-                            }
-
-                            &:hover {
-                                background-color: rgb(58, 58, 58);
-                            }
+                        img {
+                            width: 18px;
+                            height: 18px;
                         }
+
+                        small {
+                            margin-left: 10px;
+                            color: silver;
+                        }
+                        
                     }
                 }
                 .title {
@@ -521,6 +515,7 @@
                         }
                     }
                     .title {
+                        max-width: 260px;
                         padding-right: 30px;
                         
                         span {
