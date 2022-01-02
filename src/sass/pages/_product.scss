@@ -113,6 +113,17 @@
         .block {
             display: flex;
             flex-direction: column;
+
+            .chapter {
+
+                h4 {
+                    padding: 5px 10px;
+                    font-weight: normal;
+                    color: silver;
+                    font-size: 12px;
+                    border-bottom: 1px solid rgb(41, 41, 41);
+                }
+            }
     
             .product-item {
                 padding: 5px;
