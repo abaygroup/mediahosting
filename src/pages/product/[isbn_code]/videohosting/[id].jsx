@@ -5,7 +5,8 @@ import React from 'react';
 import ProductLayout from '../../../../hocs/productLayout';
 import { useSelector } from 'react-redux';
 import { BACKEND_URL } from '../../../../actions/types';
-import Linkify from 'react-linkify';
+import ReactHtmlParser from 'react-html-parser';
+
 
 const VideoHosting = ({video, videohosting}) => {
     const router = useRouter();
@@ -39,7 +40,7 @@ const VideoHosting = ({video, videohosting}) => {
                         <iframe src={video.frame_url} frameBorder="0" title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         <div className="about-block">
                             <h1>{video.title}</h1>
-                            <small><Linkify>{video.body}</Linkify></small>
+                            <small>{ReactHtmlParser(video.body)}</small>
                         </div>
                     </div>
                 </div>
