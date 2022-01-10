@@ -95,6 +95,13 @@
                 font-size: 14px;
                 color: rgb(221, 46, 33);
             }
+
+            small {
+                text-align: left;
+                font-size: 12px;
+                color: dimgray;
+                padding: 2px 10px;
+            }
         }
         .submit {
             display: flex;
