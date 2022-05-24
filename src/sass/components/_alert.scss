@@ -1,20 +1,15 @@
 .alert-container {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 0;
     z-index: 10000;
+    width: 100%;
     
     .alert {
-        max-width: 360px;
-        padding: 20px;
-        margin: 1px 0;
-        background-color: rgba(0, 0, 0, 0.342);
-        backdrop-filter: blur(10px);
-        border-radius: 5px;
-        box-shadow: 0 5px 10px rgb(0 0 0 / 12%);
+        padding: 10px;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: rgb(37, 37, 37);
     
         i {
             display: inline-block;
@@ -34,18 +29,3 @@
     }
 }
 
-@media screen and (max-width: 411px) {
-    .alert-container {
-        width: 100%;
-        bottom: 10px;
-        left: 50%;
-        right: 0;
-        transform: translateX(-50%);
-
-        .alert {
-            width: 90%;
-            padding: 10px;
-            margin: 1px auto;
-        }
-    }
-}

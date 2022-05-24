@@ -49,6 +49,7 @@ const authReducer = (state=initialState, action) => {
         case LOGOUT_SUCCESS: 
             return {
                 ...state,
+                register_success: false,
                 isAuthenticated: false
             }
         case SET_AUTH_LOADING:

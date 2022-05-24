@@ -28,7 +28,7 @@ const Search = ({sup_categories, sub_categories}) => {
                                                     <div className="title">
                                                         <h3>{sub.name}</h3>
                                                         <div className="image">
-                                                            <Image src={sub.image} width={800} height={800} alt={sub.name} />
+                                                            <Image src={sub.image ? sub.image : "/icons/avatar.jpg"} width={800} height={800} alt={sub.name} />
                                                         </div>
                                                     </div>
                                                 </a>
