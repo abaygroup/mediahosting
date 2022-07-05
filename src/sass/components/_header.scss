@@ -153,7 +153,8 @@
 @media screen and (max-width: 420px) {
     .header {
         padding: 10px 20px;
-        background-color: black;
+        background-color: white;
+        border-bottom: 1px solid silver;
         
         .intro-header {
             .prev-next {
