@@ -107,6 +107,21 @@
                 padding: 5px 15px;
                 border-radius: 50px;
                 margin: 0 5px;
+                cursor: pointer;
+
+                .in-user {
+                    display: flex;
+                    align-items: center;
+
+                    small {
+                        font-size: 13px;
+                        margin-right: 5px;
+                    }
+
+                    img {
+                        width: 14px;
+                    }
+                }
 
                 img {
                     width: 20px;
@@ -127,19 +142,40 @@
                 }
             }
 
-            .logout {
-                margin: 0 5px;
-                cursor: pointer;
+            .dropdown {
+                position: absolute;
+                background-color: white;
+                border: 1px solid silver;
+                border-radius: 5px;
+                bottom: -65px;
+                right: 10px;
                 transition: all .3s;
-                color: black;
-                font-size: 14px;
-                font-weight: bold;
-                
-                &:hover {
-                    opacity: .7;
+                display: flex;
+                flex-direction: column;
+                min-width: 100px;
+                max-width: 200px;
+                width: 100%;
+
+
+                a, .logout {
+                    display: flex;
+                    padding: 10px;
+                    text-align: center;
+                    color: black;
+                    border-bottom: 1px solid silver;
+                    transition: all .3s;
+                    font-size: 14px;
+                    cursor: pointer;
+
+                    span {
+                        margin-left: 5px;
+                    }
+
+                    &:hover {
+                        background-color: rgb(221, 221, 221);
+                    }
                 }
             }
-
         }
     }
 }

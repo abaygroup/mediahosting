@@ -30,14 +30,19 @@ const Background = styled.div`
 
     .modal-block {
         max-width: 720px;
-        margin: 50px auto;
         border-radius: 5px;
         padding: 40px;
-        background: #333;
-        overflow-x: scroll;
+        background: white;
+        overflow-x: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
 
         h4 {
             margin-bottom: 10px;
+            color: black;
         }
         .features {
             list-style: none;
@@ -51,21 +56,21 @@ const Background = styled.div`
                 border-bottom: 1px solid silver;
                 justify-content: space-between;
                 padding: 10px;
-                color: whitesmoke;
+                color: black;
                 font-size: 14px;
             }
         }
 
         .body {
             font-size: 14px;
-            color: whitesmoke;
+            color: black;
 
             h1, h4 {
                 margin-bottom: 10px;
                 text-align: center;
             }
             h4 {
-                color: silver;
+                color: black;
             }
     
             h1, h2, h3, h4, h5, h6 {
@@ -84,11 +89,11 @@ const Background = styled.div`
             }
     
             a {
-                color: silver;
+                color: #333;
                 text-decoration: underline;
     
                 &:hover {
-                    color: white;
+                    color: #000000070;
                 }
             }
         }
@@ -100,8 +105,13 @@ const Background = styled.div`
         border-radius: 5px;
         padding: 40px;
         overflow: auto;
-        background: #333;
+        background: white;
         overflow-y: auto;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
 
         ::-webkit-scrollbar {
             width: 0;
@@ -113,7 +123,6 @@ const Background = styled.div`
 
             .logotype {
                 label {
-                    
                     img {
                         width: 180px;
                         height: 180px;
@@ -125,7 +134,7 @@ const Background = styled.div`
                     small {
                         display: block;
                         text-align: center;
-                        color: silver;
+                        color: black;
                     }
                 }
                 
@@ -139,6 +148,7 @@ const Background = styled.div`
 
                 h2 {
                     margin-bottom: 20px;
+                    color: black;
                 }
                 
                 .form-group {
@@ -148,7 +158,7 @@ const Background = styled.div`
                         display: block;
                         border: 1px solid #b3b3b352;
                         background: #b3b3b352;
-                        color: white;
+                        color: black;
                         font-family: "Inter", sans-serif;
                         font-weight: 300;
                         padding: 5px 15px;
@@ -167,7 +177,7 @@ const Background = styled.div`
                     input {
                         padding: 5px 20px;
                         border-radius: 50px;
-                        border: 1px solid white;
+                        border: 1px solid silver;
                         background: white;
                         font-size: 14px;
                         cursor: pointer;
@@ -182,7 +192,7 @@ const Background = styled.div`
 
         small.conf {
             font-size: 12px;
-            color: silver;
+            color: dimgray;
             text-align: center;
             display: block;
             margin-top: 20px;
@@ -274,7 +284,9 @@ export const Modal = ({about, features, body, showModal, setShowModal}) => {
         <>
         {showModal ?
         <Background>
-            <span className="close-btn" onClick={() => setShowModal(prev => !prev)}>{t("common:modal.close")}</span>
+            <span className="close-btn" onClick={() => setShowModal(prev => !prev)}>
+                <Image width={24} height={24} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAkUlEQVRIie2VwQ2AIBAE1R40WiKWKw/LGR+SaIzi7SE/90XC7Y7CAU3zSxUQgMHhG4DwVjSzKyqQFB6Td84V9sCSCldgMoRfPaNqeITI4QrEHW6BFIfnIJ+FnyDnDomXsdzOlj+Rvrwr4LYF3kNVl+huQz2H0RyemdMgllZ0Q5Q+lyGeQyRBqH1dp+J6D86vO23cMwceYU71pwAAAABJRU5ErkJggg==" />
+            </span>
             <div className="modal-block">
                 <h4>{about ? about : ""}</h4>
                 {features.length > 0 &&
@@ -331,7 +343,9 @@ export const EditModal = ({data, showModal, setShowModal, access}) => {
         <>
             {showModal ?
             <Background>
-                <span className="close-btn" onClick={() => setShowModal(prev => !prev)}>{t("common:modal.close")}</span>
+                <span className="close-btn" onClick={() => setShowModal(prev => !prev)}>
+                    <Image width={24} height={24} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAkUlEQVRIie2VwQ2AIBAE1R40WiKWKw/LGR+SaIzi7SE/90XC7Y7CAU3zSxUQgMHhG4DwVjSzKyqQFB6Td84V9sCSCldgMoRfPaNqeITI4QrEHW6BFIfnIJ+FnyDnDomXsdzOlj+Rvrwr4LYF3kNVl+huQz2H0RyemdMgllZ0Q5Q+lyGeQyRBqH1dp+J6D86vO23cMwceYU71pwAAAABJRU5ErkJggg==" />
+                </span>
                 <div className="edit-block">
                     <form onSubmit={handleSubmit(saveProfile)}>
                         <div className="logotype">
@@ -367,7 +381,9 @@ export const AlbumModal = ({album, albumModal, setAlbumModal}) => {
         <>
            {albumModal ?
             <Background>
-                <span className="close-btn" onClick={() => setAlbumModal(prev => !prev)}>{t("common:modal.close")}</span>
+                <span className="close-btn" onClick={() => setAlbumModal(prev => !prev)}>
+                    <Image width={24} height={24} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAkUlEQVRIie2VwQ2AIBAE1R40WiKWKw/LGR+SaIzi7SE/90XC7Y7CAU3zSxUQgMHhG4DwVjSzKyqQFB6Td84V9sCSCldgMoRfPaNqeITI4QrEHW6BFIfnIJ+FnyDnDomXsdzOlj+Rvrwr4LYF3kNVl+huQz2H0RyemdMgllZ0Q5Q+lyGeQyRBqH1dp+J6D86vO23cMwceYU71pwAAAABJRU5ErkJggg==" />
+                </span>
                 <div className="album-block">
                     <Image src={album ? album : '/icons/noimage.jpg'} width={1280} height={720} />                
                 </div>
