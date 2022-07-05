@@ -23,11 +23,12 @@ const Favorites = ({favorites_products}) => {
         >
             {isAuthenticated &&<div className="main-container-block">
                 <div className="favorites">
-                    <div className="head">
-                        <h1>{t('common:favorites.h1')}</h1>
-                    </div>
+                    {favorites_products.length > 0 &&
+                        <div className="head">
+                            <h1>{t('common:favorites.h1')}</h1>
+                        </div>}
                     <div className="block">
-                    {favorites_products && favorites_products.map((product, i) => (
+                    {favorites_products.length > 0 ? favorites_products.map((product, i) => (
                         <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} locale={router.locale} key={i}>
                             <a className="product-box">
                                 <div className="picture" >
@@ -46,7 +47,13 @@ const Favorites = ({favorites_products}) => {
                                 </div>
                             </a>
                         </Link>
-                    ))}
+                    ))
+                    :
+                        <div className="no-content">
+                            <Image width={100} height={100} src="https://img.icons8.com/ios-filled/100/000000/like--v1.png"/>
+                            <h3>Cіз таңдап алған курстар әзірше жоқ</h3>
+                        </div>
+                    }
                     </div>
                 </div>
             </div>}

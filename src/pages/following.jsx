@@ -22,11 +22,12 @@ const Following = ({following_products}) => {
         >
             {isAuthenticated && <div className="main-container-block">
                 <div className="following">
+                    {following_products.length > 0 &&
                     <div className="head">
                         <h1>{t('common:following.h1')}</h1>
-                    </div>
+                    </div>}
                     <div className="block">
-                        {following_products.length > 0 && following_products.map((product, i) => (
+                        {following_products.length > 0 ? following_products.map((product, i) => (
                             <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} locale={router.locale} key={i}>
                                 <a className="product-box">
                                     <div className="picture" >
@@ -45,7 +46,13 @@ const Following = ({following_products}) => {
                                     </div>
                                 </a>
                             </Link>
-                        ))}
+                        ))
+                        :
+                            <div className="no-content">
+                                <Image width={100} height={100} src="https://img.icons8.com/material-outlined/96/000000/save-search.png"/>
+                                <h3>Cіз тіркелген курстар әзірше жоқ</h3>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>}

@@ -76,6 +76,8 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    padding: 5px;
     background: rgb(94, 94, 94);
 }
 

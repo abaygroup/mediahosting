@@ -24,11 +24,13 @@ const MyHosting = ({my_mediahosting}) => {
         >
             {isAuthenticated && <div className="main-container-block">
                 <div className="my-videohosting">
-                    <div className="head">
-                        <h1>{t("common:mymediahosting.h1")}</h1>
-                    </div>
+                    {my_mediahosting.length > 0 &&
+                        <div className="head">
+                            <h1>{t("common:mymediahosting.h1")}</h1>
+                        </div>
+                    }
                     <div className="block">
-                    {my_mediahosting && my_mediahosting.map((product, i) => (
+                    {my_mediahosting.length > 0 ? my_mediahosting.map((product, i) => (
                         <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
                             <a className="product-box">
                                 <div className="picture" >
@@ -47,7 +49,13 @@ const MyHosting = ({my_mediahosting}) => {
                                 </div>
                             </a>
                         </Link>
-                    ))}
+                    ))
+                    :
+                        <div className="no-content">
+                            <Image width={100} height={100} src="https://img.icons8.com/ios-filled/100/000000/google-play.png"/>
+                            <h3>Cіз жасап шығарған релиздер әзірше жоқ</h3>
+                        </div>
+                    }
                     </div>
                 </div>
             </div>}
