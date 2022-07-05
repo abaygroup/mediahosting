@@ -12,10 +12,11 @@
         h1 {
             margin-left: 10px;
             font-size: 150%;
+            color: black;
         }
         small {
             margin-left: 10px;
-            color: rgb(136, 136, 136);
+            color: rgba(0, 0, 0, 0.705);
         }
 
         .block {
@@ -23,7 +24,7 @@
             display: grid;
 
             .product-box {
-                background-color: rgba(255, 255, 255, 0.11);
+                background-color: rgb(255, 255, 255);
                 border-radius: 5px;
                 margin: 5px;
                 display: flex;
@@ -31,6 +32,7 @@
                 overflow: hidden;
                 transition: all .3s;
                 position: relative;
+                border: 1px solid silver;
                 
                 img {
                     display: block;
@@ -66,7 +68,7 @@
                 }
 
                 &:hover {
-                    background-color: rgba(255, 255, 255, 0.212);
+                    background-color: rgb(235, 235, 235);
 
                     .goto {
                         visibility: visible;
@@ -89,6 +91,7 @@
             h1 {
                 margin-left: 10px;
                 font-size: 150%;
+                color: black;
 
                 &:hover {
                     cursor: pointer;
@@ -98,13 +101,13 @@
     
             .sub-header {
                 margin-left: 10px;
-                color: rgba(255, 255, 255, 0.705);
+                color: rgba(0, 0, 0, 0.705);
             }
 
             .right {
                 a {
                     font-weight: bold;
-                    color: rgba(255, 255, 255, 0.705);
+                    color: rgba(0, 0, 0, 0.705);
                     margin-right: 10px;
                     font-size: 14px;
 
@@ -123,10 +126,12 @@
 
             
             .product-box {
+                background-color: white;
+                border: 1px solid silver;
                 position: relative;
                 padding: 10px;
                 border-radius: 4px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.42);
+                box-shadow: 0 0 10px rgb(214, 214, 214);
                 margin: 5px;
                 transition: all .3s;
                 
@@ -157,7 +162,7 @@
                         -webkit-box-orient: vertical;
                         display: -webkit-box;
                         overflow: hidden;
-                        color: silver;
+                        color: rgb(0, 0, 0);
                     }
 
                     .counts {
@@ -180,7 +185,7 @@
                 }
 
                 &:hover {
-                    background-color: rgba(255, 255, 255, 0.11);
+                    background-color: rgb(235, 235, 235);
 
                     .goto {
                         bottom: 60px;

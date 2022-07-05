@@ -10,11 +10,11 @@
                 width: 50%;
                 padding: 10px 20px;
                 border-radius: 50px;
-                border: 1px solid white;
                 background-color: white;
                 color: black;
                 font-size: 14px;
                 font-family: 'Inter', sans-serif;
+                border: 1px solid silver;
             }
         }
     }
@@ -25,6 +25,7 @@
         h1 {
             font-size: 170%;
             padding: 10px;
+            color: black;
         }
 
         .sub-categories {
@@ -32,10 +33,12 @@
             grid-template-columns: repeat(4, 1fr);
 
             .category-box {
+                background: white;
+                border: 1px solid silver;
                 height: 160px;
                 padding: 10px;
                 border-radius: 4px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.42);
+                box-shadow: 0 0 10px rgb(221, 221, 221);
                 margin: 5px;
                 overflow: hidden;
                 position: relative;
@@ -46,7 +49,7 @@
                         margin-bottom: 5px;
                         position: absolute;
                         z-index: 100;
-                        color: rgba(255, 255, 255, 0.705);
+                        color: dimgray;
                     }
                 
                     .image {
@@ -63,7 +66,7 @@
                 }
 
                 &:hover {
-                    background-color: rgba(255, 255, 255, 0.11);
+                    background-color: rgba(255, 255, 255, 0);
                 }
             }
         }

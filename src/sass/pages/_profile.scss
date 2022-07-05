@@ -246,10 +246,11 @@
 
         h2 {
             margin-bottom: 10px;
+            color: black;
         }
 
         small {
-            color: silver;
+            color: dimgray;
             display: block;
         }
 
@@ -259,7 +260,8 @@
             border: none;
             display: inline-block;
             background-color: white;
-            padding: 10px 20px;
+            border: 1px solid silver;
+            padding: 10px 40px;
             font-size: 14px;
             border-radius: 50px;
             margin: 20px auto;
@@ -267,7 +269,7 @@
             transition: all .3s;
 
             &:hover {
-                opacity: .7;
+                background-color: whitesmoke;
             }
         }
     }

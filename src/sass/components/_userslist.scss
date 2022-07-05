@@ -9,6 +9,7 @@
         h1 {
             margin-left: 10px;
             font-size: 150%;
+            color: black;
 
             &:hover {
                 cursor: pointer;
@@ -18,13 +19,13 @@
 
         .sub-header {
             margin-left: 10px;
-            color: rgba(255, 255, 255, 0.705);
+            color: rgba(0, 0, 0, 0.705);
         }
 
         .right {
             a {
                 font-weight: bold;
-                color: rgba(255, 255, 255, 0.705);
+                color: rgba(0, 0, 0, 0.705);
                 margin-right: 10px;
                 font-size: 14px;
 
@@ -42,10 +43,12 @@
 
 
         .author-box {
+            background-color: white;
+            border: 1px solid silver;
+            box-shadow: 0 0 10px rgb(214, 214, 214);
             position: relative;
             padding: 10px;
             border-radius: 4px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.42);
             margin: 5px;
             transition: all .3s;
 
@@ -74,7 +77,7 @@
 
 
             &:hover {
-                background-color: rgba(255, 255, 255, 0.11);
+                background-color: rgb(235, 235, 235);
             }
         }
     }

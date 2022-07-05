@@ -103,10 +103,10 @@
             grid-template-columns: repeat(3, 1fr);
             margin: 5px;
             padding-bottom: 5px;
-            border-bottom: 1px solid rgb(41, 41, 41);
+            border-bottom: 1px solid silver;
 
             small {
-                color: silver;
+                color: black;
             }
         }
         
@@ -119,16 +119,17 @@
                 h4 {
                     padding: 5px 10px;
                     font-weight: normal;
-                    color: silver;
+                    color: black;
+                    font-weight: bold;
                     font-size: 12px;
-                    border-bottom: 1px solid rgb(41, 41, 41);
+                    border-bottom: 1px solid silver;
                 }
             }
     
             .product-item {
                 padding: 5px;
                 border-radius: 4px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.42);
+                box-shadow: 0 0 10px rgba(102, 102, 102, 0.42);
                 margin: 5px;
                 transition: all .3s;
                 position: relative;
@@ -136,6 +137,8 @@
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 align-items: center;
+                border: 1px solid silver;
+                background-color: white;
 
                 .picture {
                     padding-right: 20px;
@@ -160,16 +163,19 @@
 
                         small {
                             margin-left: 10px;
-                            color: silver;
+                            color: black;
                         }
                         
                     }
                 }
                 .title {
-                    padding-right: 20px;
+                    padding-right: 10px;
+
                     span {
                         font-weight: 300;
-                        color: silver;
+                        font-size: 14px;
+                        font-weight: bolder;
+                        color: black;
                         -webkit-line-clamp: 1; 
                         -webkit-box-orient: vertical;
                         display: -webkit-box;
@@ -178,10 +184,12 @@
                 }
 
                 .timestamp {
+                    padding-left: 20px;
                     padding-right: 20px;
                     
                     small {
-                        color: silver;
+                        color: black;
+                        font-weight: bold;
                     }
                 }
 
@@ -219,69 +227,7 @@
         }
 
         .empty {
-            color: silver;
-        }
-    }
-
-    .fist-about {
-        max-width: 820px;
-        transform: translateY(-40px);
-        padding: 0 20px 100px 20px;
-        margin: 0 auto;
-
-        
-        h1, h4 {
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        h4 {
-            color: silver;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            margin: 5px 0;
-        }
-
-        ul {
-            li {
-                margin-left: 10px;
-            }
-        }
-
-        img {
-            display: block;
-            margin: 10px auto;
-        }
-
-        a {
-            color: silver;
-            text-decoration: underline;
-
-            &:hover {
-                color: white;
-            }
-        }
-
-        small {
-            color: silver;
-        }
-
-        button {
-            color: black;
-            font-family: "Inter", sans-serif;
-            border: none;
-            display: block;
-            background-color: white;
-            padding: 10px 20px;
-            font-size: 14px;
-            border-radius: 50px;
-            margin: 20px auto;
-            cursor: pointer;
-            transition: all .3s;
-
-            &:hover {
-                opacity: .7;
-            }
+            color: dimgray;
         }
     }
 }
