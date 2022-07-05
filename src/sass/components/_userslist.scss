@@ -52,6 +52,12 @@
             margin: 5px;
             transition: all .3s;
 
+            .checked {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+            }
+
             .avatar {
                 width: 100%;
                 overflow: hidden;
@@ -75,9 +81,29 @@
                 }
             }
 
+            .goto {
+                position: absolute;
+                right: 15px;
+                bottom: 20px;
+                visibility: hidden;
+                opacity: 0;
+                transition: all .3s;
+
+                img {
+                    width: 48px;
+                    height: 48px;
+                }
+            }
 
             &:hover {
                 background-color: rgb(235, 235, 235);
+
+
+                .goto {
+                    bottom: 40px;
+                    visibility: visible;
+                    opacity: 1;
+                }
             }
         }
     }

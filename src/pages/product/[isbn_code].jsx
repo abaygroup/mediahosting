@@ -239,7 +239,7 @@ const ProductDetail = ({product, chapters, videohosting, favorites, features, fo
                     </div>
                 </div> : 
                 <div className="empty-container">
-                    <Image width={100} height={100} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAADRUlEQVR4nO3cP2hTURTH8XNeIjgYkS4WaUEQdBGhzU0sDk6OOjnbzSyClpZuanVwVxCkbv5bHK3goBAU0Zp3bwMiiGLp0Ai6iBC30BwHDUjaJjZ5L/e8l99nTEPvSb689l7yCBEAAAAAAAAA6MFxL2CtnSOiq0S0N+61YrYmIhcKhcKzOBeJNUilUhkNgqBGRJk41xmgr8aYsTgXCOL85QNcIzVifbOKxeI3Zp4lop9xrjMgayJy3vcQAAAA2+l525ui80XU+jqv9BQkheeLqPV8Xuln24vzRQx6elNTdr6IGs4rAADgxaZtbxiGZ5n5LhGNeJhnmNREpNR+Xtm0y2Lm24QYgzDGzIvtD2617R0dwDDwx3j7AzjcKZPt9gRjTOyfuw8Ta610+jmuEGUQRBkEUQZBlEEQZRBEGQRRBkGUQRBlEEQZBFEGQZRBEGUQRBkEUUZ9kDAMbzjnSiKiftYoqH+RzHxARBadc5WVlZWTvueJm/og/8g3m82X1tola+0h38PEJUlBWk4T0Udr7a1qtbrP9zBRS2IQIqJdRHRxY2Nj1Vp7qVwud703ICmSGqRlhIhu5nK5D865M76HiULSg7QcEZEnzrnnzrljvofpR1qCEBGRiJwSkapz7v7y8vJ+3/P0IlVB/gpE5Fw2m/0ShuG1crm82/dAO5HGIC17mHkhl8t9DsNwWkQSccNfmoO0jDPzPefc20qlcsL3MN0MQ5CW40EQvLbWPq5Wqwd9D7OdYQqSCKk5UP2Hd81mc7ZYLL7xPUgnwxBkXUQuG2MeMHPHO881SPOfrF8icr1erx8uFAr3kxCDKJ1XSJOZHzUajfmpqanvvofZqVQFYeYXRDSXz+ff+56lV2kJ8omZ5/P5/JLvQfqV9P8hP4hopl6vH01DDKLkXiENIrqTyWQWJiYmUvUFOEkM8pSIZowxq74HiUOSgrggCGYnJydf+R4kTkkIUhORaWPMw6ScJfqhPogx5orvGQYp6bus1EEQZRBEGQRRBkGUQRBlEEQZBFEGQZRBEGUQRBkEUQZBlEEQZRBEma6fh3T7nlmIFq4QZbYKUhv4FMNrvf2BTUFEpLTVEyFy68xc8j0EAAAAAAAAAHTyG0W44DW8gFaZAAAAAElFTkSuQmCC" />
+                    <Image width={100} height={100} src="https://img.icons8.com/ios/100/000000/video-playlist.png"/>
                     <small className="empty">{t("common:product.empty")}</small>
                 </div>}
             </div>

@@ -180,8 +180,8 @@
             }
         },
         "production": "Дайын релиз",
-        "published_count": "ашық видеолист",
-        "private_count": "жабық видеолист",
+        "published_count": "ашық видео",
+        "private_count": "жабық видео",
         "subtitle": {
             "one": "АЛЬБОМ",
             "two": "АТАУЫ",
@@ -207,9 +207,12 @@
     },
 
     "header": {
+        "prev": "Алд.",
+        "next": "Кел.",
         "register": "Тіркелу",
         "login": "Кіру",
         "logout-title": "Шығу"
+        
     },
 
     "modal": {

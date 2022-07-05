@@ -177,8 +177,8 @@
             }
         },
         "production": "Доступный релиз",
-        "published_count": "доступный видеолист",
-        "private_count": "закрытый видеолист",
+        "published_count": "доступный видео",
+        "private_count": "закрытый видео",
         "subtitle": {
             "one": "АЛЬБОМ",
             "two": "НАЗВАНИЕ",
@@ -204,6 +204,8 @@
     },
 
     "header": {
+        "prev": "Пред.",
+        "next": "След.",
         "register": "Регистрация",
         "login": "Вход",
         "logout-title": "Выйти"

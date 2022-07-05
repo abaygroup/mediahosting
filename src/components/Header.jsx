@@ -59,8 +59,8 @@ const Header = (props) => {
             <div className="header">
                 <div className="intro-header">
                     <div className="prev-next">
-                        <span onClick={e => prevPage(e)}>Пред.</span>
-                        <span onClick={e => nextPage(e)}>След.</span>
+                        <span onClick={e => prevPage(e)}>{t("common:header.prev")}</span>
+                        <span onClick={e => nextPage(e)}>{t("common:header.next")}</span>
                     </div>
                     <div className="play">
                         
@@ -99,7 +99,7 @@ const Header = (props) => {
                                     </Link>
                                     <span className="logout" onClick={logoutHandler} title={t("common:header.logout-title")}>
                                         <Image width={16} height={16} src="https://img.icons8.com/ios/50/000000/exit.png"/>
-                                        <span>Выйти</span> 
+                                        <span>{t("common:header.logout-title")}</span> 
                                     </span>
                                 </div>}
                             </React.Fragment>
