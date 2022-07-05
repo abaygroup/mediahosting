@@ -122,11 +122,12 @@
             h2 {
                 margin-top: 10px;
                 margin-left: 10px;
+                color: black;
             }
 
             .sub-head {
                 margin-left: 10px;
-                color: rgba(255, 255, 255, 0.705);
+                color: dimgray;
             }
 
             .right {
@@ -186,7 +187,7 @@
                             -webkit-box-orient: vertical;
                             display: -webkit-box;
                             overflow: hidden;
-                            color: silver;
+                            color: dimgray;
                         }
                         .counts { 
                             margin-top: 5px;
