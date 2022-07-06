@@ -6,7 +6,6 @@ import useTranslation from 'next-translate/useTranslation'
 const UsersList = ({authors, title, subheader, url}) => {
     const { t } = useTranslation();
 
-    console.log(authors);
     return (
         <div className="authors-list">
             <div className="head">
