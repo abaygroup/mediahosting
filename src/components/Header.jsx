@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 
 import { CgChevronLeftO, CgChevronRightO } from 'react-icons/cg';
 import { AiOutlineUser, AiFillCaretDown } from 'react-icons/ai';
+import { FiSettings } from 'react-icons/fi';
 import Dropdown from './Dropdown';
 import { AnimatePresence } from 'framer-motion';
 
@@ -66,12 +67,12 @@ const Header = (props) => {
                         <span onClick={e => prevPage(e)}><CgChevronLeftO /></span>
                         <span onClick={e => nextPage(e)}><CgChevronRightO /></span>
                     </div>
-                    <div className="play">
-                        
-                    </div>
+
+                    <div className="play"></div>
+                    
                     <div className="logo">
                         <Link href="/">
-                            <a><Image src="/icons/logo-black.png" width={5276} height={730} /></a>
+                            <a><Image src="/images/full_logo_black.png" width={7200} height={1080} /></a>
                         </Link>
                     </div>
 
@@ -105,7 +106,7 @@ const Header = (props) => {
                     <div className="setting-link">
                         <Link href={"/setting"}>
                             <a>
-                                <Image width={100} height={100} src="https://img.icons8.com/ios/100/000000/settings--v1.png"/>
+                                <FiSettings />
                             </a>
                         </Link>
                     </div>

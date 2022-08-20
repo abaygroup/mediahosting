@@ -57,11 +57,6 @@ const PasswordResetConfirm = () => {
     return (
         <React.Fragment>
             <AccountLayout title="Новый пароль - mediahosting" content="Новый пароль">
-            <div className="accounts-container">
-                <div className="head">
-                    <Link href="/"><a className="back"><Image width={100} height={100} src="https://img.icons8.com/ios/100/000000/back--v1.png"/></a></Link>
-                    <Link href="/"><a><Image width={5276} height={730} src="/icons/logo-black.png" /></a></Link>
-                </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h4>{t("common:accounts.confirm.h4")}</h4>
                     <div className="form-group">
@@ -79,7 +74,6 @@ const PasswordResetConfirm = () => {
                         {loading ? <Loader />: <input type="submit" value={t("common:accounts.password-reset.form.submit")} />}
                     </div>
                 </form>
-            </div>
             </AccountLayout>
         </React.Fragment>
     ) 

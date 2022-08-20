@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import AccountLayout from '../../hocs/accountsLayout';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from 'react-redux';
@@ -52,11 +51,6 @@ const Login = () => {
     return (
         <React.Fragment>
             <AccountLayout title="Авторизация - mediahosting" content="Авторизация">
-            <div className="accounts-container">
-                <div className="head">
-                    <Link href="/"><a className="back"><Image width={100} height={100} src="https://img.icons8.com/ios/100/000000/back--v1.png"/></a></Link>
-                    <Link href="/"><a><Image width={5276} height={730} src="/icons/logo-black.png" /></a></Link>
-                </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h4>{t("common:accounts.login.h4")}</h4>
                     <div className="form-group">
@@ -82,7 +76,6 @@ const Login = () => {
                         <a>{t("common:accounts.register.form.submit")}</a>
                     </Link>
                 </div>
-            </div>
             </AccountLayout>
         </React.Fragment>
     ) 

@@ -65,7 +65,8 @@
     bottom: 0;
     width: 100%;
     z-index: 1000;
-    background: rgb(0, 0, 0);
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 40%, rgba(113,113,113,0) 100%);
 
     ul {
         list-style: none;
@@ -77,6 +78,7 @@
             padding: 10px 20px;
             border-radius: 3px;
             transition: all .3s;
+            position: relative;
 
             a {
                 display: flex;
@@ -87,19 +89,26 @@
                 text-decoration: none;
                 transition: all .3s;
         
-                img {
-                    width: 26px;
-                }
-
-                &:hover {
-                    color: rgb(160, 160, 160);
+                svg {
+                    font-size: 24px;
                 }
             }
 
             
         }
         .active {
-            background-color: rgb(78, 78, 78);
+            
+            &::before {
+                content: "";
+                width: 50%;
+                height: 4px;
+                position: absolute;
+                background: rgb(23, 189, 87);
+                bottom: 0;
+                left: 17px;
+                border-top-right-radius: 5px;
+                border-top-left-radius: 5px;
+            }
         }
     }
 }

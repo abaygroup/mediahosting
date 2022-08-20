@@ -43,18 +43,12 @@ const Activate = () => {
     return (
         <React.Fragment>
             <AccountLayout title="Активация - mediahosting" content="Активация аккаунта">
-            <div className="accounts-container">
-                <div className="head">
-                    <Link href="/"><a className="back"><Image width={100} height={100} src="https://img.icons8.com/ios/100/000000/back--v1.png"/></a></Link>
-                    <Link href="/"><a><Image width={5276} height={730} src="/icons/logo-black.png" /></a></Link>
-                </div>
                 <form onClick={e => verify(e)}>
                     <h4>{t("common:accounts.activate.h4")}</h4>
                     <div className="submit" style={{display: "block", textAlign: "center"}}>
                         {loading ? <Loader />: <input type="submit" value={t("common:accounts.activate.form.submit")} />}
                     </div>
                 </form>
-            </div>
             </AccountLayout>
         </React.Fragment>
     ) 

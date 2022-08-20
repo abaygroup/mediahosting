@@ -25,6 +25,7 @@ const Dropdown = ({toggleDropdown, logout}) => {
                 <div className="title">
                     <h3>Mediahosting</h3>
                     <small>abaystgroup@gmail.com</small>
+                    <span onClick={logout}>Выйти</span>
                 </div>
             </div>
             <ul>

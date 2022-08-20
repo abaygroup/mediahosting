@@ -10,14 +10,18 @@
         justify-content: center;
         align-items: center;
         background-color: rgb(37, 37, 37);
-    
-        i {
-            display: inline-block;
-            font-size: 26px;
+        
+        svg {
+            font-size: 20px;
             margin: 0 5px;
         }
-        i.fa-check-circle { color: green; }
-        i.fa-exclamation-circle { color: crimson; }
+
+        .success {
+            color: rgb(23, 189, 87);
+        }
+        .error {
+            color: rgb(189, 22, 56);
+        }
     
         small {
             display: inline-block;

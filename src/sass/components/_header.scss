@@ -4,11 +4,11 @@
     top: 0;
     z-index: 1000;
     transition: all .3s;
+    padding: 15px 20px;
     
     .intro-header {
         display: flex;
         justify-content: space-between;
-        padding: 15px 20px;
 
         .prev-next {
             display: flex;
@@ -56,6 +56,10 @@
         // Mobile version
         .logo, .setting-link {
             display: none;
+
+            svg {
+                font-size: 24px;
+            }
 
             a {
                 img {

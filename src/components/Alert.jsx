@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from "framer-motion"
 import { useSelector } from 'react-redux';
-
+import { BsFillCheckCircleFill } from 'react-icons/bs';
+import { MdOutlineError } from 'react-icons/md';
 
 const Alert = () => {
     const alerts = useSelector(state => state.alert)
@@ -22,7 +23,15 @@ const Alert = () => {
                     variants={item} 
                     transition={{duration: .5, repeat: 1, repeatDelay: 3, repeatType: "reverse",}}
                 >
-                    {alert.alertType === "success" ? <i className="fas fa-check-circle"></i> : <i className="fas fa-exclamation-circle"></i>}
+                    {alert.alertType === "success" ? 
+                            <span className="success">
+                                <BsFillCheckCircleFill />
+                            </span>
+                         : 
+                            <span className="error">
+                                <MdOutlineError />
+                            </span>
+                        }
                     <small>{ alert.msg }</small>
                 </motion.div>
             ))}

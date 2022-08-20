@@ -2,13 +2,13 @@
     position: absolute;
     z-index: 100;
     top: 40px;
-    right: 25px;
+    right: 35px;
     border-radius: 5px;
     background: rgba(0, 0, 0, 0.37);
     backdrop-filter: blur(20px);
     overflow: hidden;
     min-width: 300px;
-    box-shadow: 0px 1px 5px 0px #101010;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.589);
 
     .close-btn {
         position: absolute;
@@ -34,11 +34,12 @@
                 display: block;
             }
 
-            a {
+            span {
                 line-height: 1;
                 font-size: 12px;
-                color: #1b94ff;
+                color: rgb(23, 189, 87);
                 text-decoration: underline;
+                cursor: pointer;
             }
         }
     }
