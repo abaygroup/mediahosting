@@ -4,9 +4,13 @@ import { BACKEND_URL } from "../../actions/types";
 import SearchForm from "../../components/Search";
 import Layout from "../../hocs/layout";
 import useTranslation from "next-translate/useTranslation";
+import randomColor from "randomcolor";
+
+
 
 const Search = ({ sup_categories, sub_categories }) => {
     const { t } = useTranslation("common");
+    let colors = randomColor();
 
     return (
         <Layout
@@ -22,9 +26,10 @@ const Search = ({ sup_categories, sub_categories }) => {
                             <div className="sub-categories">
                                 {sub_categories.map((sub, i) => {
                                     if (sub.super_category === category.id) {
+                                        let color = randomColor();
                                         return (
                                             <Link href={`/search/${encodeURIComponent(sub.slug)}`} key={i}>
-                                                <a className="category-box">
+                                                <a className="category-box" style={{backgroundColor: color}}>
                                                     <div className="title">
                                                         <h3>{sub.name}</h3>
                                                         <div className="image">

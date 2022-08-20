@@ -6,6 +6,10 @@ import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { BACKEND_URL } from "../actions/types";
 import Layout from "../hocs/layout";
+import { AiFillPlayCircle } from 'react-icons/ai';
+import { MdFavoriteBorder } from 'react-icons/md';
+
+
 
 
 const Favorites = ({favorites_products}) => {
@@ -43,14 +47,14 @@ const Favorites = ({favorites_products}) => {
                                     <small className="counts">{product.observers.length} людею и {product.favorites.length} лайков</small>
                                 </div>
                                 <div className="goto">
-                                    <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png" alt={product.title} />
+                                    <AiFillPlayCircle />
                                 </div>
                             </a>
                         </Link>
                     ))
                     :
                         <div className="no-content">
-                            <Image width={100} height={100} src="https://img.icons8.com/ios-filled/100/000000/like--v1.png"/>
+                            <MdFavoriteBorder />
                             <h3>Cіз таңдап алған курстар әзірше жоқ</h3>
                         </div>
                     }

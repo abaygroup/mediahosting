@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { BACKEND_URL } from "../actions/types";
 import Layout from "../hocs/layout";
 import { AiFillPlayCircle } from 'react-icons/ai';
-import { RiUserFollowFill, RiUserFollowLine } from 'react-icons/ri';
+import {  RiUserFollowLine } from 'react-icons/ri';
 
 
 const Following = ({following_products}) => {
