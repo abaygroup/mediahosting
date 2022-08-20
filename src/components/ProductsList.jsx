@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import useTranslation from 'next-translate/useTranslation';
+import { AiFillPlayCircle } from 'react-icons/ai';
 
 
 const ProductsList = ({title, url, subheader, products}) => {
@@ -24,7 +25,7 @@ const ProductsList = ({title, url, subheader, products}) => {
                 <Link href={`/product/${encodeURIComponent(product.isbn_code)}`} key={i}>
                     <a className="product-box">
                         <div className="picture" >
-                            <Image width={1280} height={720} src={product.album ? product.album : "/icons/noimage.jpg"} alt={product.title} />
+                            <Image width={1920} height={1080} src={product.album ? product.album : "/icons/noimage.jpg"} alt={product.title} />
                         </div>
                         <div className="title">
                             <h4>{product.title}</h4>
@@ -35,7 +36,7 @@ const ProductsList = ({title, url, subheader, products}) => {
                             <small className="counts">{product.observers.length} {t("common:main.product-d.person")} {product.favorites.length} {t("common:main.product-d.likes")}</small>
                         </div>
                         <div className="goto">
-                            <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png"/>
+                            <AiFillPlayCircle />
                         </div>
                     </a>
                 </Link>

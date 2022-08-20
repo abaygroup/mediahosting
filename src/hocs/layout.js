@@ -24,16 +24,13 @@ const Layout = (props) => {
         <React.Fragment>
             <Head>
                 <title>{props.title}</title>
-                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossOrigin="anonymous" />
                 <meta name="description" content={props.content} />
-                <link rel="shortcut icon" href="/icons/m-black.png"/>
             </Head>
             <Script>
                 {`
                     localStorage.setItem('prev', localStorage.getItem("currentPage"));
                     localStorage.setItem('currentPage', "${router.asPath}");
                     localStorage.setItem('next', localStorage.getItem("prev"));
-                    
                 `}
             </Script>
             <div id="root">
@@ -45,7 +42,7 @@ const Layout = (props) => {
                     </div>
                 </div>
                 <FootBar />
-                <nav className="i18next">
+                {/* <nav className="i18next">
                     {router.locales.map(locale => (
                         <Link href={router.asPath} locale={locale} key={locale}>
                             <a>
@@ -53,7 +50,7 @@ const Layout = (props) => {
                             </a>
                         </Link>
                     ))}
-                </nav>
+                </nav> */}
             </div>
         </React.Fragment>
     )

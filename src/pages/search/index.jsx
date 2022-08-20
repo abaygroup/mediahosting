@@ -5,13 +5,13 @@ import SearchForm from "../../components/Search";
 import Layout from "../../hocs/layout";
 import useTranslation from "next-translate/useTranslation";
 
-const Search = ({sup_categories, sub_categories}) => {
-    const { t } = useTranslation();
+const Search = ({ sup_categories, sub_categories }) => {
+    const { t } = useTranslation("common");
 
     return (
         <Layout
-            title={t("common:category.head.title")}
-            content={t("common:category.head.content")}
+            title={t("category.head.title")}
+            content={t("category.head.content")}
         >
             <div className="search-container-block">
                 <SearchForm />
@@ -53,7 +53,7 @@ export async function getServerSideProps() {
 
     return {
         props: {
-            sup_categories, 
+            sup_categories,
             sub_categories
         }
     }

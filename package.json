@@ -1,5 +1,5 @@
 {
-  "name": "mediahosting_old",
+  "name": "mediahosting",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -19,9 +19,9 @@
     "react-dom": "17.0.2",
     "react-hook-form": "^7.12.2",
     "react-html-parser": "^2.0.2",
+    "react-icons": "^4.4.0",
     "react-linkify": "^1.0.0-alpha",
     "react-redux": "^7.2.4",
-    "react-sticky-el": "^2.0.9",
     "redux": "^4.1.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",

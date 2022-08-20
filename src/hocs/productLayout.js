@@ -22,8 +22,6 @@ const ProductLayout = (props) => {
             <Head>
                 <title>{props.title}</title>
                 <meta name="description" content={props.content} />
-                <link rel="shortcut icon" href="https://abayst.netlify.app/icon64.png" />
-                <link rel="shortcut icon" href="/icons/m-black.png"/>
             </Head>
             <Script>
                 {`

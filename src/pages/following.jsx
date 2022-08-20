@@ -6,6 +6,9 @@ import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { BACKEND_URL } from "../actions/types";
 import Layout from "../hocs/layout";
+import { AiFillPlayCircle } from 'react-icons/ai';
+import { RiUserFollowFill, RiUserFollowLine } from 'react-icons/ri';
+
 
 const Following = ({following_products}) => {
     const router = useRouter();
@@ -42,14 +45,14 @@ const Following = ({following_products}) => {
                                         <small className="counts">{product.observers.length} людею и {product.favorites.length} лайков</small>
                                     </div>
                                     <div className="goto">
-                                        <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png" alt={product.title} />
+                                        <AiFillPlayCircle />
                                     </div>
                                 </a>
                             </Link>
                         ))
                         :
                             <div className="no-content">
-                                <Image width={100} height={100} src="https://img.icons8.com/material-outlined/96/000000/save-search.png"/>
+                                <RiUserFollowLine />
                                 <h3>Cіз тіркелген курстар әзірше жоқ</h3>
                             </div>
                         }

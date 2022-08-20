@@ -3,6 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import useTranslation from 'next-translate/useTranslation'
 
+import { AiFillPlayCircle } from 'react-icons/ai';
+import { BsCheckCircle } from 'react-icons/bs';
+
+
 const UsersList = ({authors, title, subheader, url}) => {
     const { t } = useTranslation();
 
@@ -26,7 +30,7 @@ const UsersList = ({authors, title, subheader, url}) => {
                         <a className="author-box">
                             {author.branding &&
                             <div className="checked">
-                                <Image width={24} height={24} src="https://img.icons8.com/fluent/48/000000/verified-badge.png" alt="" />
+                                <BsCheckCircle />
                             </div>}
                             <div className="avatar" >
                                 <Image width={512} height={512} src={author.avatar ? author.avatar : "/icons/avatar.jpg"} alt={author.user.username} />
@@ -35,7 +39,7 @@ const UsersList = ({authors, title, subheader, url}) => {
                                 <h4>{author.user.profile_name}</h4>
                             </div>
                             <div className="goto">
-                                <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png"/>
+                                <AiFillPlayCircle />
                             </div>
                         </a>
                     </Link>
