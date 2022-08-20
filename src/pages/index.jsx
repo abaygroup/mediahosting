@@ -23,7 +23,7 @@ const Main = ({authors, future_products, favorites_products, following_products,
                 {last_products.length > 0 && <ProductsList title={t("common:main.h5")} url={"search"} subheader={t("common:main.sub2")} products={last_products} />}
 
                 {/* Authors */}
-                <UsersList title={t("common:main.h6")} subheader={t("common:main.sub6")} authors={authors} url={"search"} />
+                {authors.length > 0 && <UsersList title={t("common:main.h6")} subheader={t("common:main.sub6")} authors={authors} url={"search"} />}
                 
                 {/* Your Mediahosting */}
                 {(isAuthenticated && my_mediahosting.length > 0) && <ProductsList title={t("common:main.h4")} url={"myhosting"} subheader={t("common:main.sub4")} products={my_mediahosting} />}
