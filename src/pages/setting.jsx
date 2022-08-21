@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../actions/auth';
 import { useRouter } from 'next/router';
-
+import { IoMdClose } from 'react-icons/io';
 
 const Setting = () => {
     const dispatch = useDispatch();
@@ -28,13 +28,13 @@ const Setting = () => {
             <div className="setting-container">
                 <Link href={"/"}>
                     <a className="close-btn">
-                        <Image width={100} height={100} src="https://img.icons8.com/ios/100/000000/delete-sign--v1.png"/>
+                        <IoMdClose />
                     </a>
                 </Link>
                 <div className="logo">
                     <Link href={"/"}>
                         <a>
-                            <Image src="/icons/logo-black.png" width={5276} height={730} />
+                            <Image src="/images/full_logo_black.png" width={7200} height={1080} />
                         </a>
                     </Link>
                 </div>

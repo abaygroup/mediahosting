@@ -10,7 +10,6 @@ import randomColor from "randomcolor";
 
 const Search = ({ sup_categories, sub_categories }) => {
     const { t } = useTranslation("common");
-    let colors = randomColor();
 
     return (
         <Layout
@@ -29,7 +28,7 @@ const Search = ({ sup_categories, sub_categories }) => {
                                         let color = randomColor();
                                         return (
                                             <Link href={`/search/${encodeURIComponent(sub.slug)}`} key={i}>
-                                                <a className="category-box" style={{backgroundColor: color}}>
+                                                <a className="category-box" style={{backgroundColor: `${color}`}}>
                                                     <div className="title">
                                                         <h3>{sub.name}</h3>
                                                         <div className="image">

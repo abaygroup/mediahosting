@@ -2,20 +2,22 @@
     position: absolute;
     top: 0; left: 0;
     width: 100%;
+    background-color: black;
     height: 100%;
-    background: white;
-    color: black;
     z-index: 10000;
     padding: 40px 20px;
+
+    a, span {
+        color: white;
+    }
 
     .close-btn {
         position: absolute;
         top: 20px;
         right: 20px;
 
-        img {
-            width: 30px;
-            height: 30px;
+        svg {
+            font-size: 30px;
         }
     }
 
@@ -37,11 +39,10 @@
 
             a.user {
                 margin-top: 20px;
-                color: black;
                 padding: 5px 10px;
                 display: flex;
                 align-items: center;
-                border-bottom: 1px solid silver;
+                border-bottom: 1px solid white;
 
                 img {
                     width: 20px;
@@ -51,7 +52,6 @@
             .logout, .register, .login, a {
                 display: inline-block;
                 padding: 5px 10px;
-                color: black;
                 cursor: pointer;
             }
         }

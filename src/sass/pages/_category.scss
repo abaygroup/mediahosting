@@ -1,5 +1,7 @@
 .search-container-block {
     margin: 0 20px;
+    position: relative;
+    z-index: 1;
 
     // Search
     .search-form {

@@ -51,14 +51,14 @@ const Header = (props) => {
 
                     platform.addEventListener('scroll', function() {
                         if (platform.scrollTop > 60) {
-                            document.querySelector('.header').classList.add('sticky')
-                            document.querySelector('.play').innerHTML = "${title}"
+                            document.querySelector('.play').innerHTML = "${title}";
+                            document.querySelector('.header').style.background = "${props.color}";
+                            // document.querySelector('.header').style.position = "sticky";
                         } else {
-                            document.querySelector('.header').classList.remove('sticky');
                             document.querySelector('.play').innerHTML = ""
+                            document.querySelector('.header').style.background = "transparent";
                         }
                     });
-                    
                 `}
             </Script>
             <div className="header">
