@@ -20,7 +20,7 @@ const Main = ({authors, future_products, favorites_products, following_products,
           color={color}
         >
             <div className="main-container-block">
-                <div className="gradient" style={{ background: `${color}`, background: `linear-gradient(0deg, rgba(0,0,0,0) 0%, ${color} 100%)`}}></div>
+                <div className="gradient" style={{ background: `${color}`, background: `linear-gradient(0deg, #00000000 0%, ${color} 100%)`}}></div>
                 <div className="main-page-products">
                     {/* Future */}
                     {future_products.length > 0 && <Future products={future_products} />}

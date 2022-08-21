@@ -31,6 +31,7 @@
             font-size: 150%;
         }
         small {
+            color: whitesmoke;
             margin-left: 10px;
         }
 
@@ -82,7 +83,7 @@
                 }
 
                 &:hover {
-                    background-color: rgba(235, 235, 235, 0.123);
+                    background-color: rgba(235, 235, 235, 0.26);
 
                     .goto {
                         visibility: visible;

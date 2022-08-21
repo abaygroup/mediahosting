@@ -17,9 +17,10 @@
             span {
                 border-radius: 50%;
                 margin: 0 5px;
+                padding: 5px;
                 transition: all .3s;
                 display: flex;
-                font-size: 28px;
+                font-size: 20px;
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
@@ -138,6 +139,10 @@
             }
         }
     }
+}
+
+.sticky {
+    background-color: black;
 }
 
 

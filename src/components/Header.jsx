@@ -7,8 +7,9 @@ import Script from 'next/script'
 import useTranslation from 'next-translate/useTranslation';
 import { useRouter } from 'next/router';
 
-import { CgChevronLeftO, CgChevronRightO } from 'react-icons/cg';
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { AiOutlineUser, AiFillCaretDown } from 'react-icons/ai';
+
 import { FiSettings } from 'react-icons/fi';
 import Dropdown from './Dropdown';
 import { AnimatePresence } from 'framer-motion';
@@ -18,9 +19,9 @@ const Header = (props) => {
     const dispatch = useDispatch();
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     const user = useSelector(state => state.auth.user)
-    const title = props.header ? `<img src='https://img.icons8.com/color/96/000000/circled-play--v1.png' /><h2>${props.header}</h2>` : ""
     const { t } = useTranslation();
     const [dropdown, setDropdown] = useState(false)
+    const black = 'black';
 
     const toggleDropdown = () => setDropdown(!dropdown);
 
@@ -43,6 +44,9 @@ const Header = (props) => {
             router.push(localStorage.getItem("next"));
     }
 
+
+    const title = props.header ? `<img src='https://img.icons8.com/color/96/000000/circled-play--v1.png' /><h2>${props.header}</h2>` : ""
+
     return (
         <>
             <Script>
@@ -52,8 +56,7 @@ const Header = (props) => {
                     platform.addEventListener('scroll', function() {
                         if (platform.scrollTop > 60) {
                             document.querySelector('.play').innerHTML = "${title}";
-                            document.querySelector('.header').style.background = "${props.color}";
-                            // document.querySelector('.header').style.position = "sticky";
+                            document.querySelector('.header').style.background = "${router.pathname === "/" ? props.color : black}";
                         } else {
                             document.querySelector('.play').innerHTML = ""
                             document.querySelector('.header').style.background = "transparent";
@@ -64,8 +67,8 @@ const Header = (props) => {
             <div className="header">
                 <div className="intro-header">
                     <div className="prev-next">
-                        <span onClick={e => prevPage(e)}><CgChevronLeftO /></span>
-                        <span onClick={e => nextPage(e)}><CgChevronRightO /></span>
+                        <span onClick={e => prevPage(e)}><BsChevronLeft /></span>
+                        <span onClick={e => nextPage(e)}><BsChevronRight /></span>
                     </div>
 
                     <div className="play"></div>
