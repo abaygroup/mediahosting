@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { BACKEND_URL } from "../actions/types";
 import Layout from "../hocs/layout";
 import useTranslation from "next-translate/useTranslation";
+import { AiFillPlayCircle } from 'react-icons/ai';
 
 
 const MyHosting = ({my_mediahosting}) => {
@@ -45,7 +46,7 @@ const MyHosting = ({my_mediahosting}) => {
                                     <small className="counts">{product.observers.length} людею и {product.favorites.length} лайков</small>
                                 </div>
                                 <div className="goto">
-                                    <Image width={100} height={100} src="https://img.icons8.com/color/96/000000/circled-play--v1.png"/>
+                                    <AiFillPlayCircle />
                                 </div>
                             </a>
                         </Link>

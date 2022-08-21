@@ -45,7 +45,7 @@ const Header = (props) => {
     }
 
 
-    const title = props.header ? `<img src='https://img.icons8.com/color/96/000000/circled-play--v1.png' /><h2>${props.header}</h2>` : ""
+    const title = props.header ? `<img src='/icons/play.png' /><h2>${props.header}</h2>` : ""
 
     return (
         <>
@@ -99,7 +99,9 @@ const Header = (props) => {
                                     </span>
                                 </span>
                                 <AnimatePresence>
-                                    {dropdown && <Dropdown toggleDropdown={toggleDropdown} logout={logoutHandler} />}
+                                    {dropdown && 
+                                        <Dropdown toggleDropdown={toggleDropdown} logout={logoutHandler} user={user} />
+                                    }
                                 </AnimatePresence>
                             </React.Fragment>
                         }

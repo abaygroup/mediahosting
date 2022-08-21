@@ -5,8 +5,9 @@ import { motion } from 'framer-motion';
 import { IoMdClose } from 'react-icons/io';
 
 import useTranslation from 'next-translate/useTranslation';
+import router from 'next/router';
 
-const Dropdown = ({toggleDropdown, logout}) => {
+const Dropdown = ({toggleDropdown, logout, user}) => {
     const { t } = useTranslation("common");
 
     return (
@@ -19,12 +20,12 @@ const Dropdown = ({toggleDropdown, logout}) => {
         >
             <span onClick={toggleDropdown} className="close-btn"><IoMdClose /></span>
             <div className="user-block">
-                <div className="image">
+                <div className="image" onClick={() => router.push(`/profile/${user.username}`)}>
                     <Image src={"/images/logo_black.png"} width={56} height={56} />
                 </div>
                 <div className="title">
-                    <h3>Mediahosting</h3>
-                    <small>abaystgroup@gmail.com</small>
+                    <h3 onClick={() => router.push(`/profile/${user.username}`)}>{user.username}</h3>
+                    <small>{user.email}</small>
                     <span onClick={logout}>Выйти</span>
                 </div>
             </div>
