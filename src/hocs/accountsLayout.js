@@ -41,8 +41,8 @@ const AccountLayout = (props) => {
 }
 
 AccountLayout.defaultProps = {
-    title: "mediahosting",
-    content: "Авторизация"
+    title: "Mediahosting",
+    content: "Mediahosting - бұл заманауи технологиялармен өңделген, ақпарат берудің жетілдірілген онлайн платформасы."
 }
 
 export default AccountLayout;

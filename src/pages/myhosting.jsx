@@ -21,7 +21,6 @@ const MyHosting = ({my_mediahosting}) => {
     return (
         <Layout
             title={t("common:mymediahosting.head.title")}
-            content={t("common:mymediahosting.head.content")}
         >
             {isAuthenticated && <div className="main-container-block">
                 <div className="my-videohosting">

@@ -7,6 +7,7 @@ import FootBar from '../components/FootBar';
 import { useDispatch } from 'react-redux';
 import { check_auth_status } from '../actions/auth';
 import Script from 'next/script'
+import Link from 'next/link';
 
 
 const Layout = (props) => {
@@ -45,7 +46,7 @@ const Layout = (props) => {
                     </div>
                 </div>
                 <FootBar />
-                {/* <nav className="i18next">
+                <nav className="i18next">
                     {router.locales.map(locale => (
                         <Link href={router.asPath} locale={locale} key={locale}>
                             <a>
@@ -53,15 +54,15 @@ const Layout = (props) => {
                             </a>
                         </Link>
                     ))}
-                </nav> */}
+                </nav>
             </div>
         </React.Fragment>
     )
 }
 
 Layout.defaultProps = {
-    title: "mediahosting",
-    content: "lorem ipsum"
+    title: "Mediahosting",
+    content: "Mediahosting - бұл заманауи технологиялармен өңделген, ақпарат берудің жетілдірілген онлайн платформасы."
 }
 
 export default Layout;

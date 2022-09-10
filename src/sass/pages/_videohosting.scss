@@ -2,15 +2,15 @@
     display: grid;
     grid-template-columns: 1fr 300px;
     grid-template-rows: 1fr;  
-    height: 100%;  
-
+    height: 100%;
+    
     .video-block {
         display: grid;
         grid-template-rows: auto 1fr;
 
         .m-header {
             background-color: black;
-            padding: 10px;
+            padding: 10px 20px;
             display: flex;
             align-items: center;
             border-bottom: 1px solid dimgray;
@@ -18,7 +18,7 @@
             .logo {
                 a {
                     img {
-                        width: 250px;
+                        width: 220px;
                     }
                 }
             }
@@ -47,7 +47,6 @@
 
 
                 h1 {
-                    color: whitesmoke;
                     margin-bottom: 10px;
                 }
 
@@ -92,8 +91,7 @@
                 .title {
                     span {
                         width: 100%;
-                        padding-right: 20px;
-                        font-weight: 300;
+                        padding-right: 10px;
                         color: silver;
                         font-size: 14px;
                         -webkit-line-clamp: 1; 
@@ -101,16 +99,17 @@
                         display: -webkit-box;
                         overflow: hidden;
                     }
+
+                    .played {
+                        color: rgb(23, 189, 87);
+                    }
                 }
             
                 .access {
                     position: absolute;
                     right: 10px;
-
-                    img {
-                        width: 20px;
-                        height: 20px;
-                    }
+                    font-size: 20px;
+                    color: rgb(23, 189, 87);
                 }
 
                 &:hover {

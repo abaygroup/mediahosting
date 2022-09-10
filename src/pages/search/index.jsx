@@ -14,7 +14,6 @@ const Search = ({ sup_categories, sub_categories }) => {
     return (
         <Layout
             title={t("category.head.title")}
-            content={t("category.head.content")}
         >
             <div className="search-container-block">
                 <SearchForm />

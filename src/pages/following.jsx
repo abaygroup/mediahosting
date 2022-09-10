@@ -21,7 +21,6 @@ const Following = ({following_products}) => {
     return (
         <Layout
             title={t("common:following.head.title")}
-            content={t("common:following.head.content")}
         >
             {isAuthenticated && <div className="main-container-block">
                 <div className="following">

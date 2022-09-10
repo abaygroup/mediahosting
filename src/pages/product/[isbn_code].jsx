@@ -8,7 +8,8 @@ import React, { useEffect, useState } from "react";
 import { AlbumModal, Modal } from "../../components/Modal";
 import useTranslation from "next-translate/useTranslation";
 import { setAlert } from '../../actions/alert';
-
+import { BsFillPlayFill, BsCheck2, BsClockFill } from 'react-icons/bs';
+import { RiLockFill } from 'react-icons/ri';
 
 
 const ProductDetail = ({product, chapters, videohosting, favorites, features, followings, published_count, private_count, access}) => {
@@ -195,7 +196,7 @@ const ProductDetail = ({product, chapters, videohosting, favorites, features, fo
                                                             <div className="picture">
                                                                 <Image width={1920} height={1080} src={product.album ? product.album : "/icons/noimage.jpg"} alt="" />
                                                                 <div className="body-comments">
-                                                                    <Image width={100} height={100} src="https://img.icons8.com/external-becris-lineal-becris/64/000000/external-check-mintab-for-ios-becris-lineal-becris-1.png"/>
+                                                                    <BsCheck2 />
                                                                     <small>{t("common:product.product-item.open")}</small>
                                                                 </div>
                                                             </div>
@@ -206,7 +207,7 @@ const ProductDetail = ({product, chapters, videohosting, favorites, features, fo
                                                                 <small>{`${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`}</small>
                                                             </div>
                                                             <div className="access">
-                                                                <Image width={100} height={100} src="https://img.icons8.com/ios/50/000000/play--v1.png"/>
+                                                                <BsFillPlayFill />
                                                             </div>
                                                         </a>
                                                     </Link>
@@ -215,7 +216,7 @@ const ProductDetail = ({product, chapters, videohosting, favorites, features, fo
                                                         <div className="picture">
                                                             <Image width={1920} height={1080} src={product.album} alt="" />
                                                             <div className="body-comments">
-                                                                <Image width={100} height={100} src="https://img.icons8.com/ios/50/000000/lock--v1.png"/>
+                                                                <BsClockFill />
                                                                 <small>{t("common:product.product-item.close")}</small>
                                                             </div>
                                                         </div>
@@ -226,7 +227,7 @@ const ProductDetail = ({product, chapters, videohosting, favorites, features, fo
                                                             <small>{`${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`}</small>
                                                         </div>
                                                         <div className="access">
-                                                            <Image width={100} height={100} src="https://img.icons8.com/ios/50/000000/lock--v1.png"/>
+                                                            <BsClockFill />
                                                         </div>
                                                     </div>
                                                 }

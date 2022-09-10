@@ -30,6 +30,7 @@ const ProductLayout = (props) => {
             </Script>
             <div id="root">
                 <div className="product-container">
+                    
                     {props.children}
                 </div>
             </div>
@@ -38,8 +39,8 @@ const ProductLayout = (props) => {
 }
 
 ProductLayout.defaultProps = {
-    title: "mediahosting",
-    content: "lorem ipsum"
+    title: "Mediahosting",
+    content: "Mediahosting - бұл заманауи технологиялармен өңделген, ақпарат берудің жетілдірілген онлайн платформасы."
 }
 
 export default ProductLayout;

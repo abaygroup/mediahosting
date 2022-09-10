@@ -22,8 +22,7 @@ const Setting = () => {
 
     return (
         <Layout
-            title="Настройка - mediahosting"
-            content="Вход на mediahosting, Аккаунты и настройки"
+            title="Настройка - Mediahosting"
         >
             <div className="setting-container">
                 <Link href={"/"}>

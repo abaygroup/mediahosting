@@ -33,10 +33,10 @@ const UsersList = ({authors, title, subheader, url}) => {
                                 <BsCheckCircle />
                             </div>}
                             <div className="avatar" >
-                                <Image width={512} height={512} src={author.avatar ? author.avatar : "/icons/avatar.jpg"} alt={author.user.username} />
+                                <Image width={512} height={512} src={author.image ? author.image : "/icons/avatar.jpg"} alt={author.user.username} />
                             </div>
                             <div className="full-name">
-                                <h4>{author.user.profile_name}</h4>
+                                <h4>{author.user.full_name}</h4>
                             </div>
                             <div className="goto">
                                 <AiFillPlayCircle />

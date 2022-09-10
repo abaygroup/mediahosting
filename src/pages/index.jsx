@@ -16,7 +16,6 @@ const Main = ({authors, future_products, favorites_products, following_products,
     return (
         <Layout
           title={t("common:main.head.title")}
-          content={t("common:main.head.content")}
           color={color}
         >
             <div className="main-container-block">

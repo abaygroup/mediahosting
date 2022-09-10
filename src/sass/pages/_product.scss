@@ -105,9 +105,6 @@
             grid-template-columns: repeat(3, 1fr);
             padding: 10px;
             border-bottom: 1px solid rgb(66, 66, 66);
-
-            small {
-            }
         }
         
         .block {
@@ -117,19 +114,18 @@
             .chapter {
 
                 h4 {
-                    padding: 5px 10px;
+                    padding: 10px;
                     font-weight: normal;
-                    color: black;
-                    font-weight: bold;
-                    font-size: 12px;
-                    border-bottom: 1px solid silver;
+                    color: silver;
+                    font-size: 14px;
+                    border-bottom: 1px solid rgb(66, 66, 66);
                 }
             }
     
             .product-item {
                 padding: 5px;
                 border-radius: 4px;
-                box-shadow: 0 0 10px rgba(102, 102, 102, 0.42);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.42);
                 margin: 5px;
                 transition: all .3s;
                 position: relative;
@@ -137,11 +133,10 @@
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 align-items: center;
-                border: 1px solid silver;
-                background-color: white;
+                border: 1px solid rgb(66, 66, 66);
 
                 .picture {
-                    padding-right: 20px;
+                    padding: 0 20px 0 0;
                     position: relative;
 
                     img {
@@ -156,14 +151,12 @@
                         display: none;
                         z-index: 100;
 
-                        img {
-                            width: 18px;
-                            height: 18px;
+                        svg {
+                            font-size: 20px;
                         }
 
                         small {
                             margin-left: 10px;
-                            color: black;
                         }
                         
                     }
@@ -175,7 +168,6 @@
                         font-weight: 300;
                         font-size: 14px;
                         font-weight: bolder;
-                        color: black;
                         -webkit-line-clamp: 1; 
                         -webkit-box-orient: vertical;
                         display: -webkit-box;
@@ -188,7 +180,6 @@
                     padding-right: 20px;
                     
                     small {
-                        color: black;
                         font-weight: bold;
                     }
                 }
@@ -197,9 +188,9 @@
                     position: absolute;
                     right: 50px;
 
-                    img {
-                        width: 26px;
-                        height: 26px;
+                    svg {
+                        font-size: 20px;
+                        color: silver;
                     }
                 }
 

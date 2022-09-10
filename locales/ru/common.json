@@ -92,8 +92,8 @@
     },
     "main": {
         "head": {
-            "title": "Главная - mediahosting",
-            "content": "Главная страница mediahosting"
+            "title": "Главная - Mediahosting",
+            "content": "Главная страница Mediahosting"
         },
         "more": "Еще",
         "product-d": {
@@ -115,29 +115,29 @@
     },
     "category": {
         "head": {
-            "title": "Поиск - mediahosting",
-            "content": "Поисковая страница mediahosting"
+            "title": "Поиск - Mediahosting",
+            "content": "Поисковая страница Mediahosting"
         },
         "input": "Релизы, видеолисты, авторы..."
     },
     "following": {
         "head": {
-            "title": "Подписка - mediahosting",
-            "content": "Все ваше продукты подписке в бренд mediahosting"
+            "title": "Подписка - Mediahosting",
+            "content": "Все ваше продукты подписке в бренд Mediahosting"
         },
         "h1": "Продукты, которые вы подписали"
     },
     "mymediahosting": {
         "head": {
-            "title": "Мой медиахостинг - mediahosting",
-            "content": "Ваше медиахостинг в странице mediahosting"
+            "title": "Мой медиахостинг - Mediahosting",
+            "content": "Ваше медиахостинг в странице Mediahosting"
         },
         "h1": "Ваше медиахостинг"
     },
     "favorites": {
         "head": {
-            "title": "Избранные - mediahosting",
-            "content": "Избранная страница mediahosting"
+            "title": "Избранные - Mediahosting",
+            "content": "Избранная страница Mediahosting"
         },
         "h1": "Избранные"
     },

@@ -53,8 +53,7 @@ const CategoryDetail = ({data, access}) => {
 
     return (
         <Layout
-            title={`${sub_category.name} | mediahosting`}
-            content="Поисковая страница mediahosting"
+            title={`${sub_category.name} - Mediahosting`}
         >
             <div className="category-detail">
                 <div className="category-content">

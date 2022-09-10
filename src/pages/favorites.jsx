@@ -23,7 +23,6 @@ const Favorites = ({favorites_products}) => {
     return (
         <Layout
             title={t('common:favorites.head.title')}
-            content={t('common:favorites.head.content')}
         >
             {isAuthenticated &&<div className="main-container-block">
                 <div className="favorites">
