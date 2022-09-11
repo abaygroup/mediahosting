@@ -47,24 +47,22 @@ const PasswordReset = () => {
         router.push("/");
 
     return (
-        <React.Fragment>
-            <AccountLayout title="Сброс пароля - mediahosting" content="Сброс пароля">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <h4>{t("common:accounts.password-reset.h4")}</h4>
-                    <div className="form-group">
-                        <label htmlFor="">{t("common:accounts.password-reset.form.email.label")}</label>
-                        <input type="text" className={errors["email"] && "warning"} {...register("email")} placeholder={t("common:accounts.password-reset.form.email.placeholder")} minLength="3" maxLength="32"/>
-                        {errors["email"] ? <p>{errors["email"].message}</p>: null}
-                    </div>
-                    <div className="submit">
-                        <Link href="/accounts/login">
-                            <a>{t("common:accounts.back")}</a>
-                        </Link>
-                        {loading ? <Loader />: <input type="submit" value={t("common:accounts.password-reset.form.submit")} />}
-                    </div>
-                </form>
-            </AccountLayout>
-        </React.Fragment>
+        <AccountLayout title="Сброс пароля - mediahosting" content="Сброс пароля">
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <h4>{t("common:accounts.password-reset.h4")}</h4>
+                <div className="form-group">
+                    <label htmlFor="">{t("common:accounts.password-reset.form.email.label")}</label>
+                    <input type="text" className={errors["email"] && "warning"} {...register("email")} placeholder={t("common:accounts.password-reset.form.email.placeholder")} minLength="3" maxLength="32"/>
+                    {errors["email"] ? <p>{errors["email"].message}</p>: null}
+                </div>
+                <div className="submit">
+                    <Link href="/accounts/login">
+                        <a>{t("common:accounts.back")}</a>
+                    </Link>
+                    {loading ? <Loader />: <input type="submit" value={t("common:accounts.password-reset.form.submit")} />}
+                </div>
+            </form>
+        </AccountLayout>
     ) 
 }
 

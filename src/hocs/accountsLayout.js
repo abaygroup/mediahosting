@@ -22,7 +22,7 @@ const AccountLayout = (props) => {
                     <Link href="/">
                         <a className="back"><BsChevronLeft /></a>
                     </Link>
-                    <Link href="/"><a><Image width={7200} height={1080} src="/images/full_logo_white.png" /></a></Link>
+                    <Link href="/"><a><Image width={5636} height={1080} src="/images/full_logo_white.png" /></a></Link>
                 </div>
                 {props.children}
             </div>

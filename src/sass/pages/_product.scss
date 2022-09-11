@@ -2,7 +2,7 @@
     position: relative;
     
     .head {
-        height: 400px;
+        min-height: 480px;
         background-position: center;
         background-size: cover;
         position: relative;
@@ -22,7 +22,7 @@
             padding: 0 50px;
 
             img {
-                width: 360px;
+                width: 420px;
                 border-radius: 10px;
                 display: block;
                 transition: all .3s;
@@ -37,16 +37,14 @@
                     display: flex;
                     align-items: center;
 
-                    img {
-                        width: 26px;
-                        height: 26px;
-                    }
                     span {
-                        margin-left: 5px;
+                        font-weight: normal;
+                        margin-left: 10px;
                     }
                 }
 
                 h1 {
+                    padding-top: 10px;
                     font-size: 4rem;
                     cursor: pointer;
                     line-height: 1;
@@ -423,6 +421,8 @@
 @media screen and (max-width: 420px) {
     .product-container {
         .head {
+            height: 400px;
+
             .backdrop {
                 img {
                     width: 100%;

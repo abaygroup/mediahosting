@@ -8,8 +8,7 @@ import React, { useEffect, useState } from "react";
 import { AlbumModal, Modal } from "../../components/Modal";
 import useTranslation from "next-translate/useTranslation";
 import { setAlert } from '../../actions/alert';
-import { BsFillPlayFill, BsCheck2, BsClockFill } from 'react-icons/bs';
-import { RiLockFill } from 'react-icons/ri';
+import { BsFillPlayFill, BsCheck2, BsClockFill, BsCheckCircle } from 'react-icons/bs';
 
 
 const ProductDetail = ({product, chapters, videohosting, favorites, features, followings, published_count, private_count, access}) => {
@@ -125,15 +124,15 @@ const ProductDetail = ({product, chapters, videohosting, favorites, features, fo
                     <div className="backdrop">
                         <Image onClick={albumHandler} src={product.album ? product.album : '/icons/noimage.jpg'} width={1280} height={720} />
                         <div className="product-name">
-                            <h4 className="production"> 
-                                <Image width={100} height={100} src="https://img.icons8.com/fluent/48/000000/verified-badge.png" alt="" />
+                            <h4 className="production">
+                                <BsCheckCircle />
                                 <span>{t("common:product.production")}</span>
                             </h4>
                             <h1 onClick={modalHandler}>{product.title}</h1>
                             <small>{published_count} {t("common:product.published_count")} | {private_count} {t("common:product.private_count")}</small>
                             <div className="owner">
                                 <Link href={`/profile/${product.owner.username}`}>
-                                    <a>{product.owner.profile_name}</a>
+                                    <a>{product.owner.full_name}</a>
                                 </Link>
                                 |
                                 <Link href={`/search/${product.subcategory.slug}`}>

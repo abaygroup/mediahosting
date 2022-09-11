@@ -49,35 +49,33 @@ const Login = () => {
         router.push(localStorage.getItem("currentPage"));
 
     return (
-        <React.Fragment>
-            <AccountLayout title="Авторизация - mediahosting" content="Авторизация">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <h4>{t("common:accounts.login.h4")}</h4>
-                    <div className="form-group">
-                        <label htmlFor="">{t("common:accounts.login.form.email.label")}</label>
-                        <input type="text" className={errors["email"] && "warning"} {...register("email")} placeholder={t("common:accounts.login.form.email.placeholder")} minLength="3" maxLength="32"/>
-                        {errors["email"] ? <p>{errors["email"].message}</p>: null}
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="">{t("common:accounts.login.form.password.label")}</label>
-                        <input type="password" className={errors["password"] && "warning"} {...register("password")} placeholder={t("common:accounts.login.form.password.placeholder")} />
-                        {errors["password"] ? <p>{errors["password"].message}</p>: null}
-                    </div>
-                    <div className="submit">
-                        <Link href="/accounts/password-reset">
-                            <a>{t("common:accounts.forgot_password")}</a>
-                        </Link>
-                        {loading ? <Loader />: <input type="submit" value={t("common:accounts.enter")} />}
-                    </div>
-                </form>
-                <div className="register-block">
-                    <h4>{t("common:accounts.is_register")}</h4>
-                    <Link href="/accounts/register">
-                        <a>{t("common:accounts.register.form.submit")}</a>
-                    </Link>
+        <AccountLayout title="Авторизация - mediahosting" content="Авторизация">
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <h4>{t("common:accounts.login.h4")}</h4>
+                <div className="form-group">
+                    <label htmlFor="">{t("common:accounts.login.form.email.label")}</label>
+                    <input type="text" className={errors["email"] && "warning"} {...register("email")} placeholder={t("common:accounts.login.form.email.placeholder")} minLength="3" maxLength="32"/>
+                    {errors["email"] ? <p>{errors["email"].message}</p>: null}
                 </div>
-            </AccountLayout>
-        </React.Fragment>
+                <div className="form-group">
+                    <label htmlFor="">{t("common:accounts.login.form.password.label")}</label>
+                    <input type="password" className={errors["password"] && "warning"} {...register("password")} placeholder={t("common:accounts.login.form.password.placeholder")} />
+                    {errors["password"] ? <p>{errors["password"].message}</p>: null}
+                </div>
+                <div className="submit">
+                    <Link href="/accounts/password-reset">
+                        <a>{t("common:accounts.forgot_password")}</a>
+                    </Link>
+                    {loading ? <Loader />: <input type="submit" value={t("common:accounts.enter")} />}
+                </div>
+            </form>
+            <div className="register-block">
+                <h4>{t("common:accounts.is_register")}</h4>
+                <Link href="/accounts/register">
+                    <a>{t("common:accounts.register.form.submit")}</a>
+                </Link>
+            </div>
+        </AccountLayout>
     ) 
 }
 

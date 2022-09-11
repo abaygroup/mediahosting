@@ -75,7 +75,7 @@ const Header = (props) => {
                     
                     <div className="logo">
                         <Link href="/">
-                            <a><Image src="/images/full_logo_black.png" width={7200} height={1080} /></a>
+                            <a><Image src="/images/full_logo_black.png" width={5636} height={1080} /></a>
                         </Link>
                     </div>
 

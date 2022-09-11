@@ -13,10 +13,8 @@ const Background = styled.div`
     top:0; left: 0;
     width: 100%;
     height: 100%;
-    background: #000000d9;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    background: #0000007a;
+    backdrop-filter: blur(20px);
     z-index: 1000;
     overflow: auto;
 
@@ -32,17 +30,17 @@ const Background = styled.div`
         max-width: 720px;
         border-radius: 5px;
         padding: 40px;
-        background: white;
+        background: #1c1c1c;
         overflow-x: auto;
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -60%);
 
 
         h4 {
             margin-bottom: 10px;
-            color: black;
+            color: white;
         }
         .features {
             list-style: none;
@@ -56,21 +54,21 @@ const Background = styled.div`
                 border-bottom: 1px solid silver;
                 justify-content: space-between;
                 padding: 10px;
-                color: black;
+                color: silver;
                 font-size: 14px;
             }
         }
 
         .body {
             font-size: 14px;
-            color: black;
+            color: silver;
 
             h1, h4 {
                 margin-bottom: 10px;
                 text-align: center;
             }
             h4 {
-                color: black;
+                color: white;
             }
     
             h1, h2, h3, h4, h5, h6 {
@@ -105,13 +103,13 @@ const Background = styled.div`
         border-radius: 5px;
         padding: 40px;
         overflow: auto;
-        background: white;
+        background: #1c1c1c;
         overflow-y: auto;
 
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -60%);
 
         ::-webkit-scrollbar {
             width: 0;
@@ -134,7 +132,7 @@ const Background = styled.div`
                     small {
                         display: block;
                         text-align: center;
-                        color: black;
+                        color: silver;
                     }
                 }
                 
@@ -148,7 +146,7 @@ const Background = styled.div`
 
                 h2 {
                     margin-bottom: 20px;
-                    color: black;
+                    color: white;
                 }
                 
                 .form-group {
@@ -158,7 +156,7 @@ const Background = styled.div`
                         display: block;
                         border: 1px solid #b3b3b352;
                         background: #b3b3b352;
-                        color: black;
+                        color: silver;
                         font-family: "Inter", sans-serif;
                         font-weight: 300;
                         padding: 5px 15px;

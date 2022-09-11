@@ -31,7 +31,7 @@ const ProductsList = ({title, url, subheader, products}) => {
                             <h4>{product.title}</h4>
                             <small>
                                 {product.authors.length > 0 && product.authors.map(item => (
-                                <React.Fragment key={item.id}>{item.profile_name + ", "}</React.Fragment>))}
+                                <React.Fragment key={item.id}>{item.full_name + ", "}</React.Fragment>))}
                             </small>
                             <small className="counts">{product.observers.length} {t("common:main.product-d.person")} {product.favorites.length} {t("common:main.product-d.likes")}</small>
                         </div>
