@@ -82,8 +82,8 @@ const Header = (props) => {
                     <div className="account">
                         {!isAuthenticated ? 
                             <React.Fragment>
-                                <Link href="/accounts/register">
-                                    <a className="register">{t("common:header.register")}</a>
+                                <Link href="https://home-mediahosting.vercel.app/accounts/register">
+                                    <a target="_blank" rel="noopener noreferrer" className="register">{t("common:header.register")}</a>
                                 </Link>
                                 <Link href="/accounts/login">
                                     <a className="login">{t("common:header.login")}</a>
